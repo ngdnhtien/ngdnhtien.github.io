@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maths on ngdnhtien</title>
+    <link>/categories/maths/</link>
+    <description>Recent content in maths on ngdnhtien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/maths/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UPhysicsC 2021–We study Mars for 48 hours</title>
+      <link>/post/2021/09/29/uphysicsc-2021/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/09/29/uphysicsc-2021/</guid>
+      <description>[140122-update] Our paper was awarded a silver medal (ranked 19/127). For full results announcement and complete listing of all medals in the 2021 competition, see this page.
+It has been an incredible experience participating in The University Physics Competition of 2021. Y Van, Minh Thang, and I, we have had a wonderful 48 hours of brainstorming, discussing, debating. We shared ideas, new ways of thinking and learn a thing or two about writing, teamwork, and certainly some physics.</description>
+    </item>
+    
+    <item>
+      <title>Bông tuyết von Koch</title>
+      <link>/post/2020/04/25/bong-tuyet-von-koch/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/25/bong-tuyet-von-koch/</guid>
+      <description>Cái gì có chu vi lớn tuỳ ý nhưng diện tích lại hữu hạn?
+Thuật ngữ “fractal” được Benoit Mandelbrot sử dụng lần đầu tiên vào năm 1975. Bắt đầu từ tiếng Latin, “fractus” nghĩa là một bề mặt không đều. Mandelbrot nhận định 2 vai trò của fractal bao gồm: “diễn tả tính hỗn độn” và “diễn tả hình học”.
+Trước đó cấu trúc fractal, với ví dụ điển hình là bông tuyết của von Koch (von Koch snowflalke), còn có một tên gọi khác: đường cong quỷ.</description>
+    </item>
+    
+    <item>
+      <title>Lý thuyết Galois</title>
+      <link>/post/2020/04/01/ly-thuyet-galois/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/01/ly-thuyet-galois/</guid>
+      <description>Trích từ phụ lục Nguyễn Quang Ánh, Thiên tài &amp;amp; Số phận.
+[301219-comment] Vừa qua tôi có nghe được tin qua mạng xã hội rằng TS. Nguyễn Quang Ánh đã mất. Mặc dù chưa gặp bác, tôi kính trọng và biết ơn những cống hiến của bác dành cho Toán học. Xin gửi lời chia buồn tới thân quyến và bạn bè.
+[210922-comment] Sau khi đọc lại bài viết này, tôi mới thấy sự liên hệ của nó với Chương trình Langlands.</description>
+    </item>
+    
+  </channel>
+</rss>

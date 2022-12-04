@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lý thuyết Galois | ngdnhtien</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <div class="menu2">
+        <li><a href="https://twitter.com/ngdnhtien"><i class="fab fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/idjejenfojegrbi/"><i class="fab fa fa-facebook"></i></a></li>
+        <li><a href="https://github.com/ngdnhtien"><i class="fab fa fa-github"></i></a></li>
+        </div>
+    </ul>
+    
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Lý thuyết Galois</span></h1>
+
+
+</div>
+
+<main>
+<div id="nav-above" class="navigation">
+    <div class="nav-next">
+    
+    Newer: <a href="/post/2020/04/01/cac-hang-so-co-phai-hang-so/">Các hằng số có phải là hằng số?</a>
+    
+    </div> 
+    <div class="nav-previous">
+    
+    Older: <a href="/post/2020/04/01/mua-dau-ha/">Mưa đầu hạ</a>
+    
+    </div>
+</div>
+<p>Trích từ phụ lục Nguyễn Quang Ánh, <em>Thiên tài &amp; Số phận.</em></p>
+<p><code>[301219-comment]</code> Vừa qua tôi có nghe được tin qua mạng xã hội rằng TS. Nguyễn Quang Ánh đã mất. Mặc dù chưa gặp bác, tôi kính trọng và biết ơn những cống hiến của bác dành cho Toán học. Xin gửi lời chia buồn tới thân quyến và bạn bè.</p>
+<p><code>[210922-comment]</code> Sau khi đọc lại bài viết này, tôi mới thấy sự liên hệ của nó với Chương trình Langlands. Một video tuyệt vời về Chương trình Langlands có thể xem tại <a href="https://www.youtube.com/watch?v=_bJeKUosqoY">đây</a>.</p>
+<hr>
+<p>Lý thuyết Galois còn gọi là lý thuyết mở rộng đại số của các trường (algebraic extensions of fields). Đại ý như sau:</p>
+<p>Trường là một khái niệm mở rộng của tập hợp <code>$\mathbb{Q}$</code> các số hữu tỉ: Trên một trường ta có thể làm bốn phép tính số học cộng, trừ, nhân, chia. Nếu ta lấy một đa thức <code>$P(x)$</code> với các hệ số nằm trong một trường <code>$\mathbb{K}$</code> nào đó, ví dụ như trường số hữu tỉ <code>$\mathbb{Q}$</code> chẳng hạn, thì nói chung các nghiệm của phương trình thuần nhất
+\begin{align}
+P(x) = 0,
+\end{align}
+không nằm trong trường <code>$\mathbb{Q}$</code> mà phải nằm trong một trường <code>$\mathbf{L}$</code> nào đó lớn hơn trường <code>$\mathbb{Q}$</code>. Trường <code>$\mathbf{L}$</code> nhỏ nhất chứa <code>$\mathbb{Q}$</code> và cả các nghiệm trên gọi là mở rộng đại số của <code>$\mathbf{Q}$</code> theo đa thức <code>$P$</code>.</p>
+<p>Ví dụ, ta có thể mở rộng đại số trường <code>$\mathbb{Q}$</code> bằng cách thêm vào đó nghiệm của phương trình <code>$x^2-2=0$</code>. Trường nhận được là <code>$\mathbb{Q}\left[\sqrt{2}\right]$</code> gồm các số có dạng <code>$a+b\sqrt{2}$</code>, với <code>$a,b\in\mathbb{Q}$</code>. Trường số phức <code>$\mathbb{C}$</code> cũng chính là một mở rộng đại số của <code>$\mathbb{R}$</code> với đa thức <code>$P(x)=x^2+1$</code>.</p>
+<p>Với mỗi mở rộng đại số từ <code>$\mathbf{K}\to\mathbf{L}$</code>, tồn tại một nhóm tương ứng gọi là nhóm Galois, kí hiệu là <code>$Gal(L/K)$</code>. Nhóm này bao gồm các tự đẳng cấu <code>$f:\mathbf{L}\to\mathbf{L}$</code> sao cho khi giới hạn trên <code>$\mathbf{K}$</code> thì <code>$f$</code> là ánh xạ đồng nhất. Trong ví dụ ở trên khi mở rộng từ <code>$\mathbb{Q}$</code> lên <code>$\mathbb{Q}\left[\sqrt{2}\right]$</code> thì nhóm Galois có hai phần tử: một là ánh xạ đồng nhất, phần kia là ánh xạ biến phần tử <code>$a+b\sqrt{2}\to a - b\sqrt{2}$</code>. Khi có một mở rộng đại số từ <code>$\mathbf{K}\to\mathbf{L}$</code> thì có một tương ứng <code>$1-1$</code> giữa các nhóm con của nhóm Galois với các trường con của <code>$\mathbf{L}$</code> mà chứa <code>$\mathbf{K}$</code>. Sử dụng các tương ứng này, Galois chứng minh được nhận định</p>
+<blockquote>
+<p>Các nghiệm của phương trình <code>$P(x)=0$</code> viết được dưới dạng biểu thức chỉ chứa các hệ số <code>$P(x)$</code> và các phép tính cộng, trừ, nhân, chia, và khai căn.</p>
+</blockquote>
+<p>tương đương với nhận định</p>
+<blockquote>
+<p>Nhóm Galois <code>$Gal(L/K)$</code> là một nhóm giải được.</p>
+</blockquote>
+<p><em>Chú thích:</em> Nhóm hữu hạn <code>$G$</code> được gọi là giải được (solvable) nếu nó có một chuỗi các nhóm con mà chúng đều có các nhóm thương là nhóm Abel. Nói cách khác, tồn tại một chuỗi các nhóm con thoả mãn</p>
+<p>\begin{align}
+1 = G_0 &lt; G_1 &lt; \dots M &lt; G_k = G,
+\end{align}</p>
+<p>với <code>$G_{j-1}$</code> là một nhóm con chuẩn tắc của <code>$G_j$</code> và <code>$G_j/G_{j-1}$</code> là một nhóm Abel.</p>
+<p>Khi <code>$P(x)$</code> là một đa thức bậc <code>$n$</code> thì nhóm Galois tương ứng của nó là nhóm <code>$S(n)$</code> các hoán vị của tập <code>$n$</code> phần tử. Người ta chứng minh được với <code>$n\leq 4$</code> thì nhóm <code>$S(n)$</code> là nhóm giải được, còn với <code>$n\geq 5$</code> thì nhóm <code>$S(n)$</code> là nhóm không giải được. Như vậy, ta cũng có thể phát biểu</p>
+<blockquote>
+<p>Đa thức <code>$P(x)$</code> có bậc nhỏ hơn hoặc bằng 4 thì có thể giải được nghiệm bằng căn thức; bậc 5 hoặc lớn hơn thì chịu.</p>
+</blockquote>
+<p>Các đa thức <code>$P(x)$</code> bậc 2 và bậc 3 là các đa thức quen thuộc ở bậc phổ thông. Một vài video thú vị về lịch sử của chúng có thể xem thêm ở <a href="https://www.youtube.com/watch?v=cUzklzVXJwo">đây</a>, kể chuyện về Scipione del Ferro và Niccolò Tartaglia.</p>
+<p>Cần nói rằng Galois không phải là người đầu tiên nghĩ ra ý tưởng dùng lý thuyết nhóm trong các phương trình đại số. Từ năm 1770 nhà toán học Joseph-Louis Lagrange đã viết về các mẹo liên quan đến nhóm hoán vị trong việc giải phương trình đại số, và tất nhiên trong công trình của Ruffini và Abel đã sử dụng lý thuyết nhóm. Cauchy cũng đã thấy được tầm quan trọng của các công trình của Ruffini và Abel, cũng đã nghiên cứu ứng dụng của lý thuyết nhóm vào việc giải phương trình đại số. Tuy nhiên, lý thuyết của Galois đã làm mọi vấn đề trở nên sáng sủa hơn hẳn.</p>
+<p>Lý thuyết Galois không chỉ xuất hiện trong các phương trình đại số, mà còn trong các phương trình vi phân. Lý thuyết Galois vi phân (mở rộng các trường vi phân, tức trên đó các trường có phép lấy đạo hàm) được nhà toán học Emile Picard và Enerst Vessiot khởi xướng từ năm 1883 – 1904. Lý thuyết này có nhiều ứng dụng, đặc biệt trong việc kiểm tra xem một hệ động lực học có khả tích (có dáng điệu tựa tuần hoàn) hay không. Một định lý của Jean-Pierre Ramis và các cộng sự, cùng với sự mở rộng của người viết phụ lục này (GS. Nguyễn Tiến Dũng – NV) nói rằng nếu một hệ động lực là khả tích thì các nhóm Galois vi phân của nó phải là “tựa giao hoán”.</p>
+
+</main>
+
+<script src="https://utteranc.es/client.js"
+        repo="ngdnhtien/comments-ngdnhtien"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  Copyright © 2020 &ndash; 2022 / <a href="https://ngdnhtien.github.io">ngdnhtien.github.io</a> is made with <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/yihui">Yihui</a>&rsquo;s Xmin 🐈
+  
+  </footer>
+  </body>
+</html>
+

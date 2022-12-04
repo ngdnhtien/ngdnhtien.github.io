@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bông tuyết von Koch | ngdnhtien</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <div class="menu2">
+        <li><a href="https://twitter.com/ngdnhtien"><i class="fab fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/idjejenfojegrbi/"><i class="fab fa fa-facebook"></i></a></li>
+        <li><a href="https://github.com/ngdnhtien"><i class="fab fa fa-github"></i></a></li>
+        </div>
+    </ul>
+    
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Bông tuyết von Koch</span></h1>
+
+
+</div>
+
+<main>
+<div id="nav-above" class="navigation">
+    <div class="nav-next">
+    
+    Newer: <a href="/post/2020/05/24/ve-haruki-murakami-rung-na-uy/">Về Haruki Murakami—“Rừng Na Uy”</a>
+    
+    </div> 
+    <div class="nav-previous">
+    
+    Older: <a href="/post/2020/04/13/nostalgia/">Nostalgia</a>
+    
+    </div>
+</div>
+<p>Cái gì có chu vi lớn tuỳ ý nhưng diện tích lại hữu hạn?</p>
+<p>Thuật ngữ “fractal” được Benoit Mandelbrot sử dụng lần đầu tiên vào năm 1975. Bắt đầu từ tiếng Latin, “fractus” nghĩa là một bề mặt không đều. Mandelbrot nhận định 2 vai trò của fractal bao gồm: “diễn tả tính hỗn độn” và “diễn tả hình học”.</p>
+<p>Trước đó cấu trúc fractal, với ví dụ điển hình là bông tuyết của von Koch (von Koch snowflalke), còn có một tên gọi khác: đường cong quỷ.</p>
+<p>Nhìn chung, chúng ta có thể định nghĩa fractal như một vật thể hình học có hình dạng gấp khúc trên mọi tỷ lệ phóng đại, và có thể được tách ra thành từng phần: mỗi phần là một hình tổng thể có kích thước nhỏ hơn. Do đó, fractal có vô hạn các chi tiết và có cấu trúc đồng dạng ở các tỷ lệ kích thước khác nhau. Chính vì tính chất này, fractal có thể được tạo ra bằng cách lặp một khuôn thức toán học bằng phương pháp hồi quy. Để minh hoạ, ta hãy xét bông tuyết von Koch do von Koch đưa ra vào năm 1904.</p>
+<img src="/img/von-koch-snowflake.png" title="Something" class="center">
+<span class="caption">Hình 1. Tạo ra một bông tuyết von Koch</span>
+<p>Để tạo ra một bông tuyết von Koch, ta bắt đầu với một tam giác đều <code>$K_1$</code> với cạnh bằng 1. Ta tạo ra bông tuyết thứ hai bằng động tác chia cạnh của tam giác thành ba đoạn bằng nhau, và thay mỗi đoạn ở giữa bằng hai đoạn bằng nó sao cho chúng tạo với đoạn bỏ đi một tam giác đều ở phía ngoài. Khuôn thức ở đây là, để tạo ra bông tuyết thứ <code>$K_n$</code>, ta chia mỗi cạnh của bông <code>$K_{n-1}$</code> thành ba đoạn bằng nhau, rồi thay đoạn ở giữa bằng một tam giác đều.</p>
+<p>Lặp lại quá trình trên <code>$k$</code> lần, với <code>$k&gt;n$</code> thì ta được một dãy các bông tuyết <code>$K_1, K_2, \dots, $K_k$</code>. Nếu gọi <code>$C_n$</code>, <code>$S_n$</code> là chu vi và diện tích của bông tuyết thứ <code>$n$</code>, ta có các dãy <code>$(C_n)$</code> và <code>$(S_n)$</code>.</p>
+<p>Điều đặc biệt là <code>$(S_n)$</code> là một dãy bị chặn trên, <code>$S_n &lt; 2\sqrt(3)/5$</code>, trong khi đó <code>$(C_n)$</code> là một cấp số nhân với công bội <code>$q=4$</code>!</p>
+
+</main>
+
+<script src="https://utteranc.es/client.js"
+        repo="ngdnhtien/comments-ngdnhtien"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  Copyright © 2020 &ndash; 2022 / <a href="https://ngdnhtien.github.io">ngdnhtien.github.io</a> is made with <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/yihui">Yihui</a>&rsquo;s Xmin 🐈
+  
+  </footer>
+  </body>
+</html>
+
