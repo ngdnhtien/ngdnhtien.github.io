@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Example on Haar&#39;s Half Measure</title>
-    <link>http://ngdnhtien.github.io/tags/example/</link>
+    <link>https://ngdnhtien.github.io/tags/example/</link>
     <description>Recent content in Example on Haar&#39;s Half Measure</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Tue, 10 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://ngdnhtien.github.io/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/example/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>This is a blog post</title>
-      <link>http://ngdnhtien.github.io/drafts/this-is-a-blog-post/</link>
+      <link>https://ngdnhtien.github.io/drafts/this-is-a-blog-post/</link>
       <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ngdnhtien.github.io/drafts/this-is-a-blog-post/</guid>
+      <guid>https://ngdnhtien.github.io/drafts/this-is-a-blog-post/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sci-com on Haar&#39;s Half Measure</title>
-    <link>http://ngdnhtien.github.io/tags/sci-com/</link>
+    <link>https://ngdnhtien.github.io/tags/sci-com/</link>
     <description>Recent content in sci-com on Haar&#39;s Half Measure</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://ngdnhtien.github.io/tags/sci-com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/sci-com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>All David Stern Thought You Need to Know, Really</title>
-      <link>http://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</link>
+      <link>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</link>
       <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</guid>
+      <guid>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</guid>
       <description>I came across an article on Twitter the other day about things to remember if you wanted to be a good physicist. I think Preskill tweeted the picture below in response.
 Physics Today, May 1993. I always enjoy this kind of `fragmented advice’ from older people. It is as if you were to stop them in the middle of the street and asked what piece of advice would they give to youngsters, multiple times.</description>
     </item>
     
     <item>
       <title>Lý thuyết Galois</title>
-      <link>http://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</link>
+      <link>https://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</guid>
+      <guid>https://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</guid>
       <description>Trích từ phụ lục Nguyễn Quang Ánh, Thiên tài &amp;amp; Số phận.
 [21-09-22] Sau khi đọc lại bài viết này, tôi mới thấy sự liên hệ của nó với Chương trình Langlands. Một video tuyệt vời về Chương trình Langlands có thể xem tại đây.
 Lý thuyết Galois còn gọi là lý thuyết mở rộng đại số của các trường (algebraic extensions of fields). Đại ý như sau:
@@ -32,10 +32,10 @@ Trường là một khái niệm mở rộng của tập hợp $Q$ các số h�
     
     <item>
       <title>Mao Trạch Đông hỏi về đối xứng</title>
-      <link>http://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</link>
+      <link>https://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</guid>
+      <guid>https://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</guid>
       <description>[disclamer] Bài viết sau đây được trích từ T. D. Lee, Symmetries, Asymmetries, and the World of Particles (1988). Bài viết không có chủ ý tán thành hay phản đối Mao Trạch Đông hay cuộc Đại Cách mạng Văn hoá vô sản, sau đây được gọi tắt là Cách mạng Văn hoá.
 “Tại sao đối xứng lại quan trọng?”, chủ tịch Mao đặt câu hỏi.
 Đó là vào ngày 30 tháng 5, năm 1974, khi xã hội Trung Hoa vẫn còn rối ren sau cuộc Cách mạng Văn hoá và Tứ nhân bang1 vẫn còn đang ở thời kỳ quyền lực.</description>
