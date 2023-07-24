@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Mon, 12 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kindergarten quantum error correcting codes</title>
+      <link>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes/</guid>
+      <description>The closest thing to magic we have is perhaps quantum error correction: the idea of knowing enough about a quantum state to be able to know whether a certain event had happened without knowing more so as not to collapse the state &amp;ndash; I mean, who wouldn&amp;rsquo;t be amazed?
+A toy example: Classical three-bit repetition code We will start classically, then we generalize and make it quantum. Let us consider the notorious classical three-bit repetition code.</description>
+    </item>
+    
     <item>
       <title>All David Stern Thought You Need to Know, Really</title>
       <link>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</link>

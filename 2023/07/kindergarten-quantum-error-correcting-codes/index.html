@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kindergarten quantum error correcting codes - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Kindergarten quantum error correcting codes">
+<meta itemprop="description" content="My clumsy notes on the way teaching myself quantum error correction."><meta itemprop="datePublished" content="2023-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2831">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Kindergarten quantum error correcting codes" />
+<meta property="og:description" content="My clumsy notes on the way teaching myself quantum error correction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kindergarten quantum error correcting codes"/>
+<meta name="twitter:description" content="My clumsy notes on the way teaching myself quantum error correction."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">22</span>
+							<span class="rest">Jul 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Kindergarten quantum error correcting codes</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</a>
+      <ol>
+        <li><a href="#error-detection--correction">Error detection &amp; correction</a></li>
+        <li><a href="#encoded-logical-operators">Encoded logical operators</a></li>
+      </ol>
+    </li>
+    <li><a href="#quantum-three-bit-repetition-code">Quantum three-bit repetition code</a>
+      <ol>
+        <li><a href="#error-detection">Error detection</a></li>
+        <li><a href="#error-correction">Error correction</a></li>
+        <li><a href="#logical-operators-on-encoded-states">Logical operators on encoded states</a></li>
+        <li><a href="#distance-of-a-quantum-code">Distance of a quantum code</a></li>
+      </ol>
+    </li>
+    <li><a href="#stabilizer-formalism">Stabilizer formalism</a>
+      <ol>
+        <li><a href="#stabilizer-operators">Stabilizer operators</a></li>
+        <li><a href="#encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<p>The closest thing to magic we have is perhaps quantum error correction: the idea of <em>knowing</em> enough about a quantum state to be able to <em>know</em> whether a certain event had happened without <em>knowing more</em> so as not to collapse the state &ndash; I mean, who wouldn&rsquo;t be amazed?</p>
+<h2 id="a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</h2>
+<p>We will start classically, then we generalize and make it quantum. Let us consider the notorious classical three-bit repetition code. The idea is simple, we encode bits by repeating them, i.e. we&rsquo;re spreading the information</p>
+<p><em>&ldquo;the bit is 0&rdquo;</em></p>
+<p>into three different bits. This is essentially <em>encoding</em>. The logical $0$ is chosen such that three bits sharing the same value $0$, and similarly the logical bit $1$.</p>
+<p>\[
+\begin{align}
+0_L = 000, \quad 1_L = 111
+\end{align}
+\]</p>
+<p>Now, what could possibly happen to our logical bit? There can be bit flips. They turn $0$ to $1$ and $1$ to $0$. In general,</p>
+<p>\[
+\begin{align}
+0_L \to 001 / 010 / 100 \newline
+1_L \to 011 / 101 / 110
+\end{align}
+\]</p>
+<h3 id="error-detection--correction">Error detection &amp; correction</h3>
+<p>Alice, who&rsquo;s a lovely three-year-old error correcting researcher, might ask: so how do we <em>detect</em> these errors. One way is to check individual bits to see if they are identical. If they&rsquo;re not, then an error happened. Gotcha.</p>
+<blockquote>
+<p>Error detection (3-bit repetition code/classical): Check identicality.</p>
+</blockquote>
+<p>Note that this detection method is only possible if we choose to encode the logical $0$ as $000$; otherwise, this detection method is not possible. See, you can choose whatever encoding scheme to your desire, but in some cases it would not be a good encoding scheme, in the sense that you would not have a straightforward measure of detecting error (or presumably correcting error, as we shall see).</p>
+<p>Now, suppose <em>one</em> bit flip error had happened, and we were able to detect it. How do we <em>correct</em> this error? Simple enough: reset all values of the encoded bitstring to the <em>majority</em> value. For example, a bitstring $001$ indicates that a bit-flip error occured, and to correct it we simply reset all bits in the string to the majority value, $0$. So $001 \to 000$, and we have successfully restored the logical $0$.</p>
+<blockquote>
+<p>Error correction (3-bit repetition code/classical): Reset to the majority bit-value.</p>
+</blockquote>
+<p>At this point you should realize there are certain cases where we wouldn&rsquo;t be able to detect nor correct an error. One such case being have more than one flipping event. For instance, $111 \to 100$. If Alice looks into the identicality of the bitstring, Alice knows an error <em>had happened</em> (detection: checked). But can they correct the error, without knowing that initially it was the logical $1_L$? No, Alice would mistakenly deduces a single bit flip event had happened on the first bit, and eventually erasure the information that</p>
+<p><em>&ldquo;the bit is 1&rdquo;</em></p>
+<p>This properties poses a fundamental limit on the effectiveness of a code (or a class of codes), and is characterized by something called <em>code distance</em>. By definition, code distance is</p>
+<p><em>the smallest number of bit flips required to transform any two valid codewords into one another, denoted by $d$.</em></p>
+<p>In our three-bit repetition code, there has to be three single non-repeated bit flip events to transform $000$ to $111$ and vice versa. Hence, three-bit repetition code has distance $d=3$. In general, it means that if Alice looks into the identicality, Alice knows &ldquo;there&rsquo;s errors&rdquo; up to <em>d-1</em> flipping events, and Alice could possibly succesfully correct $(d-1)/2$ errors at most.</p>
+<h3 id="encoded-logical-operators">Encoded logical operators</h3>
+<p>Now that we have some classical information, we would like to do computation with them. Say, apply a logical NOT gate. Simple enough,</p>
+<p>\[
+\operatorname{NOT} 0_L = 1_L \leftrightarrow \operatorname{NOT}(000) = 111,
+\]</p>
+<p>meaning that we&rsquo;re applying $\operatorname{NOT}$ on individual bits. Note that a set of encoded logical operators is non-trivially dependent on the choice of encoding scheme. This notion should become even more important as we move into the quantum realm, which we will do now.</p>
+<h2 id="quantum-three-bit-repetition-code">Quantum three-bit repetition code</h2>
+<p>Now we enter the quantum realm, and we bring something along. The idea of three-bit repetition code is nice, so why not <em>quantum</em> three-qubit repetition code!</p>
+<p>We define a logical qubit with the computational subspace spanned by</p>
+<p>\[
+\begin{align}
+|0\rangle_L = |000\rangle; |1\rangle_L = |111\rangle
+\end{align}
+\]</p>
+<p>such that the state of the qubit is</p>
+<p>\[
+\begin{align}
+|\psi\rangle = \alpha |0\rangle_L + \beta|1\rangle_L
+\end{align}
+\]</p>
+<p>meaning that we&rsquo;ve spreaded the information</p>
+<p><em>&ldquo;the (logical) qubit is in state $|0\rangle$&rdquo;</em></p>
+<p>into three physical qubits.</p>
+<p>The computational subspace $\{|000\rangle,|111\rangle\}$ is also called the <em>codespace</em>, reside in which are the error-free encoding of the quantum state $|\psi\rangle$.</p>
+<p>Now, what could possiblly happen to our <em>physical</em> qubit? There can sure be bit flips, but there are also <em>phase</em> flips. The errors are</p>
+<p>\[
+\begin{align}
+X|0\rangle = |1\rangle\quad &amp; X|1\rangle = |0\rangle\newline
+Z|0\rangle = |0\rangle \quad &amp; Z|1\rangle=-|1\rangle
+\end{align}
+\]</p>
+<p>Here&rsquo;s a remark</p>
+<blockquote>
+<p>If both $X$ and $Z$ errors can be corrected, then any arbitrary error can be corrected, since together $X$ and $Z$ allows universal control over the Hilbert space of any physical qubit. So, the problem boils down to <em>detecting</em> these two errors, and <em>correcting</em> them.</p>
+</blockquote>
+<p>Before we get into the cleverness of QEC, let us look at the encoded state in the event of a single bit flip error for completeness. For example, the error is $I\otimes X\otimes I$, then the state reads</p>
+<p>\[
+\begin{align}
+(I\otimes X\otimes I) |\psi\rangle_L = \alpha |010\rangle + \beta|101\rangle
+\end{align}
+\]</p>
+<p>The state is now not in the codespace, which means there&rsquo;s an error. But here&rsquo;s where it gets tricky (and exciting and the same time). Alice thought to herself, &ldquo;so to detect an error we, again, look at the identicality of the three physical qubits.&rdquo; Not so easy, because in doing so, we&rsquo;d eventually collapse the state into one of its basis states. We lose the information. Alice might also consider to copy the state $|\psi\rangle_L$ into multiple copies, but in doing so she would violate the <a href="https://en.wikipedia.org/wiki/No-cloning_theorem">no-clone theorem</a>, so that&rsquo;s also a no.</p>
+<p>The tricky part is to learn enough about the state of the physical qubits, so that we know whether errors had occured, what errors, and the way to correct them; but not learning more than <em>enough</em>&hellip;</p>
+<h3 id="error-detection">Error detection</h3>
+<p>As discussed, we cannot measure individual qubits in the computational basis. Instead, we measure a <em>certain symmetry properties</em> of the <em>state</em>.</p>
+<p>For example, one characteristic properties of the state of a logical qubit $|\psi\rangle_L$ encoded on two physical qubits is the <em>parity</em> of the physical pair. Alice cannot ask the question whether the two qubits are both in state $|0\rangle$. I mean she can <em>ask</em> the question inside her head, but then the act of measurement $\langle Z_1\rangle$ and $\langle Z_2 \rangle$ would destroy the state.</p>
+<p>However, she can interrogate</p>
+<blockquote>
+<p>Is your parity odd or even?</p>
+</blockquote>
+<p>Meaning that she&rsquo;d have to measure $ZZ$.</p>
+<p>Turns out quantum mechanics allow this question to be made without projecting the state of the two qubits into their respective computational subspaces. And also state-of-the-art experiments have already demonstrate the ability to measure state parity, so it&rsquo;s pretty exciting.</p>
+<p>(In another closely related topic, one might ask if they have generated a genuine superposition of three qubits in the sense that $|\psi\rangle = |000\rangle + e^{i\phi}|111\rangle$. Turns out parity check is also very useful, see Steane&rsquo;s blog <a href="https://users.physics.ox.ac.uk/~Steane/qec/qec_ams_4.html">here</a>.)</p>
+<p>Now, let us explore further the idea of measuring the parity of a pair of qubits. Let us suppose exactly one erroneous flipping event might happened, i.e. the error operators are possibly $X\otimes I\otimes I, I\otimes X\otimes I, I\otimes I\otimes X$. Our job is to detect &ldquo;whether this had happened&rdquo; by performing a parity check. Here&rsquo;s the table that list all possible measurement outcome.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Error\Observable</th>
+<th style="text-align:center">$Z\otimes Z\otimes I$</th>
+<th style="text-align:center">$Z\otimes I \otimes Z$</th>
+<th style="text-align:center">$I\otimes Z \otimes I$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$X \otimes I\otimes I$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$+1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$I \otimes X\otimes I$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$+1$</td>
+<td style="text-align:center">$-1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$I \otimes I\otimes X$</td>
+<td style="text-align:center">$+1$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$-1$</td>
+</tr>
+</tbody>
+</table>
+<p>That is because, for any pair of qubits the observable $ZZ$ is $+1$ if and only if the parity is even, i.e. the logical qubit is inside the codespace, and $-1$ is the parity is odd, i.e. the logical qubit is outside the codespace.</p>
+<p>What can we deduce from the table? Here&rsquo;s the take-away remark</p>
+<blockquote>
+<p>If the error anti-commutes with the measuring operator, then the outcome is surely $-1$.</p>
+</blockquote>
+<p>Suppose Alice has 3 qubits, $|q_1q_2q_3\rangle$ and she measures $\langle ZZI \rangle=+1$. What does it mean? No error, or something happened with the third qubit, but that&rsquo;s not certain. What if she measured $\langle ZZI \rangle =-1$? Then she knows something&rsquo;s off with the first two qubits. But she wouldn&rsquo;t know which is the erroneous one, b.c either $X \otimes I\otimes I$ or $I \otimes X\otimes I$ might have happened.</p>
+<p>She would have to measure another $ZZ$. In fact, any $Z_iZ_J$ other than $Z_1Z_2$. Say this time she measures the first one and the third one, i.e. $\langle Z_1Z_3\rangle=-1$, then she would be able to conclude that the error operator is $I\otimes X \otimes I$ (see the table). You see, the set of observables has to be cleverly chosen so that one can perform error check in a resource-efficient way.</p>
+<h3 id="error-correction">Error correction</h3>
+<p>Now that Alice knew what kind of error has happened, can she resets all the qubits to the majority value? No, because that will require the knowledge of &ldquo;what&rsquo;s the majority value&rdquo;, i.e. collapsing the information. However, as opposed to classcial error correction, where we know &ldquo;yes, there&rsquo;s a certain error&rdquo;, in the quantum case we know &ldquo;what specific error has happened&rdquo;. This is extra, and we can use this extra information: the bit-flip $X$ errors are Pauli errors, meaning that they can be reversed by applying the same Pauli operator. This is because</p>
+<blockquote>
+<p>All Paulis are self-inverse.</p>
+</blockquote>
+<p>Hence, all we need to do is applying the same error operator on the logical qubit to correct the error.</p>
+<h3 id="logical-operators-on-encoded-states">Logical operators on encoded states</h3>
+<p>Within a certain frame of encoding came with a set of logical operations on the encoded states. In our case, quantum three-qubit repetition code, we want logical $\bar{X}$ and $\bar{Z}$ such that</p>
+<p>\[
+\begin{align}
+\bar{X}|0\rangle_L = |1\rangle_L, \quad &amp;\bar{X}|1\rangle_L = |0\rangle_L\newline
+\bar{Z}|0\rangle_L = |0\rangle_L, \quad &amp;\bar{Z}|1\rangle_L = -|1\rangle_L
+\end{align}
+\]</p>
+<p>One possible choice of $\bar{X}$ and $\bar{Z}$ could be</p>
+<p>\[
+\begin{align}
+\bar{X} = XXX,\quad \bar{Z}=ZII
+\end{align}
+\]</p>
+<p>Notice that we can have an odd number of physical $Z$ gates, but not even.</p>
+<h3 id="distance-of-a-quantum-code">Distance of a quantum code</h3>
+<p>Now we familiarize ourselves with the notion of the <em>distance</em> of a quantum code. But first, the concept the weight of an operator: it&rsquo;s the number of qubits that the operator acts non-trivially on. So for example, $\bar{X}=XXX$ is weighted 3, while $\bar{Z}=ZII$ is weighted 1. Then, we have the definition of the distance.</p>
+<blockquote>
+<p>Distance of a (quantum) code: the minimal weight of any (non-identity) encoded logical operator comes with the code.</p>
+</blockquote>
+<p>So, for three-qubit repetition code, the minimal weight is $\bar{Z}$, hence three-qubit rep. code has a distance of 1.</p>
+<p>If you think about it, we have good reasons to define something like the <em>distance</em>. The concept is closely related to the Hamming distance, but I won&rsquo;t get into details about it here. Just to make it more clear, if an error (an operator) has the weight less than the code&rsquo;s distance, then it would take the logical qubit out of codespace and we&rsquo;d be able to detect it; however, if the error&rsquo;s weight is equal to the distance, then essentially what&rsquo;s happened is that we&rsquo;ve moved from one codeword (a valid bitstring) to another, i.e. we wouldn&rsquo;t be able to detect it, even though it happened.</p>
+<p>Here&rsquo;s another remark</p>
+<blockquote>
+<p>the quantum three-qubit repetition code can detect 2 $X$ error and no $Z$ error.</p>
+</blockquote>
+<p>Sure. This is because any two $X$ error has weight less than the code distance (and three errors make it a valid logical operator); and $Z$ errors are undetectable within our encoding scheme.</p>
+<h2 id="stabilizer-formalism">Stabilizer formalism</h2>
+<p>There&rsquo;s a thing called &ldquo;stabilizer formalism&rdquo; allowing one to study quantum error correcting codes in a systematic way (classification of distance, kinds of errors the code can shield, etc.). Also, it can also be used to derive encoded logical operators (which is important!).</p>
+<p>Any code that can be defined in the stabilizer formalism is called a <em>stabilizer code</em>. A stabilizer code is defined by specifying two sets of operators,</p>
+<ol>
+<li>(Stabilizer) generators; and</li>
+<li>Encoded logical operators</li>
+</ol>
+<h3 id="stabilizer-operators">Stabilizer operators</h3>
+<p>First, let us talk about the stabilizer group. Let $\{|\psi_j\rangle\}_j$ the codeword basis states ($j^\otimes$-dimensional Hilbert space). Then the stabilizer group $\mathcal{S}$ is the <em>set</em> of Pauli operators that leave all codeword basis states $|\psi_j\rangle$ invariant.</p>
+<p>\[
+\begin{align}
+P_k|\psi_j\rangle = |\psi_j\rangle, \forall P_k\in \mathcal{S}
+\end{align}
+\]</p>
+<p>One would realize that the set of stabilizer must commute, in order for them to leave the codeword basis state invariant. Here&rsquo;s a quick proof by contradiction. Suppose that two stabilizer operators (they are Pauli) don&rsquo;t commute, then</p>
+<p>\[
+\begin{align}
+S_1S_2 = -S_2S_1
+\end{align}
+\]</p>
+<p>which leads to</p>
+<p>\[
+\begin{align}
+S_1S_2|\psi_j\rangle = |\psi_j\rangle \newline
+S_2S_1|\psi_j\rangle = -S_1S_2|\psi_j\rangle = -|\psi_j\rangle
+\end{align}
+\]</p>
+<p>however, since $S_2S_1\in \mathcal{S}$ group, then it must be that $S_2S_1|\psi_j\rangle = |\psi_j\rangle$, which is a contraction. Hence, any two operators within a stabilizer group $\mathcal{S}$ must commute.</p>
+<p>In group theory, a group $G$ is defined using a set of generators $\{g_j\}^{m}_{j=1}$. The set order, denoted by $|G|$, is specified by the number $2^m$.</p>
+<p>There&rsquo;s a useful result that links the number of logical qubits $k$, physical qubits $n$, and the number of stabilizer generators needed to generate the stabilizer group, which states that</p>
+<p>\[
+\begin{align}
+n-m=k
+\end{align}
+\]</p>
+<p>Below is a loudsy proof of the statement.</p>
+<blockquote>
+<p>! I haven&rsquo;t figured out yet :).</p>
+</blockquote>
+<p>For three-qubit repetition code, $k=1, n=3$, and hence we need $3-1=2$ generators. Where can we look for them: the Pauli group. Can we choose $X$ and $Z$ as generators? No, because they don&rsquo;t commute at all ($XZ=-ZX$ anyway) so they cannot stabilize our codeword states. It turns out that we can choose $I$ and $Z$, then multiply them out to $2^2=4$ (the order of the group).</p>
+<p>\[
+\begin{align}
+ZZI, ZIZ, IZZ, III
+\end{align}
+\]</p>
+<p>We&rsquo;ve seen a hint of using these operators to detect errors (specifically bit-flip errors) above. By measuring the group of $m$ ($m$ measurements) stabilizer operators, one can detect errors on stabilizer codes. Since $m=n-k$, the number of measurements one have to make scales linearly with the number of physical qubits used for the encoding scheme, which is moderately great.</p>
+<h3 id="encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</h3>
+<h4 id="equivalency">Equivalency</h4>
+<p>We&rsquo;ve known that $\bar{X}=XXX$: there&rsquo;s no other choice for logical $\bar{X}$ for quantum three-qubit repetition code. However, there exists two more choices of $\bar{Z}$,</p>
+<p>\[
+\begin{align}
+\bar{Z}= \{ZII, IZI, IIZ, ZZZ\}
+\end{align}
+\]</p>
+<p>Using the stabilizer formalism, one can actually characterize this set of $\bar{Z}$. First let us see the reason why we have this equivalency. Let $\mathcal{S}$ be the stabilizer group, $|\psi\rangle$ be a state in the codespace, $L$ be a logical operator. Then essentially all logical operators are different up to a stabilizer,</p>
+<p>\[
+\begin{align}
+S_j|\psi\rangle &amp;= |\psi\rangle,\newline
+LS_j|\psi\rangle &amp;= L|\psi\rangle
+\end{align}
+\]</p>
+<p>so essentially what you can have is $ZII S_j$ being equivalent to $ZII$, for any $S_j\in\mathcal{S}$, e.g. $(Z\otimes I\otimes I)(Z\otimes Z\otimes I)=(Z^2\otimes Z\otimes I$), and because Pauli are self-inverse, $Z^2=I$, and we obtain $I\otimes Z\otimes I$.</p>
+<p>To conclude the subsection, here&rsquo;s the takeaway message</p>
+<blockquote>
+<p>Given a logical operator $L$, there exists a family of $|S|=2^m$ operators $\{LS_j\}_j$ that acts equivalently on the codespace.</p>
+</blockquote>
+<h4 id="in-search-of-logical-operators">In search of logical operators</h4>
+<p>So I promised you that you can look for the encoded logical operators in a systematic fashion. Here&rsquo;s why. It turns out earlier that in order for an operator to become the encoded logical operator $L$, it has to commute with the (entire) stabilizer group $\mathcal{S}$,</p>
+<p>\[
+\begin{align}
+[L,S_j] = 0, \forall S_j \in \mathcal{S}
+\end{align}
+\]</p>
+<p>Note that we&rsquo;re looking at the Pauli group $G$ (for $n$-qubits). The stabilizer $\mathcal{S}$ is a subgroup of $G$. In group theory, the set of operators in $G$ that commute with every element $S_j\in\mathcal{S}$ is the <em>centralizer</em> $C_G(H)$ of $\mathcal{S}$.</p>
+<p>\[
+\begin{align}
+C_G(H) = \{C\in G\ |\ \forall S_j\in\mathcal{S}, CS_j=S_jC\}
+\end{align}
+\]</p>
+<p>So basically what we have to do to find the encoded logical operators is to look at the centralizer of $\mathcal{S}$.</p>
+<p>Lastly, to wrap up the entire section, we list out the stabilizer $\mathcal{S}$ and the centralizer of $C_G(\mathcal{S})$ for three-qubit repetition code.</p>
+<p>\[
+\begin{align}
+\mathcal{S} = \{&amp;ZZI, ZIZ, IZZ, III\}\newline
+\mathcal{C}_G(\mathcal{S}) = \{&amp;III, ZZI, ZIZ, IZZ\newline
+&amp;XXX, -YYX, -YXY, -XYY\newline
+&amp;YXX, XYX, XXY, -YYY\newline
+&amp;ZII, IZI, IIZ, ZZZ\}
+\end{align}
+\]</p>
+<p>So I said that there&rsquo;s only one possible choice for $\bar{X}=XXX$, but I was wrong. Note that every logical operators are different up to a stabilizer $S_j$, we can construct a set of equivalent encoded logical operators for $\bar{X}$, starting from $XXX$; they are</p>
+<p>\[
+\begin{align}
+\bar{X} = \{XXX, -YYX, -YXY, -XYY\}
+\end{align}
+\]</p>
+<p>in accordance to the fact that there are $2^2$ equivalent encoded logical operators.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien//blob/master/contentposts/qec-101.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
