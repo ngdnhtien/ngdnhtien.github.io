@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kindergarten quantum error correcting codes (P1) - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Kindergarten quantum error correcting codes (P1)">
+<meta itemprop="description" content="My clumsy notes on the way teaching myself quantum error correction."><meta itemprop="datePublished" content="2023-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5396">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Kindergarten quantum error correcting codes (P1)" />
+<meta property="og:description" content="My clumsy notes on the way teaching myself quantum error correction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kindergarten quantum error correcting codes (P1)"/>
+<meta name="twitter:description" content="My clumsy notes on the way teaching myself quantum error correction."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">22</span>
+							<span class="rest">Jul 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Kindergarten quantum error correcting codes (P1)</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</a>
+      <ol>
+        <li><a href="#error-detection--correction">Error detection &amp; correction</a></li>
+        <li><a href="#encoded-logical-operators">Encoded logical operators</a></li>
+      </ol>
+    </li>
+    <li><a href="#quantum-three-bit-repetition-code">Quantum three-bit repetition code</a>
+      <ol>
+        <li><a href="#error-detection">Error detection</a></li>
+        <li><a href="#error-correction">Error correction</a></li>
+        <li><a href="#logical-operators-on-encoded-states">Logical operators on encoded states</a></li>
+        <li><a href="#distance-of-a-quantum-code">Distance of a quantum code</a></li>
+      </ol>
+    </li>
+    <li><a href="#stabilizer-formalism">Stabilizer formalism</a>
+      <ol>
+        <li><a href="#stabilizer-operators">Stabilizer operators</a></li>
+        <li><a href="#encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</a>
+          <ol>
+            <li><a href="#equivalency">Equivalency</a></li>
+            <li><a href="#in-search-of-logical-operators">In search of logical operators</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#toric-code">Toric code</a>
+      <ol>
+        <li><a href="#stabilizer-formalism-for-toric-code">Stabilizer formalism for toric code</a>
+          <ol>
+            <li><a href="#multiplication-and-independence-of-plaquette-operators">Multiplication and independence of plaquette operators</a></li>
+            <li><a href="#dual-lattice">Dual lattice</a></li>
+            <li><a href="#multiplication-and-independence-of-vertex-operators">Multiplication and independence of vertex operators</a></li>
+            <li><a href="#logical-qubits">Logical qubits</a></li>
+            <li><a href="#equivalency-of-logical-operators-under-stablizer-multiplication">Equivalency of logical operators under stablizer multiplication</a></li>
+            <li><a href="#code-distace">Code distace</a></li>
+          </ol>
+        </li>
+        <li><a href="#errors-on-the-toric-code">Errors on the toric code</a>
+          <ol>
+            <li><a href="#error-detection-1">Error detection</a></li>
+            <li><a href="#error-correction-1">Error correction</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<blockquote>
+<p>You can think of the notes here are dumbed-down version of Dan Browne&rsquo;s <a href="https://drive.google.com/file/d/1AB0Kd5JV5TzqwvR4VysrJt-F3GVin2S4/view?pli=1">notes on topological codes and computation</a></p>
+</blockquote>
+<p>The closest thing to magic we have is perhaps quantum error correction: the idea of <em>knowing</em> enough about a quantum state to be able to <em>know</em> whether a certain event had happened without <em>knowing more</em> so as not to collapse the state &ndash; I mean, who wouldn&rsquo;t be amazed?</p>
+<h2 id="a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</h2>
+<p>We will start classically, then we generalize and make it quantum. Let us consider the notorious classical three-bit repetition code. The idea is simple, we encode bits by repeating them, i.e. we&rsquo;re spreading the information</p>
+<p><em>&ldquo;the bit is 0&rdquo;</em></p>
+<p>into three different bits. This is essentially <em>encoding</em>. The logical $0$ is chosen such that three bits sharing the same value $0$, and similarly the logical bit $1$.</p>
+<p>\[
+\begin{align}
+0_L = 000, \quad 1_L = 111
+\end{align}
+\]</p>
+<p>Now, what could possibly happen to our logical bit? There can be bit flips. They turn $0$ to $1$ and $1$ to $0$. In general,</p>
+<p>\[
+\begin{align}
+0_L \to 001 / 010 / 100 \newline
+1_L \to 011 / 101 / 110
+\end{align}
+\]</p>
+<h3 id="error-detection--correction">Error detection &amp; correction</h3>
+<p>Alice, who&rsquo;s a lovely three-year-old error correcting researcher, might ask: so how do we <em>detect</em> these errors. One way is to check individual bits to see if they are identical. If they&rsquo;re not, then an error happened. Gotcha.</p>
+<blockquote>
+<p>Error detection (3-bit repetition code/classical): Check identicality.</p>
+</blockquote>
+<p>Note that this detection method is only possible if we choose to encode the logical $0$ as $000$; otherwise, this detection method is not possible. See, you can choose whatever encoding scheme to your desire, but in some cases it would not be a good encoding scheme, in the sense that you would not have a straightforward measure of detecting error (or presumably correcting error, as we shall see).</p>
+<p>Now, suppose <em>one</em> bit flip error had happened, and we were able to detect it. How do we <em>correct</em> this error? Simple enough: reset all values of the encoded bitstring to the <em>majority</em> value. For example, a bitstring $001$ indicates that a bit-flip error occured, and to correct it we simply reset all bits in the string to the majority value, $0$. So $001 \to 000$, and we have successfully restored the logical $0$.</p>
+<blockquote>
+<p>Error correction (3-bit repetition code/classical): Reset to the majority bit-value.</p>
+</blockquote>
+<p>At this point you should realize there are certain cases where we wouldn&rsquo;t be able to detect nor correct an error. One such case being have more than one flipping event. For instance, $111 \to 100$. If Alice looks into the identicality of the bitstring, Alice knows an error <em>had happened</em> (detection: checked). But can they correct the error, without knowing that initially it was the logical $1_L$? No, Alice would mistakenly deduces a single bit flip event had happened on the first bit, and eventually erasure the information that</p>
+<p><em>&ldquo;the bit is 1&rdquo;</em></p>
+<p>This properties poses a fundamental limit on the effectiveness of a code (or a class of codes), and is characterized by something called <em>code distance</em>. By definition, code distance is</p>
+<p><em>the smallest number of bit flips required to transform any two valid codewords into one another, denoted by $d$.</em></p>
+<p>In our three-bit repetition code, there has to be three single non-repeated bit flip events to transform $000$ to $111$ and vice versa. Hence, three-bit repetition code has distance $d=3$. In general, it means that if Alice looks into the identicality, Alice knows &ldquo;there&rsquo;s errors&rdquo; up to <em>d-1</em> flipping events, and Alice could possibly succesfully correct $(d-1)/2$ errors at most.</p>
+<h3 id="encoded-logical-operators">Encoded logical operators</h3>
+<p>Now that we have some classical information, we would like to do computation with them. Say, apply a logical NOT gate. Simple enough,</p>
+<p>\[
+\operatorname{NOT} 0_L = 1_L \leftrightarrow \operatorname{NOT}(000) = 111,
+\]</p>
+<p>meaning that we&rsquo;re applying $\operatorname{NOT}$ on individual bits. Note that a set of encoded logical operators is non-trivially dependent on the choice of encoding scheme. This notion should become even more important as we move into the quantum realm, which we will do now.</p>
+<h2 id="quantum-three-bit-repetition-code">Quantum three-bit repetition code</h2>
+<p>Now we enter the quantum realm, and we bring something along. The idea of three-bit repetition code is nice, so why not <em>quantum</em> three-qubit repetition code!</p>
+<p>We define a logical qubit with the computational subspace spanned by</p>
+<p>\[
+\begin{align}
+|0\rangle_L = |000\rangle; |1\rangle_L = |111\rangle
+\end{align}
+\]</p>
+<p>such that the state of the qubit is</p>
+<p>\[
+\begin{align}
+|\psi\rangle = \alpha |0\rangle_L + \beta|1\rangle_L
+\end{align}
+\]</p>
+<p>meaning that we&rsquo;ve spreaded the information</p>
+<p><em>&ldquo;the (logical) qubit is in state $|0\rangle$&rdquo;</em></p>
+<p>into three physical qubits.</p>
+<p>The computational subspace $\{|000\rangle,|111\rangle\}$ is also called the <em>codespace</em>, reside in which are the error-free encoding of the quantum state $|\psi\rangle$.</p>
+<p>Now, what could possiblly happen to our <em>physical</em> qubit? There can sure be bit flips, but there are also <em>phase</em> flips. The errors are</p>
+<p>\[
+\begin{align}
+X|0\rangle = |1\rangle\quad &amp; X|1\rangle = |0\rangle\newline
+Z|0\rangle = |0\rangle \quad &amp; Z|1\rangle=-|1\rangle
+\end{align}
+\]</p>
+<p>Here&rsquo;s a remark</p>
+<blockquote>
+<p>If both $X$ and $Z$ errors can be corrected, then any arbitrary error can be corrected, since together $X$ and $Z$ allows universal control over the Hilbert space of any physical qubit. So, the problem boils down to <em>detecting</em> these two errors, and <em>correcting</em> them.</p>
+</blockquote>
+<p>Before we get into the cleverness of QEC, let us look at the encoded state in the event of a single bit flip error for completeness. For example, the error is $I\otimes X\otimes I$, then the state reads</p>
+<p>\[
+\begin{align}
+(I\otimes X\otimes I) |\psi\rangle_L = \alpha |010\rangle + \beta|101\rangle
+\end{align}
+\]</p>
+<p>The state is now not in the codespace, which means there&rsquo;s an error. But here&rsquo;s where it gets tricky (and exciting and the same time). Alice thought to herself, &ldquo;so to detect an error we, again, look at the identicality of the three physical qubits.&rdquo; Not so easy, because in doing so, we&rsquo;d eventually collapse the state into one of its basis states. We lose the information. Alice might also consider to copy the state $|\psi\rangle_L$ into multiple copies, but in doing so she would violate the <a href="https://en.wikipedia.org/wiki/No-cloning_theorem">no-clone theorem</a>, so that&rsquo;s also a no.</p>
+<p>The tricky part is to learn enough about the state of the physical qubits, so that we know whether errors had occured, what errors, and the way to correct them; but not learning more than <em>enough</em>&hellip;</p>
+<h3 id="error-detection">Error detection</h3>
+<p>As discussed, we cannot measure individual qubits in the computational basis. Instead, we measure a <em>certain symmetry properties</em> of the <em>state</em>.</p>
+<p>For example, one characteristic properties of the state of a logical qubit $|\psi\rangle_L$ encoded on two physical qubits is the <em>parity</em> of the physical pair. Alice cannot ask the question whether the two qubits are both in state $|0\rangle$. I mean she can <em>ask</em> the question inside her head, but then the act of measurement $\langle Z_1\rangle$ and $\langle Z_2 \rangle$ would destroy the state.</p>
+<p>However, she can interrogate</p>
+<blockquote>
+<p>Is your parity odd or even?</p>
+</blockquote>
+<p>Meaning that she&rsquo;d have to measure $ZZ$.</p>
+<p>Turns out quantum mechanics allow this question to be made without projecting the state of the two qubits into their respective computational subspaces. And also state-of-the-art experiments have already demonstrate the ability to measure state parity, so it&rsquo;s pretty exciting.</p>
+<p>(In another closely related topic, one might ask if they have generated a genuine superposition of three qubits in the sense that $|\psi\rangle = |000\rangle + e^{i\phi}|111\rangle$. Turns out parity check is also very useful, see Steane&rsquo;s blog <a href="https://users.physics.ox.ac.uk/~Steane/qec/qec_ams_4.html">here</a>.)</p>
+<p>Now, let us explore further the idea of measuring the parity of a pair of qubits. Let us suppose exactly one erroneous flipping event might happened, i.e. the error operators are possibly $X\otimes I\otimes I, I\otimes X\otimes I, I\otimes I\otimes X$. Our job is to detect &ldquo;whether this had happened&rdquo; by performing a parity check. Here&rsquo;s the table that list all possible measurement outcome.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Error\Observable</th>
+<th style="text-align:center">$Z\otimes Z\otimes I$</th>
+<th style="text-align:center">$Z\otimes I \otimes Z$</th>
+<th style="text-align:center">$I\otimes Z \otimes I$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$X \otimes I\otimes I$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$+1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$I \otimes X\otimes I$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$+1$</td>
+<td style="text-align:center">$-1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$I \otimes I\otimes X$</td>
+<td style="text-align:center">$+1$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$-1$</td>
+</tr>
+</tbody>
+</table>
+<p>That is because, for any pair of qubits the observable $ZZ$ is $+1$ if and only if the parity is even, i.e. the logical qubit is inside the codespace, and $-1$ is the parity is odd, i.e. the logical qubit is outside the codespace.</p>
+<p>What can we deduce from the table? Here&rsquo;s the take-away remark</p>
+<blockquote>
+<p>If the error anti-commutes with the measuring operator, then the outcome is surely $-1$.</p>
+</blockquote>
+<p>Suppose Alice has 3 qubits, $|q_1q_2q_3\rangle$ and she measures $\langle ZZI \rangle=+1$. What does it mean? No error, or something happened with the third qubit, but that&rsquo;s not certain. What if she measured $\langle ZZI \rangle =-1$? Then she knows something&rsquo;s off with the first two qubits. But she wouldn&rsquo;t know which is the erroneous one, b.c either $X \otimes I\otimes I$ or $I \otimes X\otimes I$ might have happened.</p>
+<p>She would have to measure another $ZZ$. In fact, any $Z_iZ_J$ other than $Z_1Z_2$. Say this time she measures the first one and the third one, i.e. $\langle Z_1Z_3\rangle=-1$, then she would be able to conclude that the error operator is $I\otimes X \otimes I$ (see the table). You see, the set of observables has to be cleverly chosen so that one can perform error check in a resource-efficient way.</p>
+<h3 id="error-correction">Error correction</h3>
+<p>Now that Alice knew what kind of error has happened, can she resets all the qubits to the majority value? No, because that will require the knowledge of &ldquo;what&rsquo;s the majority value&rdquo;, i.e. collapsing the information. However, as opposed to classcial error correction, where we know &ldquo;yes, there&rsquo;s a certain error&rdquo;, in the quantum case we know &ldquo;what specific error has happened&rdquo;. This is extra, and we can use this extra information: the bit-flip $X$ errors are Pauli errors, meaning that they can be reversed by applying the same Pauli operator. This is because</p>
+<blockquote>
+<p>All Paulis are self-inverse.</p>
+</blockquote>
+<p>Hence, all we need to do is applying the same error operator on the logical qubit to correct the error.</p>
+<h3 id="logical-operators-on-encoded-states">Logical operators on encoded states</h3>
+<p>Within a certain frame of encoding came with a set of logical operations on the encoded states. In our case, quantum three-qubit repetition code, we want logical $\bar{X}$ and $\bar{Z}$ such that</p>
+<p>\[
+\begin{align}
+\bar{X}|0\rangle_L = |1\rangle_L, \quad &amp;\bar{X}|1\rangle_L = |0\rangle_L\newline
+\bar{Z}|0\rangle_L = |0\rangle_L, \quad &amp;\bar{Z}|1\rangle_L = -|1\rangle_L
+\end{align}
+\]</p>
+<p>One possible choice of $\bar{X}$ and $\bar{Z}$ could be</p>
+<p>\[
+\begin{align}
+\bar{X} = XXX,\quad \bar{Z}=ZII
+\end{align}
+\]</p>
+<p>Notice that we can have an odd number of physical $Z$ gates, but not even.</p>
+<h3 id="distance-of-a-quantum-code">Distance of a quantum code</h3>
+<p>Now we familiarize ourselves with the notion of the <em>distance</em> of a quantum code. But first, the concept the weight of an operator: it&rsquo;s the number of qubits that the operator acts non-trivially on. So for example, $\bar{X}=XXX$ is weighted 3, while $\bar{Z}=ZII$ is weighted 1. Then, we have the definition of the distance.</p>
+<blockquote>
+<p>Distance of a (quantum) code: the minimal weight of any (non-identity) encoded logical operator comes with the code.</p>
+</blockquote>
+<p>So, for three-qubit repetition code, the minimal weight is $\bar{Z}$, hence three-qubit rep. code has a distance of 1.</p>
+<p>If you think about it, we have good reasons to define something like the <em>distance</em>. The concept is closely related to the Hamming distance, but I won&rsquo;t get into details about it here. Just to make it more clear, if an error (an operator) has the weight less than the code&rsquo;s distance, then it would take the logical qubit out of codespace and we&rsquo;d be able to detect it; however, if the error&rsquo;s weight is equal to the distance, then essentially what&rsquo;s happened is that we&rsquo;ve moved from one codeword (a valid bitstring) to another, i.e. we wouldn&rsquo;t be able to detect it, even though it happened.</p>
+<p>Here&rsquo;s another remark</p>
+<blockquote>
+<p>the quantum three-qubit repetition code can detect 2 $X$ error and no $Z$ error.</p>
+</blockquote>
+<p>Sure. This is because any two $X$ error has weight less than the code distance (and three errors make it a valid logical operator); and $Z$ errors are undetectable within our encoding scheme.</p>
+<h2 id="stabilizer-formalism">Stabilizer formalism</h2>
+<p>There&rsquo;s a thing called &ldquo;stabilizer formalism&rdquo; allowing one to study quantum error correcting codes in a systematic way (classification of distance, kinds of errors the code can shield, etc.). Also, it can also be used to derive encoded logical operators (which is important!).</p>
+<p>Any code that can be defined in the stabilizer formalism is called a <em>stabilizer code</em>. A stabilizer code is defined by specifying two sets of operators,</p>
+<ol>
+<li>(Stabilizer) generators; and</li>
+<li>Encoded logical operators</li>
+</ol>
+<h3 id="stabilizer-operators">Stabilizer operators</h3>
+<p>First, let us talk about the stabilizer group. Let $\{|\psi_j\rangle\}_j$ the codeword basis states ($j^\otimes$-dimensional Hilbert space). Then the stabilizer group $\mathcal{S}$ is the <em>set</em> of Pauli operators that leave all codeword basis states $|\psi_j\rangle$ invariant.</p>
+<p>\[
+\begin{align}
+P_k|\psi_j\rangle = |\psi_j\rangle, \forall P_k\in \mathcal{S}
+\end{align}
+\]</p>
+<p>One would realize that the set of stabilizer must commute, in order for them to leave the codeword basis state invariant. Here&rsquo;s a quick proof by contradiction. Suppose that two stabilizer operators (they are Pauli) don&rsquo;t commute, then</p>
+<p>\[
+\begin{align}
+S_1S_2 = -S_2S_1
+\end{align}
+\]</p>
+<p>which leads to</p>
+<p>\[
+\begin{align}
+S_1S_2|\psi_j\rangle = |\psi_j\rangle \newline
+S_2S_1|\psi_j\rangle = -S_1S_2|\psi_j\rangle = -|\psi_j\rangle
+\end{align}
+\]</p>
+<p>however, since $S_2S_1\in \mathcal{S}$ group, then it must be that $S_2S_1|\psi_j\rangle = |\psi_j\rangle$, which is a contraction. Hence, any two operators within a stabilizer group $\mathcal{S}$ must commute.</p>
+<p>In group theory, a group $G$ is defined using a set of generators $\{g_j\}^{m}_{j=1}$. The set order, denoted by $|G|$, is specified by the number $2^m$.</p>
+<p>There&rsquo;s a useful result that links the number of logical qubits $k$, physical qubits $n$, and the number of stabilizer generators needed to generate the stabilizer group, which states that</p>
+<p>\[
+\begin{align}
+n-m=k
+\end{align}
+\]</p>
+<p>Below is a loudsy proof of the statement.</p>
+<blockquote>
+<p>! I haven&rsquo;t figured out yet :).</p>
+</blockquote>
+<p>For three-qubit repetition code, $k=1, n=3$, and hence we need $3-1=2$ generators. Where can we look for them: the Pauli group. Can we choose $X$ and $Z$ as generators? No, because they don&rsquo;t commute at all ($XZ=-ZX$ anyway) so they cannot stabilize our codeword states. It turns out that we can choose $I$ and $Z$, then multiply them out to $2^2=4$ (the order of the group).</p>
+<p>\[
+\begin{align}
+ZZI, ZIZ, IZZ, III
+\end{align}
+\]</p>
+<p>We&rsquo;ve seen a hint of using these operators to detect errors (specifically bit-flip errors) above. By measuring the group of $m$ ($m$ measurements) stabilizer operators, one can detect errors on stabilizer codes. Since $m=n-k$, the number of measurements one have to make scales linearly with the number of physical qubits used for the encoding scheme, which is moderately great.</p>
+<h3 id="encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</h3>
+<h4 id="equivalency">Equivalency</h4>
+<p>We&rsquo;ve known that $\bar{X}=XXX$: there&rsquo;s no other choice for logical $\bar{X}$ for quantum three-qubit repetition code. However, there exists two more choices of $\bar{Z}$,</p>
+<p>\[
+\begin{align}
+\bar{Z}= \{ZII, IZI, IIZ, ZZZ\}
+\end{align}
+\]</p>
+<p>Using the stabilizer formalism, one can actually characterize this set of $\bar{Z}$. First let us see the reason why we have this equivalency. Let $\mathcal{S}$ be the stabilizer group, $|\psi\rangle$ be a state in the codespace, $L$ be a logical operator. Then essentially all logical operators are different up to a stabilizer,</p>
+<p>\[
+\begin{align}
+S_j|\psi\rangle &amp;= |\psi\rangle,\newline
+LS_j|\psi\rangle &amp;= L|\psi\rangle
+\end{align}
+\]</p>
+<p>so essentially what you can have is $ZII S_j$ being equivalent to $ZII$, for any $S_j\in\mathcal{S}$, e.g. $(Z\otimes I\otimes I)(Z\otimes Z\otimes I)=(Z^2\otimes Z\otimes I$), and because Pauli are self-inverse, $Z^2=I$, and we obtain $I\otimes Z\otimes I$.</p>
+<p>To conclude the subsection, here&rsquo;s the takeaway message</p>
+<blockquote>
+<p>Given a logical operator $L$, there exists a family of $|S|=2^m$ operators $\{LS_j\}_j$ that acts equivalently on the codespace.</p>
+</blockquote>
+<h4 id="in-search-of-logical-operators">In search of logical operators</h4>
+<p>So I promised you that you can look for the encoded logical operators in a systematic fashion. Here&rsquo;s why. It turns out earlier that in order for an operator to become the encoded logical operator $L$, it has to commute with the (entire) stabilizer group $\mathcal{S}$,</p>
+<p>\[
+\begin{align}
+[L,S_j] = 0, \forall S_j \in \mathcal{S}
+\end{align}
+\]</p>
+<p>Note that we&rsquo;re looking at the Pauli group $G$ (for $n$-qubits). The stabilizer $\mathcal{S}$ is a subgroup of $G$. In group theory, the set of operators in $G$ that commute with every element $S_j\in\mathcal{S}$ is the <em>centralizer</em> $C_G(H)$ of $\mathcal{S}$.</p>
+<p>\[
+\begin{align}
+C_G(H) = \{C\in G\ |\ \forall S_j\in\mathcal{S}, CS_j=S_jC\}
+\end{align}
+\]</p>
+<p>So basically what we have to do to find the encoded logical operators is to look at the centralizer of $\mathcal{S}$.</p>
+<p>Lastly, to wrap up the entire section, we list out the stabilizer $\mathcal{S}$ and the centralizer of $C_G(\mathcal{S})$ for three-qubit repetition code.</p>
+<p>\[
+\begin{align}
+\mathcal{S} = \{&amp;ZZI, ZIZ, IZZ, III\}\newline
+\mathcal{C}_G(\mathcal{S}) = \{&amp;III, ZZI, ZIZ, IZZ\newline
+&amp;XXX, -YYX, -YXY, -XYY\newline
+&amp;YXX, XYX, XXY, -YYY\newline
+&amp;ZII, IZI, IIZ, ZZZ\}
+\end{align}
+\]</p>
+<p>So I said that there&rsquo;s only one possible choice for $\bar{X}=XXX$, but I was wrong. Note that every logical operators are different up to a stabilizer $S_j$, we can construct a set of equivalent encoded logical operators for $\bar{X}$, starting from $XXX$; they are</p>
+<p>\[
+\begin{align}
+\bar{X} = \{XXX, -YYX, -YXY, -XYY\}
+\end{align}
+\]</p>
+<p>in accordance to the fact that there are $2^2$ equivalent encoded logical operators.</p>
+<h2 id="toric-code">Toric code</h2>
+<p>Discovered by Kitaev in 1997, toric codes are designed to protect a quantum circuits whose qubits are placed on a lattice, which wrapped on a, you guess, torus. Each edge of the lattice is a qubit.</p>
+<p>Now what do you mean by a periodic boundary condition? Let us first imagine a circle, for any function $f$ defined on the circle it follows that</p>
+<p>\[
+f(\theta)=f(\theta+2\pi)
+\]</p>
+<p>so the function repeats itself. Now imagine a torus (or a donut 😋), you cut it at one cross section, then you have a two-dimensional surface. This two-dimensional surface is the lattice we&rsquo;re talking about. Because the lattice is wrapped on the torus, it follows that even though we&rsquo;re having a $L\times L$ lattice, there&rsquo;s only $2L^2$ edges since the lower (right) gray edges are being glued to the upper (left) edges. Because each edge is a qubit, the toric code has therefore $n=2L^2$ physical qubits.</p>
+<h3 id="stabilizer-formalism-for-toric-code">Stabilizer formalism for toric code</h3>
+<p>As we seen above, to find the stabilizer group for a code, we need to define a set of generators. For toric code, the two generators are <em>plaquette generator</em> and <em>vertex generator</em>. Since we have two generators, it follows that the order of the group $\mathcal{S}$ is 4.</p>
+<p>Now, as the name suggests, the plaquette generator is a tensor product of operators <em>associate</em> with a plaquette. Operators on what, you might ask? The qubits. Remember that one qubit represents one edge, hence the four qubits enclosing one plaquette $P$ are the ones that being applied. Let $Z_S$ be the operator applying on one qubit, the plaquette generator is</p>
+<p>\[
+\begin{align}
+\bigotimes_{S\in P} Z_S
+\end{align}
+\]</p>
+<p>Similarly, the vertex generator is a tensor product of operators <em>associate</em> with a vertex. Operators on what, you might ask? The qubits. The four qubits joining in to make a vertex are the ones being applied. Let $X_S$ be the operator applying on one qubit, the vertex operator is</p>
+<p>\[
+\begin{align}
+\bigotimes_{S\in V} X_S
+\end{align}
+\]</p>
+<p>One might try and see if the vertex operators and plaquette operators commute. They do, indeed, since they are stablizers. If the two vertex &amp; plaquette don&rsquo;t overlap on the lattice, then it&rsquo;s trivial to see that the order of operation is irrelevant. If the two vertex &amp; plaquette do overlap, say on qubits $q_i$ and $q_j$, then</p>
+<p>\[
+\begin{align}
+(X_i\otimes X_j)(Z_i\otimes Z_j)|q_i q_j\rangle&amp;=(X_iZ_i)|q_i\rangle\otimes (X_jZ_j)|q_j\rangle\newline
+&amp;=-Z_iX_i|q_i\rangle \otimes -Z_jX_j|q_j\rangle\newline
+&amp;= (Z_i\otimes Z_j)(X_i\otimes X_j)|q_iq_j\rangle
+\end{align}
+\]</p>
+<p>i.e. $[X_iX_j, Z_iZ_j]=0$.</p>
+<h4 id="multiplication-and-independence-of-plaquette-operators">Multiplication and independence of plaquette operators</h4>
+<p>Let us now consider two adjacent plaquette operators. Question: what are the qubits being applied if we multiply these adjacent operators together? It&rsquo;s the qubits lying on the joint boundary of the two plaquettes. Those who lie on the shared boundary will not be affected, since $Z^=I$. The resulting operator will apply on 6 qubits.</p>
+<p>More generally, for any two plaquettes, if we multiply them together will result in (1) the cancellation of $Z$&rsquo;s at the shared boundary and (2) $Z$&rsquo;s around the overall boundary. The plaquettes are not necessarily square plaquettes. You can start by a square one, then joining them repeatedly to generate a arbitrarily shaped plaquettes, and the arguments above still hold.</p>
+<p>Lastly, consider the product of all plaquettes in the entire lattice. Because we&rsquo;re wrapping the lattice around a torus, there&rsquo;s no boundary at all. No qubit is being applied a $Z$. Hence, the resulting operator is a one big identity operator,</p>
+<p>\[
+\begin{align}
+\prod_{P}^{L^2}\bigotimes_{S\in P}Z_S = I
+\end{align}
+\]</p>
+<p>What does it mean? It means that the set of all plaquette operators is not an independent set of operators.</p>
+<blockquote>
+<p>Note: An independent set of operators means that any operator in the set cannot be expressed as a product of others, i.e. the only solution to $\prod g_j^{a_j}=I$ is $a_j=0, \forall j$. This concept is strongly analogous to linearly independent, where any vector cannot be a linear combination of the others if they want to form a orthogonal basis.</p>
+</blockquote>
+<p>A stabilizer group cannot be generated from dependent generators, so this is bad. One solution is that we remove one (whatever it is) single plaquette operator from the generator set. Now, if we were to take the product of all plaquette operators on the lattice again, but leaving one single plaquette operator out of the picture, then the product <em>cannot</em> be identity</p>
+<p>\[
+\begin{align}
+\prod_{P}^{L^2-1}\bigotimes_{S\in P}Z_S \neq I
+\end{align}
+\]</p>
+<p>In conclusion, by leaving one single plaquette operator behind, we have $L^2-1$ independent plaquette operators (by definition of independent operators).</p>
+<h4 id="dual-lattice">Dual lattice</h4>
+<p>Another concept we know know about is <em>dual lattice</em>. To create a dual lattice from our <em>primal</em> lattice, we shift the primal lattice by half a cell down to the right. The new dual lattice has the same size and same boundary conditions, only that the plaquette are now vertex, and vertex are now plaquette (in terms of the qubits they act on). Because of this, any set of four qubits are being acted on by simultenously a plaquette/vertex operator in one lattice and vertex/plaquette operator in the dual lattice. You can thus imagine a 90 degree rotation of any edges as the mapping function between the primal &amp; dual lattice. The two lattices are therefore perpendicular.</p>
+<blockquote>
+<p>A square lattice under such transformation is still square lattice, and we say it is self-dual. On the other hand, the dual lattice of a hexagonal lattice is a triangular lattice.</p>
+</blockquote>
+<p>We have several good reasons to explore duality of lattice. For instance, multiplication of operators is best understood in the plaquette picture, since all we doing is just dismissing shared boundaries and promoting joint boundaries.</p>
+<h4 id="multiplication-and-independence-of-vertex-operators">Multiplication and independence of vertex operators</h4>
+<p>Using lattice duality, the vertex operators in a primal lattice can be defined as the boundary of the corresponding plaquette in its the dual lattice. By the same arguments, we have $L^2-1$ independent elements in the set of generators.</p>
+<p>\[
+\begin{align}
+\prod_{V}^{L^2-1}\bigotimes_{S\in V} X_V \neq I
+\end{align}
+\]</p>
+<h4 id="logical-qubits">Logical qubits</h4>
+<p>We have $n=2L^2$ physical qubits on the torus, $L^2-1$ independent plaquette operators and $L^2-1$ independent vertex operators, meaning a total of $k=2(L^2-1)$ generators. It then follows that toric code will have $n-k=2L^2-2L^2+2=2$ encoded logical qubits. Since we have two logical qubits, to complete the code description we find their corresponding encoded logical operators $\mathcal{L}=\{\bar{Z}_1,\bar{Z}_2, \bar{X}_1, \bar{X}_2\}$.</p>
+<p>First let us remind ourselves with some of the criteria that any $L\in\mathcal{L}$ must satisfy</p>
+<ol>
+<li>They must commute with all elements of the stablizer group $\mathcal{S}$;</li>
+<li>They must not be an element of $\mathcal{S}$ themselves;</li>
+<li>They must satisfy the commutation and anti-commutation properties of $X$ and $Z$.</li>
+</ol>
+<p>Let us choose a seemingly arbitrary operator, a $Z$ operator acting on a single qubit (edge). This $Z$ commute with all plaquette operators, sure, $Z^2=1$. But then what about vertex operators? All vertex operators except those immediately neighboring the edge must commute with the $Z$ because they act on different qubits, but those two vertex immediately adjacenting the qubit don&rsquo;t commute with the single $ZS.</p>
+<p>How about going one for more? Let us consider a pair of adjacent $Z$&rsquo;s. Then the two $Z$&rsquo;s commute with the one in between them (because of the two minus signs). Say that&rsquo;s the right vertex operator, but then what about the left? They don&rsquo;t. So that&rsquo;s still not enough. More generally, if we form a string of $Z$ operators, regardless of its shape, there will be one vertex operator at the ends (either left or right) that the string of $Z$ don&rsquo;t commute with that one.</p>
+<p>A clever way to get over this problem is that you take the right vertex and glue to the left vertex, to form a closed loop of $Z$&rsquo;s! Indeed, then we can define an encoded logical $\bar{Z}$ operator that acts on a sequence of edges on the lattice! Let us call this one the $\bar{Z}_1$ operator for the first qubit.</p>
+<blockquote>
+<p>A side note: Such a loop for $\bar{Z}_1$ cannot be created by a product of plaquette operators. Think about it, you have one loop of plaquettes, then the product of them yield two loops of $Z$&rsquo;s. That&rsquo;s not one loop of $\bar{Z}$. You may extend the loop of plaquettes, but eventually they will meet because of the periodic boundary, which make them an identity.</p>
+</blockquote>
+<p>We now proceed to define $\bar{X}_1$, who must satisfy</p>
+<ol>
+<li>$[\bar{X}_1, \bar{Z}_1]\neq 0$;</li>
+<li>$[\bar{X}_1, S]=0,\forall S\in\mathcal{S}$.</li>
+</ol>
+<p>To find such operator, consider a loop of $X$ operators on the <em>dual lattice</em>, perpendicular to the loop defining $Z_1$. This operator must commute with all stabilizer elements, by the same argument one can have with the logical $Z$ operator: Any four qubits associated with a plaquette that overlap with the $X$ line will have exactly two qubits who will yield two minus signs, making them commuting; and vertex operators commute with the loop of $X$&rsquo;s by definition. Although we are having these arguments on the dual lattice, we can always transform back to the primal lattice, making the vertices plaquettes, and vice versa.</p>
+<p>It&rsquo;s also easy to see that $\bar{X}_1$ does not commute with $\bar{Z}_1$, since they overlap on exactly one qubit, resulting in only one minus sign.</p>
+<p>We now turn to the second encoded qubit. Again, we seek a pair of $\bar{X}_2$ and $\bar{Z}_2$ which commute with the stablizers and anticommute with each other. It&rsquo;s quite easy to guess: if we rotate the loops corresponding to $\bar{Z}_1$ and $\bar{X}_1$ 90 degrees, we obtain two new operators which</p>
+<ol>
+<li>commute with $\bar{Z}_1$ and $\bar{X}_1$ (because the four operators don&rsquo;t overlap on any physical qubits);</li>
+<li>commute with the plaquettes and vertices (because of the same arguments made above&ndash;$Z$&rsquo;s commute with themselves and there are two minus signs for $XZ$);</li>
+<li>anticommute with each other (because they share only one physical qubit, and $XZ=-ZX$).</li>
+</ol>
+<h4 id="equivalency-of-logical-operators-under-stablizer-multiplication">Equivalency of logical operators under stablizer multiplication</h4>
+<p>The set of $\mathcal{L}$ described above is not unique, as explored in the three-qubit repetition code case. One can always multiply a $L\in\mathcal{L}$ with a stabilizer $S\in\mathcal{S}$ to get a new, equivalent encoded logical operator.</p>
+<p>Notice that the logical operators and stabilizer generators all consist solely of $Z$&rsquo;s and $X$&rsquo;s. This means in analyzing the equivalency we&rsquo;re can make use of the fact that Pauli are self-inverse extensively.</p>
+<p>For example, the logical $\bar{Z}$ can be multiply with a (collection) plaquette to form a new logical operator, which can be thought of as an act of <em>deforming</em> the loop wrapped around the torus. Although the loop is diverted from its original path, the overall properties holds.</p>
+<p>Similarly, the logical $\bar{X}$ are defined on the dual lattice. What&rsquo;s a vertex operator in the primal lattice, due to duality, is a plaquette operator in the dual lattice. The loop for $X$&rsquo;s is then also diverted from the original path, but the overall properties holds.</p>
+<h4 id="code-distace">Code distace</h4>
+<p>The code distance equals to the minimum weight of a encoded logical operator in the code. It&rsquo;s easy to see that the four loops we defined above acting on $L$ physical qubits, hence the code distance $d=L$. In summary, the toric code is denoted as $[[2L^2, 2, L]]$.</p>
+<p>In retrospect, one would like to increase the size of the lattice as much as possible, since the larger the code distance, the more likely an error being detected. But there&rsquo;s a limit which we can stop without adding too much redundancy, as we will see later. This limit is called the <em>error correction threshold</em>.</p>
+<h3 id="errors-on-the-toric-code">Errors on the toric code</h3>
+<h4 id="error-detection-1">Error detection</h4>
+<p>An error operator $E$ is a $n$-qubit Pauli operators, so $E=\{X^\otimes, Y^\otimes, Z^\otimes\}$. We&rsquo;ve also established the fact that to detect whether an error has happened, we measure the stablizers. If we get $+1$, then no error has occurred, otherwise we get $-1$, meaning that an error has occurred. The output of the stablizer measurements, which is a bitstring, is the error syndrome.</p>
+<p>Notice that the quantum three-repetition code cannot detect the $Z$ error. Toric code can, which is really nice.</p>
+<p>Let us first consider a $E_Z=Z$ error on a single qubit.  To detect such error, we must find a stablizer that anticommute with $E_Z$. Remember that we have two kinds of stabilizer operator, the vertices and plaquettes. Plaquettes are $Z$&rsquo;s, and hence they commute with $E_Z$, hence they cannot detect $E_Z$. Vertex operators on the other hand who adjoin the edge on both sides anticommute with the error. Hence, to detect a single phase flip event on toric code, we measure the output values of two adjacent vertex stabilizers.</p>
+<p>This idea can be extended to multiple $Z$ errors. First let us consider two $Z$ errors on adjacent qubits. The vertex operator between the two qubits is now commuting with the error $E_Z\otimes E_Z$. We must therefore move to measuring the vertices that adjoin the two ends of the overall edge.</p>
+<p>In general, given any string of $Z$ errors on the primal lattice, the only stablizer generators that will detect the errors are the vertices at the two ends of the string. Notice that if the errors occured on $L$ qubits, then the two vertex operators basically will be identified as one, therefore the errors and the vertex commute, making the errors undetectable. This is in agreement with the fact that toric code&rsquo;s distance is $L$.</p>
+<p>Detection of $X$ errors are carried in the same manner. Strings of $X$ errors on the dual lattice results in $-1$ outcomes on the plaquette operators adjoin the string on two ends in the dual lattice. Converting this back to the primal lattice, we&rsquo;re measuring the plaquettes.</p>
+<p>Since $X$ and $Z$ are the generators of Pauli group, and since two classes of errors independently affect different types of stabilizer measurements, we can consider them as two seperate error correting processes. Any insights that we have on one type of error will hold true in the dual lattice of the other error. So, we can focus on one kind of error correction and later we convert it to the dual lattice to complete the description of error correction on toric code.</p>
+<h4 id="error-correction-1">Error correction</h4>
+<p>To correct Pauli errors, we reapply Pauli operators. This is straightfoward. The problem lies in where to apply the Paulis, given a certain syndrome.</p>
+<p>There&rsquo;s a concept of degeneracy in error syndrome. It means that for a given syndrome, there is a certain degree of degeneracy associated with that syndrome, such that the syndrome would indicate faulty conclusion regarding the exact error processes that occurred. In other words, multiple error processes can exhibit the same syndrome. This follows from the fact that two errors $E$ and $E&rsquo;$ might be different up to any operator $L$, i.e. $E=E&rsquo;L$, where $L$ is any operator that commute with the stabilizer.</p>
+<p>This might sound a bit formal. Let us consider two strings of error that ending at the same vertex operators $V_1$, $V_2$. These two error strings result in the same syndrome $-1,-1$. Suppose Alice concludes $E&rsquo;$ happened, even though $E$ happened, and applies $E&rsquo;$, the resulting operator on the physical qubits is</p>
+<p>\[
+\begin{align}
+E&rsquo;E = E&rsquo;E&rsquo;L = L
+\end{align}
+\]</p>
+<p>which, if $L$ is in the stabilizer (stabilizers commute with themselves) would leave the code words invariant. Hence, in this case ($L\in\mathcal{S}$), applying $E&rsquo;$ would correct $E$.</p>
+<p>However, $L$ can be a encoded logical operator, which also commute with $\mathcal{S}$. In this case, the errors can be $E\bar{Z}_1, E\bar{Z}_2, E\bar{Z}_1\bar{Z}_2$, which all lead to the same error syndromes.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/posts/qec-101.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

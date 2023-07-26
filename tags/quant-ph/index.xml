@@ -9,13 +9,14 @@
     <copyright>© Nguyen Dinh Tien</copyright>
     <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/quant-ph/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Kindergarten quantum error correcting codes</title>
-      <link>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes/</link>
+      <title>Kindergarten quantum error correcting codes (P1)</title>
+      <link>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</link>
       <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes/</guid>
-      <description>The closest thing to magic we have is perhaps quantum error correction: the idea of knowing enough about a quantum state to be able to know whether a certain event had happened without knowing more so as not to collapse the state &amp;ndash; I mean, who wouldn&amp;rsquo;t be amazed?
-A toy example: Classical three-bit repetition code We will start classically, then we generalize and make it quantum. Let us consider the notorious classical three-bit repetition code.</description>
+      <guid>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</guid>
+      <description>You can think of the notes here are dumbed-down version of Dan Browne&amp;rsquo;s notes on topological codes and computation
+The closest thing to magic we have is perhaps quantum error correction: the idea of knowing enough about a quantum state to be able to know whether a certain event had happened without knowing more so as not to collapse the state &amp;ndash; I mean, who wouldn&amp;rsquo;t be amazed?
+A toy example: Classical three-bit repetition code We will start classically, then we generalize and make it quantum.</description>
     </item>
     
   </channel>
