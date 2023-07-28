@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum computation with bosonic qubits</title>
+      <link>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</guid>
+      <description>The coherent states of a quantum harmonic oscillator Freshen your mind In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.
+The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number. Let us start from the eigenfunctions of the harmonic oscillator $\psi_n(x)$, which form a complete orthonormal basis for the corresponding Hilbert space.</description>
+    </item>
+    
     <item>
       <title>Kindergarten quantum error correcting codes (P1)</title>
       <link>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</link>
