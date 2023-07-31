@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Fun with quantum mechanics - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Fun with quantum mechanics">
+<meta itemprop="description" content="Note on QM exercises."><meta itemprop="datePublished" content="2023-07-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="455">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Fun with quantum mechanics" />
+<meta property="og:description" content="Note on QM exercises." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/07/fun-with-quantum-mechanics/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fun with quantum mechanics"/>
+<meta name="twitter:description" content="Note on QM exercises."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">31</span>
+							<span class="rest">Jul 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Fun with quantum mechanics</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#fidelity">Fidelity</a></li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<h2 id="fidelity">Fidelity</h2>
+<p>Given an operator $\hat{Q}$ such that</p>
+<p>\[\begin{align}
+\hat{Q} = \sum_{k=1}^{d} q_k|q_l\rangle\langle q_k|
+\end{align}\]</p>
+<p>where $q_1 &lt; q_2 &lt; \dots &lt; q_{d-1} &lt; q_d$. What&rsquo;s the minimum distance between $\rho$ and $|q_d\rangle\langle q_d|$, given that</p>
+<p>\[\begin{align}
+\langle \hat{Q} \rangle = q_d - \epsilon &gt; q_{d-1}.
+\end{align}\]</p>
+<hr>
+<p>The distance between $\rho$ and $|q_k\rangle\langle q_k|$ is characterized by</p>
+<p>\[\begin{align}
+F = \langle q_k | \rho | q_k \rangle
+\end{align}\]</p>
+<p>Let us now suppose $\rho$ represents a <em>pure state</em>, $\rho = |\phi\rangle\langle\phi|$; in such case,</p>
+<p>\[\begin{align}
+F &amp;= \langle q_d | \phi \rangle \langle \phi | q_d \rangle\newline
+&amp;= \langle \phi | q_d \rangle \langle q_d | \phi \rangle\newline
+&amp;= \dfrac{1}{q_d}\left(\langle \phi |\left(\hat{Q} - \sum_{k=1}^{d-1} q_k |q_k\rangle\langle q_k | \right)|\phi\rangle\right)\newline
+&amp;= \dfrac{1}{q_d}\left(\langle \hat{Q} \rangle_\phi - \sum_{k=1}^{d-1} q_k \langle\phi|q_k \rangle\langle q_d | \phi \rangle \right)\newline
+&amp;= \dfrac{1}{q_d}\left(q_d - \epsilon - \sum_{k=1}^{d-1} q_k |\langle\phi|q_k \rangle|^2\right)\newline
+&amp;= 1 - \dfrac{\epsilon}{q_d} - \sum_{k=1}^{d-1} \dfrac{q_k}{q_d} |\langle\phi|q_k \rangle|^2 \newline
+&amp;\equiv 1 - \dfrac{\epsilon}{q_d} - A
+\end{align}\]</p>
+<p>Now we investigate $A$. The upper bound is</p>
+<p>\[\begin{align}
+\max A &amp;\leq \max \sum_{k=1}^{d-1}\dfrac{q_{d-1}}{q_d} |\langle \phi | q_k\rangle|^2\newline
+&amp;= \dfrac{q_{d-1}}{q_d}\max \sum_{k=1}^{d-1} |\langle \phi | q_k\rangle|^2
+\end{align}\]</p>
+<p>Notice that we always have $|\phi\rangle = \sum_{k=1}^d c_k |q_k\rangle$, the maximum of $\sum_{k=1}^{d-1}|\langle\phi|q_k\rangle|^2=1$ is reached once $|\phi\rangle \equiv |q_i\rangle, \forall i = 1, 2,\dots,d-1$. Hence</p>
+<p>\[\begin{align}
+\max A \leq \dfrac{q_{d-1}}{q_d}
+\end{align}\]</p>
+<p>What about the lower bound?</p>
+<p>\[\begin{align}
+\max A \geq \sum_{k=1}^{d-1} \dfrac{q_k}{q_d}|\langle\tilde{\phi}|q_k\rangle|^2
+\end{align}\]</p>
+<p>where $\tilde{\phi}$ is an arbitrary state that we can construct. The best solution is to construct $\phi$ such that $\phi=q_{d-1}$</p>
+<p>\[\begin{align}
+\max A &amp;\geq \sum_{k=1}^{d-1} \dfrac{q_k}{q_d}|\langle{q_{d-1}}|q_k\rangle|^2\newline
+&amp;= \dfrac{q_{d-1}}{q_d}
+\end{align}\]</p>
+<p>Hence $\max A = {q_{d-1}}/{q_d}$ (pure state $\rho$). Now we consider a more general case. Let us say we have an arbitrary mixed state $\rho=\sum_{j=1}^{N}p_j|\phi_j\rangle\langle\phi_j|$</p>
+<p>The fidelity in this case follows straightforwardly,</p>
+<p>\[\begin{align}
+F &amp;= \langle q_k |\left(\sum_{j=1}^N p_j |\phi_j\rangle\langle\phi_j|\right)|q_k\rangle\newline
+&amp;= \sum_{j=1}^N p_j \langle\phi_j|q_k\rangle\langle q_k |\phi_j\rangle\newline
+&amp;= \dfrac{1}{q_d}\sum_{j=1}^N p_j \langle\phi_j|\left(\hat{Q}-\sum_{k=1}^{d-1}q_k|q_k\rangle\langle q_k|\right)|\phi_j\rangle\newline
+&amp;= \dfrac{1}{q_d}\sum_{j=1}^N p_j \langle\phi_j|\hat{Q}|\phi_j\rangle -\sum_{j=1}^{N}\sum_{k=1}^{d-1}\dfrac{p_j q_k}{q_d}\langle\phi_j|q_k\rangle\langle q_k|\phi_j\rangle\newline
+&amp;= 1 - \dfrac{\epsilon}{q_d} - A
+\end{align}\]</p>
+<p>Let us now consider the lower bound and upper bound of $A$. First, the upper bound</p>
+<p>\[\begin{align}
+\max A &amp;\leq \max \sum_{j=1}^N\sum_{k=1}^{d-1} p_j\dfrac{q_{d-1}}{q_d} |\langle\phi_j|q_k\rangle|^2\newline
+&amp;= \dfrac{q_{d-1}}{q_d}\max \sum_{j=1}^N p_j \sum_{k=1}^{d-1} |\langle\phi_j|q_k\rangle|^2\newline
+&amp;= \dfrac{q_{d-1}}{q_d}
+\end{align}\]</p>
+<p>Similar trick for the lower bound,</p>
+<p>\[\begin{align}
+\max A \geq \sum_{j=1}^N\sum_{k=1}^{d-1} p_j \dfrac{q_k}{q_d} |\langle\tilde{\phi}_j|q_k\rangle|^2
+\end{align}\]</p>
+<p>where $\tilde{\phi}_j$ is an arbitrary state we can construct. The question is, can we construct a state that pushes</p>
+<p>\[\sum_{j=1}^N\sum_{k=1}^{d-1} p_j \dfrac{q_k}{q_d} |\langle\tilde{\phi}_j|q_k\rangle|^2\]</p>
+<p>up as high as possible? Yes, let $\tilde{\phi}_1=q_{d-1}$ and at the same time $p_1=1\ (p_2=p_3=\dots=p_N=0)$, so that</p>
+<p>\[
+\begin{align}
+\max A &amp;\geq \sum_{j=1}^N\sum_{k=1}^{d-1} p_j \dfrac{q_k}{q_d} |\langle\tilde{\phi}_j|q_k\rangle|^2\newline
+&amp;= \dfrac{q_{d-1}}{q_d}
+\end{align}
+\]</p>
+<p>Hence $\max A = {q_{d-1}}/{q_d}$ (an arbitrary mixed state $\rho$).</p>
+<p>In conclusion, the minimum distance between $|q_d\rangle$ and a mixed state $\rho$ can only be as low as</p>
+<p>\[\begin{align}
+F = 1-\dfrac{\epsilon+q_{d-1}}{q_d}
+\end{align}\]</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/posts/fun-with-quantum-mechanics.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
