@@ -6,18 +6,18 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Quantum computation with bosonic qubits">
-<meta itemprop="description" content="My take on quantum computing with cats"><meta itemprop="datePublished" content="2023-07-27T00:00:00+00:00" />
+<meta itemprop="description" content="My take on quantum computing with harmonic oscillators"><meta itemprop="datePublished" content="2023-07-27T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-07-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1334">
+<meta itemprop="wordCount" content="3298">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Quantum computation with bosonic qubits" />
-<meta property="og:description" content="My take on quantum computing with cats" />
+<meta property="og:description" content="My take on quantum computing with harmonic oscillators" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-07-27T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-07-27T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quantum computation with bosonic qubits"/>
-<meta name="twitter:description" content="My take on quantum computing with cats"/>
+<meta name="twitter:description" content="My take on quantum computing with harmonic oscillators"/>
 <link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
 
@@ -106,7 +106,7 @@
 				</header>
 				<nav id="TableOfContents">
   <ol>
-    <li><a href="#the-coherent-states-of-a-quantum-harmonic-oscillator">The coherent states of a quantum harmonic oscillator</a>
+    <li><a href="#baby-quantum-optics">Baby quantum optics</a>
       <ol>
         <li><a href="#freshen-your-mind">Freshen your mind</a></li>
         <li><a href="#coherent-states">Coherent states</a>
@@ -119,13 +119,27 @@
         </li>
       </ol>
     </li>
+    <li><a href="#bosonic-codes">Bosonic codes</a>
+      <ol>
+        <li><a href="#bosonic-rotation-codes">Bosonic rotation codes</a>
+          <ol>
+            <li><a href="#preliminaries">Preliminaries</a></li>
+            <li><a href="#fock-space-structure">Fock-space structure</a></li>
+            <li><a href="#the-phase-grids-and-the-fock-grids">The phase grids and the Fock grids</a></li>
+            <li><a href="#distinguishing-the-code-words">Distinguishing the code words</a></li>
+          </ol>
+        </li>
+        <li><a href="#number-phase-codes">Number-phase codes</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
 			</aside>
 			
 					
 			<div class="markdown">
-				<h2 id="the-coherent-states-of-a-quantum-harmonic-oscillator">The coherent states of a quantum harmonic oscillator</h2>
+				<h2 id="baby-quantum-optics">Baby quantum optics</h2>
+<p>So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&rsquo;re dealing with photons. It&rsquo;s good to review some really basic stuff.</p>
 <h3 id="freshen-your-mind">Freshen your mind</h3>
 <p>In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.</p>
 <p>The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number. Let us start from the eigenfunctions of the harmonic oscillator $\psi_n(x)$, which form a complete orthonormal basis for the corresponding Hilbert space. The following vectors</p>
@@ -338,6 +352,162 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 \end{align}
 \]</p>
 <p>meaning that $D(\alpha)|0\rangle$ is indeed an eigenvector of $a$, hence it is must be a coherent state.</p>
+<h2 id="bosonic-codes">Bosonic codes</h2>
+<p>Encoding quantum information into bosonic systems, i.e. continous-variable (CV) systems is an alternative to conventional error-correting codes based on discrete-variable systems.</p>
+<p>There are basically two kinds of bosonic codes at the present, each exploits a different type of symmetry to protect encoded information. The first one, based on discrete translation symmetry in phase space, notably the Gottesman, Kitaev, and Preskill (GKP) code. We won&rsquo;t get into that.</p>
+<p>The other one, much heralded experimentally, being codes that are based on discrete rotation symmetry in phase space. Two most notable examples being the cat code and binomial code. In what follows, we try to unify the two codes under one formalism.</p>
+<p>Here&rsquo;s several key points before we move further.</p>
+<ol>
+<li>
+<p>Bosonic rotation-symmetric codes are the ones whose logical qubits encoded into a subspace in which the discrete rotation operator $\hat{Z}_N=\exp\left(i\dfrac{\pi}{N}\hat{n}\right)$ acts as logical $\bar{Z}$, where $\hat{n}$ being the Fock-space number operator. Note that this feature of logical $\bar{Z}$ alone can define this rotation-symmetric set of bosonic codes.</p>
+</li>
+<li>
+<p>The parameter $N$ quantifies the degree of discrete rotation symmetry for the code. Note that any state in the codespace that is $N$-fold rotation symmetric is invariant under rotation by $2\pi/N$, hence $\hat{R}_N=\hat{Z}^2_N$ is the <em>stabilizer</em>, i.e. it leaves the codeword invariant.</p>
+</li>
+<li>
+<p>Because the codewords are $N$-fold rotation symmetry, any encoded state $|\psi_N\rangle$ has support only on every $N$th Fock state. This means that $|\psi_N\rangle = \sum_{k=0}^\infty c_{kN}|kN\rangle$. The degree of rotation symmetry thus quantifies the magnitude of a detectable shift in number and set a code <em>distance</em> in Fock space. Now if you think about it, in stablizer formalism, the codespace is a subspace of the Hilbert space $\mathcal{H}$ residing within are valid codewords. Similarly, the Fock space &lsquo;spanned&rsquo; by the $N$-fold symmetry states can only be reached if you start from a valid codeword, and then you do a multiple of $\pi/N$ rotation. If the environment did instead an arbitrary $U(\varphi)=\exp(i\theta\hat{n})$ rotation, i.e. a phase-shifting continuous operator, then it&rsquo;s an error.</p>
+</li>
+<li>
+<p>A special subset of the bosonic rotation codes are <em>number-phase</em> codes, which are rotated superpositions of states with small phase uncertainty. Note that if the phase uncertainty is small, then the number uncertainty should be large. In deed, in the limit of vanishing phase uncertainty, the number-phase codes are analogous to ideal GKP codes, with number and phase are complementary variables in place of $x$ and $p$.</p>
+</li>
+<li>
+<p>A critical question that must be asked repeatedly in quantum error corretion: is the redundancy worth it? In bosonic error-correting codes this question is equivalent to asking: whether the code performs better than a trivial encoding&ndash;a qubit encoded in Fock state $|0\rangle$ and $|1\rangle$ under the same set of noisy channels. The point where the error-corrected qubit performs <em>as well as</em> the trivial encoding is often referred to as the break-even point.</p>
+</li>
+</ol>
+<h3 id="bosonic-rotation-codes">Bosonic rotation codes</h3>
+<h4 id="preliminaries">Preliminaries</h4>
+<p>Alright. That&rsquo;s enough with the introduction. Let us get into the real deal.</p>
+<p>Basically we&rsquo;re trying to do single-qubit gate, so we only have to worry about single-mode bosonic codes atm. In experiments, the dominant noise processes are loss, gain, and dephasing. Loss means you lose one photon. Gain means you absorb one photon. And dephasing is basically a mixture of small, erroneous rotations in the phase-space (?).</p>
+<p>We use discrete rotation symmetry to define a class of single-mode codes called bosonic rotation codes. The code has a discrete $N$-fold rotation symmetry if any state $|\psi\rangle$ in the codespace is a $+1$ eigenstate of the discrete rotation operator</p>
+<p>\[
+\hat{R}_N=\exp\left(i\dfrac{2\pi}{N}\hat{n}\right),
+\]</p>
+<p>where $\hat{n}=\hat{a}^\dagger\hat{a}$ is the Fock-space number operator. One can think of $\hat{R}_N$ as the identity operator <em>on</em> the codewords. One may even go further and say $\hat{R}_N$ is the stabilizer, however in other to detect the error we&rsquo;re not looking at the syndrome of $\hat{R}_N$.</p>
+<p>We define an order-$N$ rotation code to be a code where the operator</p>
+<p>\[
+\hat{Z}_N \coloneqq \hat{R}_{2N} = \exp\left(i\dfrac{\pi}{N}\hat{n}\right)
+\]</p>
+<p>acts a logical $\bar{Z}$.</p>
+<p>The logical codewords for any order-$N$ rotation code can be constructed from discrete rotated superpositions of a normalized <em>primitive</em> state $|\Theta\rangle$. In general, from the definition of $\bar{Z}$,</p>
+<p>\[
+\bar{Z}|0_L\rangle = |0_L\rangle,\newline
+\bar{Z}|1_L\rangle = -|1_L\rangle
+\]</p>
+<p>the two orthogonal codewords must satisfy</p>
+<p>\[\begin{align}
+|0_L\rangle &amp;= \dfrac{1}{\mathcal{N}_0}\sum_{m=0}^{2N-1}e^{i\frac{m\pi}{N}\hat{n}}|\Theta\rangle,\newline
+|1_L\rangle &amp;= \dfrac{1}{\mathcal{N}_1}\sum_{m=0}^{2N-1}(-1)^m e^{i\frac{m\pi}{N}\hat{n}}|\Theta\rangle,
+\end{align}\]</p>
+<p>Now, because the encoded logical states are characterized by two properties, first being the degree of $N$-fold rotational symmetry, and second being from which <em>primitive</em> state $\Theta$ the logical codeword are defined, hence we can change the subscript from $L\to N,\Theta$.</p>
+<p>\[\begin{align}
+|0_{N,\Theta}\rangle &amp;= \dfrac{1}{\sqrt{\mathcal{N}_0}}\sum_{m=0}^{2N-1}e^{i\frac{m\pi}{N}\hat{n}}|\Theta\rangle,\newline
+|1_{N,\Theta}\rangle &amp;= \dfrac{1}{\sqrt{\mathcal{N}_1}}\sum_{m=0}^{2N-1}(-1)^m e^{i\frac{m\pi}{N}\hat{n}}|\Theta\rangle,
+\end{align}\]</p>
+<p>There is a technical constraint on the choice of $|\Theta\rangle$ which will be explored later.</p>
+<p>When the rotated primitives $|\Theta\rangle$ are orthogonal, meaning that</p>
+<p>\[
+\begin{align}
+\langle\Theta|(\hat{Z}_N)^m|\Theta\rangle =0,\forall 0 &lt; m &lt; 2N,
+\end{align}
+\]</p>
+<p>then $\mathcal{N}_0=\mathcal{N}_1=2N$. Generally, however, they are not orthogonal, and the normalization constants are different. But, the codewords themselves are exactly orthogonal (of course, otherwise they are useless) for any valid $|\Theta\rangle$:</p>
+<p>\[\begin{align}
+\langle 0_{N,\Theta} | 1_{N,\Theta} \rangle = \dfrac{1}{\sqrt{\mathcal{N}_0\mathcal{N}_1}}\propto A\sum_{m=0}^{2N-1}(-1)^m = 0
+\end{align}\]</p>
+<p>because there is an even number of $(-1)^m$. Furthermore, any state in the codespace $|\psi_{N,\Theta}\rangle = a|0_{N,\Theta}\rangle + b|1_{N,\Theta}\rangle$ has $N$-fold rotation symmetry, since</p>
+<p>\[
+\begin{align}
+\hat{R}_N|\psi_N\rangle = a\hat{R}_N|0_N\rangle + b\hat{R}_N|1_N\rangle=a|0_N\rangle + b|1_N\rangle \equiv |\psi_N\rangle,
+\end{align}
+\]</p>
+<p>where we have suppress the $\Theta$-subscript.</p>
+<p>Under this paradigm, we realize that rotation codes can have the same degree of rotation symmetry $N$. While a given primitive $|\Theta\rangle$ uniquely defines an order-$N$ rotation code, there are many possible primitives $|\Theta\rangle$ that give rise to the same code.</p>
+<ol>
+<li>
+<p>The famous <code>cat code</code> has primitive being a coherent state of the harmonic oscillator $|\Theta_{\texttt{cat}}\rangle = |\alpha\rangle$.</p>
+</li>
+<li>
+<p>Another example being the <code>0N</code> code, where logical codewords are $|0_\texttt{0N}\rangle=|0\rangle, |1_\texttt{0N}\rangle = |N\rangle$. The primitive state in this case <em>could</em> be, for example, $|\Theta_\texttt{0N}\rangle = (|0\rangle + |N\rangle)/\sqrt{2}$.</p>
+</li>
+</ol>
+<h4 id="fock-space-structure">Fock-space structure</h4>
+<blockquote>
+<p>Discrete rotational symmetry enforces a spacing of the codewords in Fock space, which underpins the codes&rsquo; robustness to loss and gain errors.</p>
+</blockquote>
+<p>This statement basically means that we have a larger than 1 code distance. Consider the action of $\hat{Z}_N=\hat{R}_{2N}=\exp\left(i\frac{\pi}{N}\hat{n}\right)$ on an arbitrary state $|\psi\rangle = \sum_n a_n|n\rangle$,</p>
+<p>\[
+\begin{align}
+\hat{Z}_N|\psi\rangle=\sum_n e^{i\pi n/N}a_n|n\rangle
+\end{align}
+\]</p>
+<p>Clearly $|\psi\rangle$ is a $+1$ eigenstate of $\hat{Z}_N$ if and only if $a_n=0$ for all $n\neq 2kN$ (since, you know, $\exp(i 2k\pi)=1$). And $|\psi\rangle$ is a $-1$ eigenstate of $\hat{Z}_N$ if and only if $a_n=0$ for all $n\neq (2k+1)N$. This leads to the following general form for any $\pm 1$ eigenstates of $\hat{Z}_N$,</p>
+<p>\[\begin{align}
+|0_N\rangle &amp;= \sum_{k=0}^\infty f_{2kN} |2kN\rangle,\newline
+|1_N\rangle &amp;= \sum_{k=0}^\infty f_{(2k+1)N} |(2k+1)N\rangle
+\end{align}\]</p>
+<p>To explicitly connect the two representations of rotation-symmetric codewords, one in the primitive states rep. and one in the Fock-basis, we use the relation for a Kronecker comb,</p>
+<p>\[
+\dfrac{1}{M}\sum_{m=0}^{M-1} \exp\left(i\dfrac{2\pi mn}{M}\right)=\sum_{k=0}^\infty \delta_{n, kM},\ n = 0, 1, 2,\dots
+\]</p>
+<p>to construct a projector onto the set of Fock states $|2kN+l\rangle$ for $k=0, 1, 2,\dots$. By definition, such a projector is</p>
+<p>\[
+\begin{align}
+\Pi_{2N}^l \coloneqq \sum_{k=0}^\infty |2kN+l\rangle\langle 2kN + l|
+\end{align}
+\]</p>
+<p>Using the Kronecker comb,</p>
+<p>\[
+\sum_{k=0}^\infty |2kN+l\rangle\langle 2kN + l| = \dfrac{1}{2N}\sum_{m=0}^{2N-1}\left(e^{-i\frac{\pi l}{N}}\hat{Z}_N\right)^m
+\]</p>
+<p>The factors $e^{i\pi l/N}$ with $l\in\{0, 1, \dots, 2N-1\}$ are the complex $2N$th roots of unity. Acting the projector on a primitive state $|\Theta\rangle = \sum_n c_n|n\rangle$ with at least one non-zero $c_{2kN+l}$</p>
+<p>\[
+\Pi_{2N}^l |\Theta\rangle = \sum_{k=0}^\infty c_{2kN+l}|2kN +l\rangle
+\]</p>
+<p>will produce an unnormalized eigenstate of the operator $\hat{Z}_N$ with eigenvalue $e^{i\pi l/N}$.</p>
+<p>It is now straightforward to see that the two representation are equivalent, since we can write</p>
+<p>\[
+\begin{align}
+|0_N\rangle = \dfrac{\hat{\Pi}^0_{2N}|\Theta\rangle}{\sqrt{\mathcal{N}_0^*}},\newline
+|1_N\rangle = \dfrac{\hat{\Pi}^N_{2N}|\Theta\rangle}{\sqrt{\mathcal{N}_1^*}},\newline
+\end{align}
+\]</p>
+<p>For the codewords to be well-defined it is now clear that the <em>primitive</em> must have support on at least one of the $|2kN\rangle$ Fock states and one on the $|(2k+1)N\rangle$ Fock states. Because they have support of different Fock states, they are by definition orthogonal.</p>
+<p>The dual-basis codewords, $|\pm_N\rangle$ are constructed as usual via plus and minus equal superposition of the encoded $|0_N\rangle$ and $|1_N\rangle$. In the Fock space representations, they are</p>
+<p>\[
+\begin{align}
+|+_N\rangle &amp;= \dfrac{1}{\sqrt{2}}\sum_{k=0}^\infty f_{kN}|kN\rangle,\newline
+|-_N\rangle &amp;= \dfrac{1}{\sqrt{2}}\sum_{k=0}^\infty (-1)^k f_{kN}|kN\rangle
+\end{align}
+\]</p>
+<p>Because we&rsquo;re having both support from even multiple of $N$ and odd multiple of $N$, both $|\pm_N\rangle$ have support on the full set of $|kN\rangle$ Fock states. It&rsquo;s interesting to note that, as one compares $|0_N\rangle$ and $|+_N\rangle$, one realizes any logical $|0_N\rangle$ state is also a logical $|+_{2N}\rangle$ for a code with twice the rotation symmetry (i.e. we going from $N$-fold symmetry to $2N$-fold symmetry), which is not necessarily the <em>same</em> code. In other words, for a given codeword $|0_{N,\Theta}\rangle$ defined by a primitive $|\Theta\rangle$, we have that</p>
+<p>\[
+\begin{align}
+|0_{N,\Theta}\rangle = |+_{2N,\Theta&rsquo;}\rangle
+\end{align}
+\]</p>
+<p>for some primitive $|\Theta&rsquo;\rangle$. Whenever the codeword normalization constant equal to each other, the primitive states must be the same.</p>
+<p>While we have a nice picture of how to do $Z$ operation within our error-correcting schemes, we don&rsquo;t have an equally simple picture of $X$ operation. We&rsquo;ll try to do $\bar{X}$ later.</p>
+<p>Now, a useful quantity for comparing codes is the average excitation number of the code,</p>
+<p>\[
+\begin{align}
+\bar{n}_{\texttt{code}} &amp;= \dfrac{1}{2}\text{tr}\left[\hat{\Pi}_{\texttt{code}}\hat{n}\right]\newline
+&amp;=\dfrac{1}{2}\left(\langle 0_N|\hat{n} |0_N\rangle + \langle 1_N|\hat{n}|1_N\rangle\right)
+\end{align}
+\]</p>
+<p>By construction the average excitation number is the same for each of the dual-basis codewords, and should be $\bar{n}_{\texttt{code}}=\langle \pm_N|\hat{n}|\pm_N\rangle$. Since the rotation operator commutes with number operator, rotations do not increase the excitation number. The computational-basis codewords have different average excitation number due to different phases in the superpositions, but it remains bounded.</p>
+<h4 id="the-phase-grids-and-the-fock-grids">The phase grids and the Fock grids</h4>
+<p>With a given primitive $|\Theta\rangle$, the order of rotation symmetry $N$ parameterizes a code both in phase space and in Fock space. It is therefore natural to think of two different concepts of code distance. Here, we have <em>number distance</em> $d_n\coloneqq N$ and <em>rotational distance</em> $d_\theta \coloneqq \pi/N$. The number rotation and phase-space rotation play a dual rule: Codes of increasing $N$ are further separated in Fock space but are more closely separated in terms of rotations. For an order-$N$ rotation code, we refer to the set of angles $\{m d_\theta\}$ for $m=0, 1, \dots, 2N-1$ as the phase grid and the set of Fock states $\{|kN\rangle\}$ for $k=0,1,\dots$ as the Fock grid. These are in analogy to the position- and momentum-space grids on which GKP codes are defined. The phase grid and Fock grid broadly characterize the types of error to which the code is intrinsically robust. For example, loss and gain errors, representing by $\sim\hat{a}^k$ or $\sim(\hat{a}^\dagger)^k$ are detectable as long as $k&lt;d_n = N$. Dephasing errors, representing by $e^{i\theta\hat{n}}$, should be detectable as long as $\theta&lt; d_\theta$.</p>
+<h4 id="distinguishing-the-code-words">Distinguishing the code words</h4>
+<p>A natural way of thinking is to use number and phase measurements. In the computational basis, one would think about measuring the average number of excitation, since we&rsquo;re in the Fock state basis anyway. However, one could think of phase measurement once they&rsquo;re in the dual basis</p>
+<ol>
+<li>
+<p>Number measurement: For an order-$N$ code, a number measurement returns an outcome $kN$ for integer $k$. If $k$ is even, then the logical state is $0$, odd otherwise. In the presence of errors, such a measurement can still correctly identify the damaged codewords. For instance, assuming that the probability of loss and gain events are equally likely, then a straightforward way to decode is to: measure $n$, and round to the nearest $kN$. If $k$ is even, then it was &ldquo;0&rdquo;, and odd otherwise.</p>
+</li>
+<li>
+<p>Phase measurement: An approach to distinguishing $|\pm_{N,\Theta}\rangle$ with a certain robustness relies on phase estimation. In noiseless scheme, the task can be formulated as follows: Given the code word $|+_{N,\Theta}\rangle$ for a rotation code, determine $\theta$ in $e^{i\theta\hat{n}}|+_{N,\Theta}\rangle$. If $\theta\mod 2\pi/N = 0$, the state is $|+_{N,\Theta}\rangle$, while if $\theta\mod 2\pi/N = \pi/N$, the state is $|-_{N,\Theta}\rangle$.</p>
+</li>
+</ol>
+<h3 id="number-phase-codes">Number-phase codes</h3>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -375,7 +545,7 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 			<div class="back">
 				
 					
-					Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
+					Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
 					
 				
 			</div></div>

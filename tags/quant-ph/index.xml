@@ -29,8 +29,9 @@ Let us now suppose $\rho$ represents a pure state, $\rho = |\phi\rangle\langle\p
       <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</guid>
-      <description>The coherent states of a quantum harmonic oscillator Freshen your mind In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.
-The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number. Let us start from the eigenfunctions of the harmonic oscillator $\psi_n(x)$, which form a complete orthonormal basis for the corresponding Hilbert space.</description>
+      <description>Baby quantum optics So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&amp;rsquo;re dealing with photons. It&amp;rsquo;s good to review some really basic stuff.
+Freshen your mind In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.
+The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number.</description>
     </item>
     
     <item>
