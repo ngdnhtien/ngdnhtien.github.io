@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="Quantum computation with bosonic qubits">
 <meta itemprop="description" content="My take on quantum computing with harmonic oscillators"><meta itemprop="datePublished" content="2023-07-27T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-07-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3298">
+<meta itemprop="wordCount" content="4407">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Quantum computation with bosonic qubits" />
 <meta property="og:description" content="My take on quantum computing with harmonic oscillators" />
 <meta property="og:type" content="article" />
@@ -113,8 +113,11 @@
           <ol>
             <li><a href="#properties-of-coherent-states">Properties of coherent states</a></li>
             <li><a href="#phase-shifting-operator">Phase shifting operator</a></li>
-            <li><a href="#displacement-operator">Displacement operator</a></li>
-            <li><a href="#generation-of-coherent-states-using-displacement-operator">Generation of coherent states using displacement operator</a></li>
+            <li><a href="#displacement-operator">Displacement operator</a>
+              <ol>
+                <li><a href="#generation-of-coherent-states-using-displacement-operator">Generation of coherent states using displacement operator</a></li>
+              </ol>
+            </li>
           </ol>
         </li>
       </ol>
@@ -129,7 +132,19 @@
             <li><a href="#distinguishing-the-code-words">Distinguishing the code words</a></li>
           </ol>
         </li>
-        <li><a href="#number-phase-codes">Number-phase codes</a></li>
+        <li><a href="#number-phase-codes">Number-phase codes</a>
+          <ol>
+            <li><a href="#ideal-number-phase-codes">Ideal number-phase codes</a></li>
+            <li><a href="#approximate-number-phase-codes">Approximate number-phase codes</a></li>
+            <li><a href="#symmetry-as-a-resource-quantum-computing-with-number-phase-codes">Symmetry as a resource: quantum computing with number-phase codes</a></li>
+            <li><a href="#universal-operations-for-number-phase-codes">Universal operations for number-phase codes</a>
+              <ol>
+                <li><a href="#unitary-gates">Unitary gates</a></li>
+                <li><a href="#teleported-gates">Teleported gates</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -138,9 +153,9 @@
 			
 					
 			<div class="markdown">
-				<h2 id="baby-quantum-optics">Baby quantum optics</h2>
+				<h1 id="baby-quantum-optics">Baby quantum optics</h1>
 <p>So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&rsquo;re dealing with photons. It&rsquo;s good to review some really basic stuff.</p>
-<h3 id="freshen-your-mind">Freshen your mind</h3>
+<h2 id="freshen-your-mind">Freshen your mind</h2>
 <p>In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.</p>
 <p>The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number. Let us start from the eigenfunctions of the harmonic oscillator $\psi_n(x)$, which form a complete orthonormal basis for the corresponding Hilbert space. The following vectors</p>
 <p>\[
@@ -167,19 +182,19 @@
 \vdots &amp; \dots &amp; \dots &amp; \ddots \end{bmatrix}
 \end{align}
 \]</p>
-<h3 id="coherent-states">Coherent states</h3>
+<h2 id="coherent-states">Coherent states</h2>
 <p>Coherent states play a pivotal role in quantum optics. The operator we&rsquo;re about to derive is named after Roy J. Glauber, Nobel prize laureate to the quantum theory of optical coherence.</p>
 <p>Imagining a laser. How many photons does a laser beam have? It seems indefinitely many. But what makes laser such a breakthrough at the time of its invention is that although we have a massive amount of photons, they all pick up a precisely defined phase. A white light, on the other hand, is a statistical mixture of many many photons with random phases and oscillating orientations.</p>
 <blockquote>
 <p>Definition: A <strong>coherent state</strong> $|\alpha\rangle$, or a Glauber state, is defined as eigenstate of the annihilation operator ${a}$ with eigenvalues $\alpha\in\mathbb{C}$, i.e. ${a}|\alpha\rangle = \alpha|\alpha\rangle$.</p>
 </blockquote>
 <p>Notice that ${a}$ is a non-hermitian operator<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, hence the phase $\alpha$ is complex-valued, with a certain amplitude $|\alpha|$ and a phase $\alpha=|\alpha|e^{i\varphi}$.</p>
-<h4 id="properties-of-coherent-states">Properties of coherent states</h4>
+<h3 id="properties-of-coherent-states">Properties of coherent states</h3>
 <p>First, let us calculate the expectation value of energy in a certain coherent state $|\alpha\rangle$.</p>
 <p>\[
 \langle {H} \rangle = \langle \alpha|{H}|\alpha\rangle = \hbar\omega\langle \alpha|{n}+\dfrac{1}{2}|\alpha\rangle = \hbar\omega(|\alpha|^2+\dfrac{1}{2})
 \]</p>
-<h4 id="phase-shifting-operator">Phase shifting operator</h4>
+<h3 id="phase-shifting-operator">Phase shifting operator</h3>
 <p>Now we introduce the <em>phase shifting operator</em>,</p>
 <p>\[
 \begin{align}
@@ -226,7 +241,7 @@ a |\alpha&rsquo;\rangle &amp;= \alpha e^{-i\theta}|\alpha&rsquo;\rangle
 <p>\[
 U(\theta)|\alpha\rangle = |\alpha e^{-i\theta}\rangle
 \]</p>
-<h4 id="displacement-operator">Displacement operator</h4>
+<h3 id="displacement-operator">Displacement operator</h3>
 <p>Another type of important operator is the displacement operator</p>
 <p>\[
 \begin{align}
@@ -352,7 +367,7 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 \end{align}
 \]</p>
 <p>meaning that $D(\alpha)|0\rangle$ is indeed an eigenvector of $a$, hence it is must be a coherent state.</p>
-<h2 id="bosonic-codes">Bosonic codes</h2>
+<h1 id="bosonic-codes">Bosonic codes</h1>
 <p>Encoding quantum information into bosonic systems, i.e. continous-variable (CV) systems is an alternative to conventional error-correting codes based on discrete-variable systems.</p>
 <p>There are basically two kinds of bosonic codes at the present, each exploits a different type of symmetry to protect encoded information. The first one, based on discrete translation symmetry in phase space, notably the Gottesman, Kitaev, and Preskill (GKP) code. We won&rsquo;t get into that.</p>
 <p>The other one, much heralded experimentally, being codes that are based on discrete rotation symmetry in phase space. Two most notable examples being the cat code and binomial code. In what follows, we try to unify the two codes under one formalism.</p>
@@ -374,8 +389,8 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 <p>A critical question that must be asked repeatedly in quantum error corretion: is the redundancy worth it? In bosonic error-correting codes this question is equivalent to asking: whether the code performs better than a trivial encoding&ndash;a qubit encoded in Fock state $|0\rangle$ and $|1\rangle$ under the same set of noisy channels. The point where the error-corrected qubit performs <em>as well as</em> the trivial encoding is often referred to as the break-even point.</p>
 </li>
 </ol>
-<h3 id="bosonic-rotation-codes">Bosonic rotation codes</h3>
-<h4 id="preliminaries">Preliminaries</h4>
+<h2 id="bosonic-rotation-codes">Bosonic rotation codes</h2>
+<h3 id="preliminaries">Preliminaries</h3>
 <p>Alright. That&rsquo;s enough with the introduction. Let us get into the real deal.</p>
 <p>Basically we&rsquo;re trying to do single-qubit gate, so we only have to worry about single-mode bosonic codes atm. In experiments, the dominant noise processes are loss, gain, and dephasing. Loss means you lose one photon. Gain means you absorb one photon. And dephasing is basically a mixture of small, erroneous rotations in the phase-space (?).</p>
 <p>We use discrete rotation symmetry to define a class of single-mode codes called bosonic rotation codes. The code has a discrete $N$-fold rotation symmetry if any state $|\psi\rangle$ in the codespace is a $+1$ eigenstate of the discrete rotation operator</p>
@@ -430,7 +445,7 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 <p>Another example being the <code>0N</code> code, where logical codewords are $|0_\texttt{0N}\rangle=|0\rangle, |1_\texttt{0N}\rangle = |N\rangle$. The primitive state in this case <em>could</em> be, for example, $|\Theta_\texttt{0N}\rangle = (|0\rangle + |N\rangle)/\sqrt{2}$.</p>
 </li>
 </ol>
-<h4 id="fock-space-structure">Fock-space structure</h4>
+<h3 id="fock-space-structure">Fock-space structure</h3>
 <blockquote>
 <p>Discrete rotational symmetry enforces a spacing of the codewords in Fock space, which underpins the codes&rsquo; robustness to loss and gain errors.</p>
 </blockquote>
@@ -495,19 +510,136 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 \end{align}
 \]</p>
 <p>By construction the average excitation number is the same for each of the dual-basis codewords, and should be $\bar{n}_{\texttt{code}}=\langle \pm_N|\hat{n}|\pm_N\rangle$. Since the rotation operator commutes with number operator, rotations do not increase the excitation number. The computational-basis codewords have different average excitation number due to different phases in the superpositions, but it remains bounded.</p>
-<h4 id="the-phase-grids-and-the-fock-grids">The phase grids and the Fock grids</h4>
+<h3 id="the-phase-grids-and-the-fock-grids">The phase grids and the Fock grids</h3>
 <p>With a given primitive $|\Theta\rangle$, the order of rotation symmetry $N$ parameterizes a code both in phase space and in Fock space. It is therefore natural to think of two different concepts of code distance. Here, we have <em>number distance</em> $d_n\coloneqq N$ and <em>rotational distance</em> $d_\theta \coloneqq \pi/N$. The number rotation and phase-space rotation play a dual rule: Codes of increasing $N$ are further separated in Fock space but are more closely separated in terms of rotations. For an order-$N$ rotation code, we refer to the set of angles $\{m d_\theta\}$ for $m=0, 1, \dots, 2N-1$ as the phase grid and the set of Fock states $\{|kN\rangle\}$ for $k=0,1,\dots$ as the Fock grid. These are in analogy to the position- and momentum-space grids on which GKP codes are defined. The phase grid and Fock grid broadly characterize the types of error to which the code is intrinsically robust. For example, loss and gain errors, representing by $\sim\hat{a}^k$ or $\sim(\hat{a}^\dagger)^k$ are detectable as long as $k&lt;d_n = N$. Dephasing errors, representing by $e^{i\theta\hat{n}}$, should be detectable as long as $\theta&lt; d_\theta$.</p>
-<h4 id="distinguishing-the-code-words">Distinguishing the code words</h4>
+<h3 id="distinguishing-the-code-words">Distinguishing the code words</h3>
 <p>A natural way of thinking is to use number and phase measurements. In the computational basis, one would think about measuring the average number of excitation, since we&rsquo;re in the Fock state basis anyway. However, one could think of phase measurement once they&rsquo;re in the dual basis</p>
 <ol>
 <li>
 <p>Number measurement: For an order-$N$ code, a number measurement returns an outcome $kN$ for integer $k$. If $k$ is even, then the logical state is $0$, odd otherwise. In the presence of errors, such a measurement can still correctly identify the damaged codewords. For instance, assuming that the probability of loss and gain events are equally likely, then a straightforward way to decode is to: measure $n$, and round to the nearest $kN$. If $k$ is even, then it was &ldquo;0&rdquo;, and odd otherwise.</p>
 </li>
 <li>
-<p>Phase measurement: An approach to distinguishing $|\pm_{N,\Theta}\rangle$ with a certain robustness relies on phase estimation. In noiseless scheme, the task can be formulated as follows: Given the code word $|+_{N,\Theta}\rangle$ for a rotation code, determine $\theta$ in $e^{i\theta\hat{n}}|+_{N,\Theta}\rangle$. If $\theta\mod 2\pi/N = 0$, the state is $|+_{N,\Theta}\rangle$, while if $\theta\mod 2\pi/N = \pi/N$, the state is $|-_{N,\Theta}\rangle$.</p>
+<p>Phase measurement: An approach to distinguishing $|\pm_{N,\Theta}\rangle$ with a certain robustness relies on phase estimation. In noiseless scheme, the task can be formulated as follows: Given the code word $|+_{N,\Theta}\rangle$ for a rotation code, determine $\theta$ in $e^{i\theta\hat{n}}|+_{N,\Theta}\rangle$. If $\theta\mod 2\pi/N = 0$, the state is $|+_{N,\Theta}\rangle$, while if $\theta\mod 2\pi/N = \pi/N$, the state is $|-_{N,\Theta}\rangle$. Note that by design, $|-_N\rangle=e^{i(\pi/N)\hat{n}}|+_N\rangle$.</p>
 </li>
 </ol>
-<h3 id="number-phase-codes">Number-phase codes</h3>
+<h2 id="number-phase-codes">Number-phase codes</h2>
+<p>We have to sacrifice an embedded phase uncertainty $\Delta_N(\theta)$ in out measurement scheme above. This phase uncertainty is minimized when the distribution of Fock-grid coefficients is completely flat, i.e. $|f_{kN}|=|f_{(k+1)N}|$ for all $k$. In such cases, $|\langle e^{iN \phi}\rangle|=1$ and the phase uncertainty vanishes (if you think about it, we have all amplitude coefficients being equal to each other, meaning that we don&rsquo;t have <em>any</em> information regardings the number of excitation). The only problem with this scheme is that such state is not normalizable, making the scheme purely theoretical. However, we theorize that there exists a certain limit of Fock-grid coefficients such that the phase uncertainty is sufficiently small. As it turns out, this limit exists.</p>
+<h3 id="ideal-number-phase-codes">Ideal number-phase codes</h3>
+<p>In analogy with ideal GKP codes defined in terms of superpositions of position (or momentum) eigenstates, we define a familty of order-$N$ rotation codes as</p>
+<p>\[
+\begin{align}
+|0_{N,\texttt{phase}}\rangle&amp;\coloneqq\sum_{m=0}^{2N-1}|\phi\rangle,\newline
+|1_{N,\texttt{phase}}\rangle&amp;\coloneqq\sum_{m=0}^{2N-1}(-1)^m|\phi\rangle
+\end{align}
+\]</p>
+<p>where the general $\phi\rangle$ state are the superpositions of Pegg-Barnett phase states</p>
+<p>\[
+\begin{align}
+|\phi\rangle \coloneqq \dfrac{1}{\sqrt{2\pi}}\sum_{n=0}^\infty e^{in\phi}|n\rangle
+\end{align}
+\]</p>
+<p>For our ideal number-phase codes, this phase state is chosen such that $\phi=m\pi/N$.</p>
+<p>\[
+\begin{align}
+|\phi_{N,\texttt{phase}}\rangle \coloneqq \dfrac{1}{\sqrt{2\pi}}\sum_{n=0}^\infty e^{i(m\pi/N)n}|n\rangle
+\end{align}
+\]</p>
+<p>One may perform summation over $m$ to see that the aboved-defined encoded states are supported by $2kN$ Fock states for logical &lsquo;0&rsquo; and $(2k+1)N$ Fock states for logical &lsquo;1&rsquo;. Indeed,</p>
+<p>\[
+\begin{align}
+|0_{N,\texttt{phase}}\rangle &amp;= \sum_{m=0}^{2N-1} \dfrac{1}{\sqrt{2\pi}}\sum_{n=0}^\infty e^{i(m\pi/N)n}|n\rangle \newline
+&amp;=\dfrac{1}{\sqrt{2\pi}}\sum_{n=0}^\infty\sum_{m=0}^{2N-1}e^{i\pi mn/N}|n\rangle
+\end{align}
+\]</p>
+<p>Note that</p>
+<p>\[
+\begin{align}
+\dfrac{1}{2N}\sum_{m=0}^{2N-1}\exp\left(i\dfrac{i\pi m n}{2N}\right)=\sum_{k=0}^\infty\delta_{n,2kN}
+\end{align}
+\]</p>
+<p>Then
+\[
+\begin{align}
+|0_{N,\texttt{phase}}\rangle &amp;= \dfrac{1}{\sqrt{2\pi}}\sum_{n=0}^\infty\sum_{m=0}^{2N-1}e^{i\pi mn/N}|n\rangle\newline
+&amp;\propto \sum_{n=0}^\infty\sum_{k=0}^{\infty}\delta_{n/2,kN}|n\rangle=\sum_{k=0}^\infty |2kN\rangle
+\end{align}
+\]</p>
+<p>Similarly for the encoded <code>1</code>, where there is a surplus $(-1)^m$ in the front, then</p>
+<p>\[
+\begin{align}
+|1_N\rangle \propto \sum_{k=0}^\infty |(2k+1)N\rangle
+\end{align}
+\]</p>
+<p>Any state in the codespace spanned by $\{|0_{N,\texttt{phase}}\rangle, |1_{N,\texttt{phase}}\rangle\}$ is a $+1$ eigenstate of $\hat{R}_N$. The codewords are also $+1$ eigenstates of a number translation operator such that</p>
+<p>\[
+\hat{\sum}_N \coloneqq \sum_{n=0}^\infty |n\rangle \langle n + 2N|,
+\]</p>
+<p>We can define an $\hat{X}_N$ gate from this generalized operator,</p>
+<p>\[
+\begin{align}
+\hat{X}_N \coloneqq \hat{\sum}_{N/2} = \sum_{n=0}^\infty |n\rangle \langle n+N|
+\end{align}
+\]</p>
+<p>Note that this $\hat{X}_N \coloneqq \hat{\sum}_{N/2}$ operator commute with the rotation operator $\hat{R}_N$ (an encoded logical operator commute with the stabilizer) and anticommute with $\hat{Z}_N$, so it&rsquo;s good.</p>
+<h3 id="approximate-number-phase-codes">Approximate number-phase codes</h3>
+<p>Ideal number-phase codes as defined above are unphysical, because they require an infinite excitation number and are not normalizable.</p>
+<p>However, one can see that for any rotation code with positive, real Fock-grid coefficients $\{f_{kN}\}$, we have $\langle \pm_{N,\Theta}|\hat{X}_N|\pm_{N,\theta}\rangle=\pm \langle e^{iN\theta}\rangle$.</p>
+<p>This $\langle e^{iN\theta}\rangle$ thing is called the mean modular phase,</p>
+<p>\[
+\langle e^{iN\theta}\rangle = \int_0^{2\pi} e^{iN\theta}\mu(\theta)d\theta = \dfrac{1}{2}\sum_{k=0}^\infty |f_{kN}f_{(k+1)N}|,
+\]</p>
+<p>Remember that plus and minus are eigenstates of the $X$ operator, hence for the $\hat{X}_{N}$ gate we <em>should</em> have the mean modular phase approaches unity. This is true if and only if $\Delta_N(\theta)\to 0$. In the limit of vanishing phase uncertainty, we obtain a family of codes whose stabilizer are $\hat{\sum}_N$ and for which $\hat{X}_N$ acts as a logical $\bar{X}$.</p>
+<p>An interesting property of number-phase codes arises from the fact that as the phase uncertainty vanishes, two normalization constants are equal. It immediately follows that the dual-basis codewords also become equal-weight superpositions of the primitive state. Hence, a stronger number-phase duality emerges: the dual-basis codewords $|\pm_N\rangle$ are separated from each other by exactly $d_\theta=\pi/N$ in terms of phase-space rotations, but have support on the exact same set of Fock states. Conversely, the computational-basis codewords are separated from each other by $d_n=N$ in Fock space, but supported on the same set of phases $\{m\pi/N\}$.</p>
+<p>Next, we briefly examine in which regime notable bosonic rotation codes become number-phase code.</p>
+<ol>
+<li>
+<p>First being the codes constructed using normalized Pegg-Barnett phase states as introduced above. As the parameter that sets their truncation in Fock space becomes large $s\to\infty$, Pegg-Barnett codes approach ideal number-phase codes.</p>
+</li>
+<li>
+<p>Cat codes and binomial codes approach the phase vanishing regime in the limit of large $\alpha$ and large truncation $K$ respectively.</p>
+</li>
+</ol>
+<p>Informally speaking, we refer to any family of rotation codes that satisfies $\Delta_N(\theta)\to 0$ in an approachable limit as number-phase code.</p>
+<h3 id="symmetry-as-a-resource-quantum-computing-with-number-phase-codes">Symmetry as a resource: quantum computing with number-phase codes</h3>
+<p>Here we introduce a universal quantum computing scheme based on three basic ingredients: preparation of codewords in the state $|+_N\rangle$, a small number of unitary gates, and (destructive) measurement in the logical $\hat{X}$ basis.</p>
+<blockquote>
+<p>For unitary gates, fault tolerant means the gates should not amplitfy errors too badly. For measurement scheme, fault tolerant means the codewords $|\pm_N\rangle$ should be distinguishable in the presence of small errors.</p>
+</blockquote>
+<p>Here, we&rsquo;ll see that given a supply of encoded basis state $|+_N\rangle$, rotation symmetry and number-translation symmetry imply the ability to execute any gate in the logical Clifford group.</p>
+<h3 id="universal-operations-for-number-phase-codes">Universal operations for number-phase codes</h3>
+<p>The quantum computing scheme introduced in the following is based on the universal set</p>
+<p>\[
+\{\bar{S}, \bar{C}_Z\} \cup \{\mathcal{P}_{|+_N\rangle}, \mathcal{P}_{|T_N\rangle}, \mathcal{M}_X\}
+\]</p>
+<p>where</p>
+<ol>
+<li>$\bar{S}$ is an encoded version of the phase gate, $\hat{S}=\text{diag}(1,i)$;</li>
+<li>$\bar{C}_Z$ is an encoded $\hat{C}_Z=\text{diag}(1,1,1,-1)$;</li>
+<li>$\mathcal{P}$ stands for the preparation of an encoded state;</li>
+<li>$\mathcal{M}_X$ stands for measurement in the logical $|\pm_N\rangle$ basis.</li>
+</ol>
+<p>The state $|T_N\rangle \propto |0_N\rangle + e^{i\pi/4}|1_N\rangle$ is used for gate teleportation of the non-Clifford $\hat{T}$.</p>
+<h4 id="unitary-gates">Unitary gates</h4>
+<p>We have already shown that logical $\bar{Z}$ for an order-$N$ rotation code can be implemented through a simple rotation $\hat{Z}_N=e^{i\pi\hat{n}/N}$. The next gate in our set is the following two-mode gate that implements a controlled-rotation between an order-$N$ and an order-$M$ rotation code,</p>
+<p>\[
+\text{CROT}_{NM} \coloneqq e^{i(\pi/NM)\hat{n}\otimes\hat{n}}
+\]</p>
+<p>To understand its action of the codespace, we recognize that</p>
+<p>\[
+\text{CROT}_{NM}|i_N\rangle \otimes |j_M\rangle = (-1)^{ij}|i_N\rangle \otimes |j_M\rangle,
+\]</p>
+<p>for $i,j=0,1$. Thus, the $\text{CROT}$ gate acts as a $\bar{C}_Z$ gate on the codespace of <em>any</em> two rotation codes.</p>
+<p>This is a cross-Kerr interaction. We can also have self-Kerr interaction, by noticing that $\bar{S}=\hat{S}_N\coloneqq e^{i(\pi/2N^2)\hat{n}^2}$. The action of this phase gate can be further understood by considering the Fock states,</p>
+<p>\[
+\begin{align}
+\hat{S}_N|2kN\rangle = e^{(i\pi/2)4k^2}|2kN\rangle = |2kN\rangle,\newline
+\hat{S}_N|(2k+1)N\rangle =e^{(i\pi/2)(4k^2+4k+1)}|(2k+1)N\rangle = i|(2k+1)N\rangle
+\end{align}
+\]</p>
+<h4 id="teleported-gates">Teleported gates</h4>
+<p>The $\text{CROT}$ gate and logical $\mathcal{M}_X$ measurements, together with appropriately prepared ancillae, allow us to complete a universal set of operation with a gate-teleported logical Hadamard $\bar{H}$ and $\bar{T}$ gate.</p>
+<p>An ancilla prepared in $|+_M\rangle$ allows execution of the Hadamard gate, using a teleportation circuit. Because this scheme is based only on Clifford gates and magic-state injection, rather than correcting the conditional Pauli $\bar{X}$, the simplest solution is to keep track of it in the Pauli frame. Alternatively, the process can be repeated until the desired outcome is achieved. This is indeterministic quantum computation.</p>
+<p>The set $\{\bar{C}_Z, \bar{H}, \bar{S}\}$ generates the Clifford group. To achieve universality, we teleport the gate $\hat{T}$ by consuming an ancilla prepared in $|T_M\rangle = (|0_M\rangle+e^{i\pi/4}|1_M\rangle)/\sqrt{2}$.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -545,7 +677,7 @@ aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\
 			<div class="back">
 				
 					
-					Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+					Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
 					
 				
 			</div></div>
