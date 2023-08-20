@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Haar&#39;s Half Measure</title>
+    <title>Home on Haar&#39;s Half Measure</title>
     <link>https://ngdnhtien.github.io/</link>
-    <description>Recent content on Haar&#39;s Half Measure</description>
+    <description>Recent content in Home on Haar&#39;s Half Measure</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kindergarten quantum error correcting codes (P2)</title>
+      <link>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</guid>
+      <description>4-qubit codes The encoded logical states are
+\[\begin{align} |0_L\rangle \propto |0000\rangle + |1111\rangle\newline |1_L\rangle \propto |1010\rangle + |0101\rangle \end{align}\]
+We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space. The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a superposition of the computational states of the physical qubits.</description>
+    </item>
+    
     <item>
       <title>Fun with quantum mechanics</title>
       <link>https://ngdnhtien.github.io/2023/07/fun-with-quantum-mechanics/</link>
@@ -338,17 +349,6 @@ Khi mà ký ức quá dễ phai mờ, còn thời gian thì thật tàn nhẫn. 
       <guid>https://ngdnhtien.github.io/1999/06/toru-watanabe/</guid>
       <description>Thực ra ngoài việc học, tớ đến đây còn vì một lý do khác. Tớ muốn trốn khỏi những cảm xúc mơ hồ về cậu, khỏi những lần khắc khoải chờ mong cậu sẽ dừng lại và đợi tớ ở đâu đó. Tớ muốn đi thật xa, đến một nơi chẳng ai biết ai là ai, và bắt đầu sống một cuộc sống mới.
 Con người ở đây, theo cảm quan của tớ, không khác người Sài Gòn là mấy.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://ngdnhtien.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/about/</guid>
-      <description>My name is Nguyễn Đình Tiến. You can call me Terrence Nguyen.
-I was born in Hue, and raised in Binh Duong. I lived in Ho Chi Minh City for a while, before moving to Hanoi. For those who wonder, the majority of my friends believes I speak a mixture of Southern-Northern accent, though my active vocabulary spans the three regions.
-Academic I was once a student of the PFIEV program at HCMUT, before making a quantum leap to become a physics student at VNU University of Science.</description>
     </item>
     
   </channel>

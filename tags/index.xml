@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>quant-ph</title>
       <link>https://ngdnhtien.github.io/tags/quant-ph/</link>
-      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://ngdnhtien.github.io/tags/quant-ph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quantum-error-correction</title>
+      <link>https://ngdnhtien.github.io/tags/quantum-error-correction/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/tags/quantum-error-correction/</guid>
       <description></description>
     </item>
     
