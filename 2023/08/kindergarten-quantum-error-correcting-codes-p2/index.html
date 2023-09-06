@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="Kindergarten quantum error correcting codes (P2)">
 <meta itemprop="description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction."><meta itemprop="datePublished" content="2023-08-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-08-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="582">
+<meta itemprop="wordCount" content="890">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Kindergarten quantum error correcting codes (P2)" />
 <meta property="og:description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction." />
 <meta property="og:type" content="article" />
@@ -103,6 +103,11 @@
   <ol>
     <li><a href="#4-qubit-codes">4-qubit codes</a></li>
     <li><a href="#general-quantum-error-correction-conditions">General quantum error correction conditions</a></li>
+    <li><a href="#bosonic-error-correction-codes">Bosonic error correction codes</a>
+      <ol>
+        <li><a href="#general-description">General description</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
 			</aside>
@@ -154,12 +159,46 @@
 <h1 id="general-quantum-error-correction-conditions">General quantum error correction conditions</h1>
 <p>Let us now find a formalism to unify what we&rsquo;ve learned so far. We have two bit-flip errors,</p>
 <p>\[\begin{align}
-\mathcal{N}_1 = XIII,\ \mathcal{N}_2=IXII
+E_1 = XIII,\ E_2=IXII
 \end{align}\]</p>
-<p>and we can detect them, since they both map the code word onto orthogonal (w.r.t the code space) error spaces.</p>
+<p>and we can detect them, since they both map the code word onto orthogonal (w.r.t the code space) error spaces. Here&rsquo;s a nice remark,</p>
 <blockquote>
-<p>When two errors map the same codeword to two orthogonal error spaces, a malicious environment cannot distinguish the code word by measuring the two errors.</p>
+<p>When two errors map the same codeword to two orthogonal error spaces, a malicious environment cannot distinguish the code word by measuring the two errors (expectation values).</p>
 </blockquote>
+<p>This is expressed in the &ldquo;detectability condition&rdquo;,</p>
+<p>\[\begin{align}
+P E_j P = c_j P,
+\end{align}\]</p>
+<p>where $P$ is the projection into the codespace, $P=|0_L\rangle\langle 0_L| + |1_L\rangle\langle 1_L|$. What the equation also implies is the fact that there&rsquo;s no matrix elements between the two codewords, i.e.</p>
+<p>\[\begin{align}
+\langle W_m|E_j|W_n\rangle = 0.
+\end{align}\]</p>
+<p>Furthermore, we know that if two errors lead the codeword out of different orthogonal subspaces, then trivially they can be distinguished (detected) and corrected. However, if two (or more) errors lead to the same error spaces (still, it is orthogonal to the codespace), then the two errors should better undo each other. This is succinctly expressed in the &ldquo;correctability condition&rdquo;, or the Knill-Laflamme condition,</p>
+<p>\[\begin{align}
+P E_j^\dagger E_k P = c_{jk} P
+\end{align}\]</p>
+<p>This is simply because we have no way to correct <em>an error</em> other than looking at its syndrome. In some cases, the Knill-Laflamme condition is written as</p>
+<p>\[
+\begin{align}
+\langle W_\sigma | E_j^\dagger E_k | W_{\sigma&rsquo;}\rangle = c_{jk} \delta_{\sigma\sigma&rsquo;}
+\end{align}
+\]</p>
+<p>where $|W_{\sigma}\rangle$ denotes the logical codewords.</p>
+<h1 id="bosonic-error-correction-codes">Bosonic error correction codes</h1>
+<h2 id="general-description">General description</h2>
+<p>As always, the goal of QEC is to suppress the <em>dominant</em> error. Unlike the qubit systems, we you have the errors being</p>
+<p>\[
+\begin{align}
+\Epsilon = \{I, X, Z, Y\}
+\end{align}
+\]</p>
+<p>the Pauli operators, a single oscillator is poisoned by excitation/loss and dephasing errors,</p>
+<p>\[
+\begin{align}
+\Epsilon = \{\hat{a}, \hat{a}^\dagger \hat{a}\}
+\end{align}
+\]</p>
+<p>It&rsquo;s worth pointing out that this error model doesn&rsquo;t affect the number of excitation dramatically in the Fock state. Correspondingly one can imagine the Wigner function jiggling around (or smears out) a bit due to $\hat{a}$ or $\hat{a}^\dagger\hat{a}$, but it&rsquo;s not going to be a full revolution around the phase space. This implies a certain intrinsic robustness of bosonic systems, which is important, in the context of bias-preserving error correction.</p>
 
 			</div>
 
@@ -189,7 +228,7 @@
 			<div class="back">
 				
 					
-					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
 					
 				
 			</div></div>
