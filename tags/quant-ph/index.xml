@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Fri, 18 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/quant-ph/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/quant-ph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Heisenberg-Langevin equation: case in point</title>
+      <link>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</guid>
+      <description>The system Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is
+\[\begin{align} H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x \end{align}\]
+Upon completing the square, we can rewrite this in a more compact form,
+\[\begin{align} H = \dfrac{p^2}{2m}+\dfrac{1}{2}m\omega_0^2 x^2 + \sum_\mu\left[\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2(x_\mu - \lambda_\mu x)^2\right] \end{align}\]</description>
+    </item>
+    
     <item>
       <title>Kindergarten quantum error correcting codes (P2)</title>
       <link>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</link>
