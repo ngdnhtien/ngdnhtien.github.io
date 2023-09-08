@@ -248,8 +248,8 @@ ul {
 }
 
 .header .site-title {
-    margin: 0 0 10px 0;
-    line-height: 0.2em;
+    margin: 0 0 -0.2em 0;
+    line-height: 1.0em;
 }
 
 .site-title a {
