@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="The Heisenberg-Langevin equation: case in point">
 <meta itemprop="description" content="Constructing the H-L equation for a damped harmonic oscillator"><meta itemprop="datePublished" content="2023-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="846">
+<meta itemprop="wordCount" content="971">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="The Heisenberg-Langevin equation: case in point" />
 <meta property="og:description" content="Constructing the H-L equation for a damped harmonic oscillator" />
 <meta property="og:type" content="article" />
@@ -217,7 +217,7 @@ x_\mu(t) = x_\mu^{PI}(t) + x^{CF}_\mu(t)
 <p>\[
 \begin{align}
 \ddot{x}(t) + \Omega_0^2 x(t) = \sum_\mu\dfrac{m_{\mu}}{m}\omega_\mu^2\lambda_\mu \left(x_\mu^{PI}(t) +  x^{CF}_\mu(t)\right)\newline
-\boxed{\ddot{x}(t) + \int_0^t \kappa(t-\tau)\dot{x}(\tau)d\tau + \left[\Omega_0^2-\kappa(0)\right]x(t)+\kappa(0)x(0)= \dfrac{F(t)}{m}}
+\boxed{\ddot{x}(t) + \int_0^t \kappa(t-\tau)\dot{x}(\tau)d\tau + \left[\Omega_0^2-\kappa(0)\right]x(t)+\kappa(t)x(0)= \dfrac{F(t)}{m}}
 \end{align}
 \]</p>
 <p>where $F(t)$ is the Langevin force,</p>
@@ -231,7 +231,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 <p>The Langevin force, being stochastic, has a vanishing expected value averaging over time, $\langle F(t)\rangle=0$. Hence the H-L equation is <em>essentially exact</em>, i.e. there&rsquo;s no approximation involved. To see why, taking expectation value of the equation yields</p>
 <p>\[
 \begin{align}
-\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \left[\Omega_0^2-\kappa(0)\right]\langle x(t)\rangle +\kappa(0)\langle x(0)\rangle= 0
+\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \left[\Omega_0^2-\kappa(0)\right]\langle x(t)\rangle +\kappa(t)\langle x(0)\rangle= 0
 \end{align}
 \]</p>
 <p>Note that</p>
@@ -241,7 +241,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 <p>Hence again we see the appearance of two &lsquo;frequencies&rsquo;,</p>
 <p>\[
 \begin{align}
-\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \omega_0^2\langle x(t)\rangle +\kappa(0)\langle x(0)\rangle= 0.
+\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \omega_0^2\langle x(t)\rangle +\kappa(t)\langle x(0)\rangle= 0.
 \end{align}
 \]</p>
 <h1 id="different-time-scales">Different time scales</h1>
@@ -273,9 +273,43 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 \langle x(\delta t) \rangle = \langle x(0)\rangle + \dfrac{\langle p(0)\rangle}{m} \delta t \newline
 \langle p(\delta t)\rangle = \langle p(0)\rangle -m\Omega_0^2 \langle x(0)\rangle \delta t
 \end{align}\]</p>
-<p>This indicates that, at short time-scale $\delta t$, the oscillator behaves as if its natural frequency is $\Omega_0$.</p>
+<p>This indicates that, at short time-scale $\delta t$, the oscillator behaves as if its natural frequency is $\Omega_0$. The behavior of the system is clearly non-Markovian.</p>
 <h2 id="longer-time-scales">Longer time scales</h2>
-<p><em>to be continued&hellip;</em></p>
+<p>What does longer time scale even mean? One way to define it is to look at the memory kernel function $\kappa(t)$. It is a summation of cosine functions oscillating at a range of frequencies.</p>
+
+<figure >
+    
+        <img src="/images/hl_memory_time.png" 
+            alt="Decay of the memory kernel $\kappa(t)$" />
+    
+    
+    
+        <figcaption>
+            
+            
+            
+                <p style="margin: -0.5rem 0 0 0;">
+                    Decay of the memory kernel $\kappa(t)$
+                
+                
+                
+                
+                
+                
+            </p> 
+            
+        </figcaption>
+    
+</figure>
+
+
+<p>As shown, as $t\to\infty$, we can approximate $\kappa(t)\approx 0$. In such regime, the equation of motion becomes</p>
+<p>\[
+\begin{align}
+\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \omega_0^2\langle x(t)\rangle = 0.
+\end{align}
+\]</p>
+<p>At this point, we&rsquo;re still not clear on whether this EoM describes non-Markovian effect or not: the second term is quite mysterious. However, one thing we can be sure of is that, it is $\omega_0$ and not $\Omega_0$ that is the natural frequency of the oscillator in this regime.</p>
 
 			</div>
 
@@ -305,7 +339,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 			<div class="back">
 				
 					
-					Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
 					
 				
 			</div></div>

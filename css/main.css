@@ -43,7 +43,7 @@ hr {
 
 img {
     margin: 10px auto 10px auto;
-    max-width: 100%;
+    max-width: 85%;
     display: block;
 }
 
@@ -500,7 +500,7 @@ ul {
 
 .inline-img {
     margin: 0 0 0 0 !important;
-    max-width: 100%;
+    max-width: 80%;
     display: inline-block !important;
 }
 
