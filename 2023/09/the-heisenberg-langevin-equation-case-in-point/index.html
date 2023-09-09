@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="The Heisenberg-Langevin equation: case in point">
 <meta itemprop="description" content="Constructing the H-L equation for a damped harmonic oscillator"><meta itemprop="datePublished" content="2023-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="971">
+<meta itemprop="wordCount" content="1191">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="The Heisenberg-Langevin equation: case in point" />
 <meta property="og:description" content="Constructing the H-L equation for a damped harmonic oscillator" />
 <meta property="og:type" content="article" />
@@ -108,6 +108,7 @@
       <ol>
         <li><a href="#ultra-short-time-scales">Ultra-short time scales</a></li>
         <li><a href="#longer-time-scales">Longer time scales</a></li>
+        <li><a href="#an-example-ohmic-damping">An example: Ohmic damping</a></li>
       </ol>
     </li>
   </ol>
@@ -310,6 +311,32 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 \end{align}
 \]</p>
 <p>At this point, we&rsquo;re still not clear on whether this EoM describes non-Markovian effect or not: the second term is quite mysterious. However, one thing we can be sure of is that, it is $\omega_0$ and not $\Omega_0$ that is the natural frequency of the oscillator in this regime.</p>
+<h2 id="an-example-ohmic-damping">An example: Ohmic damping</h2>
+<p>It&rsquo;s somewhat clear that our model works both in the under-damped regime and over-damped regime. To see why, let us consider a concrete example of Ohmic damping. The memory kernel is now given by</p>
+<p>\[\begin{align}
+\kappa(t) = \dfrac{2}{\pi m}\int_0^\infty \dfrac{J(\omega)}{\omega}\cos(\omega t)d\omega,
+\end{align}\]</p>
+<p>where $J(\omega)=m\gamma\omega e^{-\omega/\omega_c}$. The integral can be effectively evaluated, leading to</p>
+<p>\[
+\begin{align}
+\kappa(t) = \dfrac{2}{\pi}\dfrac{\gamma\omega_c}{1+\omega_c^2 t^2} \Rightarrow \kappa(0) = \dfrac{2\gamma\omega_c}{\pi}
+\end{align}
+\]</p>
+<p>In the ultra-short time regime, $\kappa(t)$ hasn&rsquo;t died out. The equation of motions are thus well-defined.</p>
+<p>For longer times, $\kappa(t)\to 0$. On timescale of one evolution of the harmonic oscillator ($\sim \omega_0^{-1}$), if the coupling to the reservoir is sufficiently weak such that the expectation value of $\langle \dot{x}\rangle$ doesn&rsquo;t vary much, then $\langle \dot{x}\rangle$ can be pulled out of the integral,</p>
+<p>\[
+\begin{align}
+\int_0^t \kappa(t-\tau)\langle \dot{x}(\tau)\rangle d\tau &amp;\approx \langle \dot{x}(t)\rangle \int_0^t \kappa(t-\tau)d\tau \newline
+&amp;=\gamma \langle \dot{x}(t)\rangle
+\end{align}
+\]</p>
+<p>Then the equation of motion reduces to the form of familiar classical damping oscillator,</p>
+<p>\[
+\begin{align}
+\langle\ddot{x}(t)\rangle + \gamma\langle \dot{x}(t)\rangle + \omega_0^2\langle x(t)\rangle = 0.
+\end{align}
+\]</p>
+<p>In this case, we can enter the over-damped regime when we make $\omega_0 &lt; \gamma/2$. Indeed $\omega_0$ is only bounded below by zero, since the positivity allows $\omega_0\to 0^+$. The other frequency $\Omega_0$ is naturally bounded below by $\Omega_0^2 &gt; \kappa(0)$ from the positivity restriction.</p>
 
 			</div>
 
