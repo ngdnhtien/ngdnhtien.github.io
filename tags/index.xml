@@ -7,13 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>numerical</title>
+      <link>https://ngdnhtien.github.io/tags/numerical/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/tags/numerical/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>quant-ph</title>
       <link>https://ngdnhtien.github.io/tags/quant-ph/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://ngdnhtien.github.io/tags/quant-ph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rk4</title>
+      <link>https://ngdnhtien.github.io/tags/rk4/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/tags/rk4/</guid>
       <description></description>
     </item>
     

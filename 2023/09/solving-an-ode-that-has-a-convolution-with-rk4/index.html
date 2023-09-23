@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Solving an ODE that has a convolution with RK4 - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Solving an ODE that has a convolution with RK4">
+<meta itemprop="description" content="One ring to rule them all."><meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1524">
+<meta itemprop="keywords" content="quant-ph,numerical,rk4," /><meta property="og:title" content="Solving an ODE that has a convolution with RK4" />
+<meta property="og:description" content="One ring to rule them all." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Solving an ODE that has a convolution with RK4"/>
+<meta name="twitter:description" content="One ring to rule them all."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">15</span>
+							<span class="rest">Sep 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Solving an ODE that has a convolution with RK4</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#euler-method">Euler method</a></li>
+    <li><a href="#modified-euler-method">Modified Euler method</a></li>
+    <li><a href="#runge-kutta-method">Runge-Kutta method</a>
+      <ol>
+        <li><a href="#fourth-order-runge-kutta">Fourth-order Runge-Kutta</a></li>
+      </ol>
+    </li>
+    <li><a href="#higher-order-odes">Higher-order ODEs</a></li>
+    <li><a href="#case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</a></li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<p>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.</p>
+<p>We&rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.</p>
+<h1 id="euler-method">Euler method</h1>
+<p>Let say we have a first-order differential equation problem</p>
+<p>\[\begin{align}
+\dfrac{dx}{dt} - f(t, x) = 0,\
+x(t_0) = x_0
+\end{align}\]</p>
+<p>This means that we <em>know</em> where we were initially: $x$ at $t_0$. Now, we move forward to $t_1$, meaning we move a distance of $\Delta t = t_1-t_0$. Provided that we also <em>know</em> how $x$ changes with respect to $t$&ndash;that&rsquo;s $dx/dt=f(t, x)$, we can approximate $x$ at $t_1$ as (using Taylor expansion)</p>
+<p>\[
+x(t_1) := x(t_0+\Delta t) = x(t_0) + \Delta t f(t_0, x_0)
+\]</p>
+<p>Since we know where we were ($x(t_0)=x_0$), and we definitely know how to calculate $f(t_0, x_0)$, we can calculate $x_1$. Iteratively, this is</p>
+<p>\[
+x_{n+1} = x_n + \Delta t f(t_n, x_n)
+\]</p>
+<p>For small enough $\Delta t$, the numerical solution should not deviate much from the exact solution. Of course, this is a very simple kind of thing. The error order is quite large, $O(\Delta t^2)$.</p>
+<h1 id="modified-euler-method">Modified Euler method</h1>
+<p>To improve the Euler method, we add to our toolkit something called <code>predictor-corrector</code>. This <code>p-d</code> thing is based on the idea of averaging the value of $f(x,t)$ at the beginning and end of each time we move forward. Mathematically speaking,</p>
+<p>\[
+x_{n+1} = x_n + \dfrac{1}{2}\Delta t(f(t_n, x_n)+ f(t_n+\Delta t, x_{n+1}))
+\]</p>
+<p>The glaring problem lies at the term $f(t_n+\Delta t, x_{n+1})$. We&rsquo;re supposed to calculating $x_{n+1}$, now we have to use what we&rsquo;re finding to calculate itself? Well, how about approximate it? How to approximate it, you might ask? Simply use the Euler method.</p>
+<p>\[
+x^P_{n+1} = x_n + \Delta t f(t_n, x_n)
+\]</p>
+<p>We <em>will not</em> take this as the final answer. We use it as a <code>predictor</code>. Now that we&rsquo;ve obtained $x_{n+1}$, stuff it into the original equation</p>
+<p>\[
+x_{n+1} = x_n + \dfrac{1}{2}\Delta t(f(t_n, x_n)+ f(t_n+\Delta t, x^P_{n+1}))
+\]</p>
+<p>Now let us actually write a code. We&rsquo;ll use Python here. Say we have a first-order differential equation problem.</p>
+<p>\[
+\dfrac{dx}{dt} = \cos(\omega t)+x, x_0 = 1.0
+\]</p>
+<p>Here&rsquo;s the code that works,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>omega <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(t, x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>cos(omega<span style="color:#f92672">*</span>t) <span style="color:#f92672">+</span> x
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>time_step <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.001</span>
+</span></span><span style="display:flex;"><span>tmax <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>t_range <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, tmax, time_step)
+</span></span><span style="display:flex;"><span>x_num <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros([len(t_range)])
+</span></span><span style="display:flex;"><span>x_num[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#75715e"># initial condition</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">heun</span>(f, t_range, time_step):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Modified Euler method, also known as heun method (is this guy a Korean?)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(t_range)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        t_n <span style="color:#f92672">=</span> t_range[j]
+</span></span><span style="display:flex;"><span>        x_n <span style="color:#f92672">=</span> x_num[j]
+</span></span><span style="display:flex;"><span>        h1 <span style="color:#f92672">=</span> time_step <span style="color:#f92672">*</span> f(t_n, x_n)
+</span></span><span style="display:flex;"><span>        x_p <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> h1
+</span></span><span style="display:flex;"><span>        h2 <span style="color:#f92672">=</span> time_step <span style="color:#f92672">*</span> f(t_range[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>], x_p)
+</span></span><span style="display:flex;"><span>        x_num[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x_num[j] <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>(h1<span style="color:#f92672">+</span>h2)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x_num
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_num <span style="color:#f92672">=</span> heun(f, t_range, time_step)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(t_range, x_num)
+</span></span></code></pre></div><p>The modified Euler method is one of a family of methods called second-order Runge-Kutta methods.</p>
+<h1 id="runge-kutta-method">Runge-Kutta method</h1>
+<p>In deriving the modified Euler formula, we&rsquo;ve made the predictor by evaluating $f(t_{n+1}, x_{n+1})$ at $t_{n+1}=t_n + \Delta t$ and $x_{n+1} = x_n + h_1$. A straightforward generalization would be twisting the predictor (now let us replace $h$ by $r$)</p>
+<p>\[\begin{align}
+r_1 = \Delta t f(t_n, x_n),\newline
+r_2 = \Delta t f(t_n+\alpha\Delta t, x_n + \beta r_1),\newline
+x_{n+1} = x_n + a r_1 + b r_2
+\end{align}\]</p>
+<p>Upon replacing $a=b=1/2$ and $\alpha=\beta=1$, we obtain the modified Euler version. Now, we cannot choose $a, b, \alpha, \beta$ arbitrarily. In fact, there&rsquo;s some constraints on them, namely</p>
+<p>\[
+a+b = 1,\ \alpha b = 1/2,\ \beta b = 1/2
+\]</p>
+<p>These constraints originate from the uniformity of the Taylor expansions of $x_{n+1}$ in two different ways whose detailed calculation is beyond the scope of this note.</p>
+<p>Higher-order Runge-Kutta methods are obtained when we further generalize the $x_{n+1}$ formula by adding <em>more</em> predictors. In essence, what&rsquo;s really going on after each update of predictor is the corrector becoming more and more accurate.</p>
+<h2 id="fourth-order-runge-kutta">Fourth-order Runge-Kutta</h2>
+<p>Here I list the formula for the fourth-order Runge-Kutta method, also physicists&rsquo; favourite one.</p>
+<p>\[\begin{align}
+r_1 = \Delta t f(t_n, x_n),\newline
+r_2 = \Delta t f(t_n + \dfrac{1}{2}\Delta t, x_n + \dfrac{1}{2}r_1),\newline
+r_3 = \Delta t f(t_n + \dfrac{1}{2}\Delta t, x_n+\dfrac{1}{2}r_2),\newline
+r_4 = \Delta t f(t_n+\Delta t, x_n+r_3),\newline
+x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4)
+\end{align}\]</p>
+<p>And the Python implementation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rk4</span>(f, t_range, dt):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Runge-Kutta fourth-order. Kutta means `dog` in Hindi somehow (with bad meaning).
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(t_range)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        t_n <span style="color:#f92672">=</span> t_range[j]
+</span></span><span style="display:flex;"><span>        x_n <span style="color:#f92672">=</span> x_num[j]
+</span></span><span style="display:flex;"><span>        r1 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(t_n, x_n)
+</span></span><span style="display:flex;"><span>        xp1 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>r1
+</span></span><span style="display:flex;"><span>        r2 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(t_n<span style="color:#f92672">+</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>dt, xp1)
+</span></span><span style="display:flex;"><span>        xp2 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>r2
+</span></span><span style="display:flex;"><span>        r3 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(t_n<span style="color:#f92672">+</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>dt, xp2)
+</span></span><span style="display:flex;"><span>        xp3 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> r3
+</span></span><span style="display:flex;"><span>        r4 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(t_n<span style="color:#f92672">+</span>dt, xp3)
+</span></span><span style="display:flex;"><span>        x_num[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x_num[j] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span><span style="color:#f92672">*</span>(r1<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r2<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r3<span style="color:#f92672">+</span>r4)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x_num
+</span></span></code></pre></div><h1 id="higher-order-odes">Higher-order ODEs</h1>
+<p>We can actually solve for higher order ODEs. Consider the second-order ODE given by</p>
+<p>\[
+\ddot{x} - f(t, x, \dot{x})=0,
+\]</p>
+<p>where $f$ is a function of $t, x, \dot{x}$. This second-order ODE can be rewritten as a system of two first-order ODEs by introducing <em>one</em> more variable, $u=dx/dt$.</p>
+<p>\[\begin{align}
+\dot{x} = u,\newline
+\dot{u} = f(t, x, u)
+\end{align}\]</p>
+<p>Then, each first-order coupled ODE above can be solved simultaneously with RK4 method.</p>
+<h1 id="case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</h1>
+<p>The damped harmonic oscillator&rsquo;s equation of motion reads,</p>
+<p>\[
+\begin{align}
+\ddot{x}(t) + \Omega_0^2 x(t) + \int_0^t \dot{\kappa}(t-\tau)x(\tau)d\tau = 0\newline
+\ddot{x}(t) = -\left[\Omega_0^2 x(t)-\int_0^t \dot{\kappa}(t-\tau)x(\tau)d\tau\right].
+\end{align}
+\]</p>
+<p>The EoM above can be rewritten into two coupled first-order ODE,</p>
+<p>\[
+\begin{align}
+\dot{x} = f(v) = v,\newline
+\dot{v} = g(t, x) = -\left[\Omega_0^2 x-\int_0^t \dot{\kappa}(t-\tau)x(\tau)d\tau\right]
+\end{align}
+\]</p>
+<p>In this case, the generalized RK4 method would be</p>
+<p>\[
+\begin{align}
+r_1 = \Delta t f(v_n),\quad k_1 = \Delta t g(t_n, x_n),\newline
+r_2 = \Delta t f(v_n + \dfrac{1}{2}k_1),\quad k_2 = \Delta t g(t_n+\dfrac{1}{2}\Delta t, x_n + \dfrac{1}{2}r_1),\newline
+r_3 = \Delta t f(v_n + \dfrac{1}{2}k_2),\quad k_3 = \Delta t g(t_n+\dfrac{1}{2}\Delta t, x_n+ \dfrac{1}{2}r_2),\newline
+r_4 = \Delta t f(v_n+k_3),\quad k_4 = \Delta t g(t_n+\Delta t, x_n+r_3),\newline
+v_{n+1} = v_n + \dfrac{1}{6}(k_1+2k_2+2k_3+k_4),\newline
+x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4).
+\end{align}
+\]</p>
+<p>Now let us actually implement this scheme using Python. The hardest part is probably the convolution integral. Let us now consider a naive version of doing this. The integral in discrete sense,</p>
+<p>\[
+\begin{align}
+\int_0^t \dot{\kappa}(t-\tau)x(\tau)d\tau = \sum_{j=0}^{k-1} \dot{\kappa}((k-j)\Delta t)x(j\Delta t)\Delta t
+\end{align}
+\]</p>
+<p>This can be naively implemented in Python by</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>convo <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>Omega<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x_n
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        convo <span style="color:#f92672">+=</span> kappad_vals[n<span style="color:#f92672">-</span>j]<span style="color:#f92672">*</span>x_num[j]<span style="color:#f92672">*</span>dt
+</span></span></code></pre></div><p>where <code>kappad_vals</code> and <code>x_num</code> are the two signals being convoluted. It&rsquo;s time to incorperate this into our RK4 scheme</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">kappa_dot</span>(gamma, omega_c, t):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>(gamma<span style="color:#f92672">*</span>omega_c<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>t)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>(omega_c<span style="color:#f92672">*</span>t)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(v):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> v
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">g</span>(Omega_0, kappad_vals, x_num, dt, n, x_n):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    k will dictate time, i.e. t_n = t_range[n]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    convo <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>Omega_0<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x_n
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>            convo <span style="color:#f92672">+=</span> kappad_vals[n<span style="color:#f92672">-</span>j]<span style="color:#f92672">*</span>x_num[j]<span style="color:#f92672">*</span>dt
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>Omega_0<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x_n <span style="color:#f92672">-</span> convo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">simDQHO_RK4</span>(tmax, dt, Omega_0, omega_c, gamma):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Four free parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    t_range <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, tmax, dt)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    kappad_vals <span style="color:#f92672">=</span> [kappa_dot(gamma, omega_c, t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> t_range]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    x_num <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros([len(t_range)])
+</span></span><span style="display:flex;"><span>    v_num <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros([len(t_range)])
+</span></span><span style="display:flex;"><span>    v_num[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># initial condition (no initial velocity)</span>
+</span></span><span style="display:flex;"><span>    x_num[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#75715e"># initial condition </span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(len(t_range)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        t_n <span style="color:#f92672">=</span> t_range[n]
+</span></span><span style="display:flex;"><span>        x_n <span style="color:#f92672">=</span> x_num[n]
+</span></span><span style="display:flex;"><span>        v_n <span style="color:#f92672">=</span> v_num[n]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        r1 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(v_n)
+</span></span><span style="display:flex;"><span>        k1 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> g(Omega_0, kappad_vals, x_num, dt, n, x_n)
+</span></span><span style="display:flex;"><span>        xp1 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>r1
+</span></span><span style="display:flex;"><span>        vp1 <span style="color:#f92672">=</span> v_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>k1
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        r2 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(vp1)
+</span></span><span style="display:flex;"><span>        k2 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> g(Omega_0, kappad_vals, x_num, dt, n, xp1)
+</span></span><span style="display:flex;"><span>        xp2 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>r2
+</span></span><span style="display:flex;"><span>        vp2 <span style="color:#f92672">=</span> v_n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>k2
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        r3 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(vp2)
+</span></span><span style="display:flex;"><span>        k3 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> g(Omega_0, kappad_vals, x_num, dt, n, xp2)
+</span></span><span style="display:flex;"><span>        xp3 <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> r3
+</span></span><span style="display:flex;"><span>        vp3 <span style="color:#f92672">=</span> v_n <span style="color:#f92672">+</span> k3
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        r4 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> f(vp3)
+</span></span><span style="display:flex;"><span>        k4 <span style="color:#f92672">=</span> dt <span style="color:#f92672">*</span> g(Omega_0, kappad_vals, x_num, dt, n, xp3)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        x_num[n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x_n <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span>)<span style="color:#f92672">*</span>(r1<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r2<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r3<span style="color:#f92672">+</span>r4)
+</span></span><span style="display:flex;"><span>        v_num[n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> v_n <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span>)<span style="color:#f92672">*</span>(k1<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>k2<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>k3<span style="color:#f92672">+</span>k4)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> t_range, x_num
+</span></span></code></pre></div><p>Let us now demonstrate the case when the frequency cut-off being 0. In such case, there should be no damping effect. The Fourier transform of the signal should have a dirac-delta-like peak at the frequency $\Omega_0$, chosen to be $6$ Hz in this case.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>dt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5e-2</span>
+</span></span><span style="display:flex;"><span>tmax <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>Omega_0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>omega_c <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">*</span>Omega_0
+</span></span><span style="display:flex;"><span>gamma <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t_range, x_num <span style="color:#f92672">=</span> simDQHO_RK4(tmax, dt, Omega_0, omega_c, gamma)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fs <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>dt <span style="color:#75715e">#sampling rate</span>
+</span></span><span style="display:flex;"><span>(freq, S) <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>signal<span style="color:#f92672">.</span>periodogram(x_num, fs, scaling<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;density&#39;</span>)
+</span></span><span style="display:flex;"><span>dominant_freq <span style="color:#f92672">=</span> freq[np<span style="color:#f92672">.</span>argmax(S)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig, axes <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(nrows<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, ncols<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(t_range, x_num, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Numerical&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Time (s)&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;$\langle x(t)\rangle$ (a.u)&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_xlim([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>axhline(<span style="color:#ae81ff">1.0</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># axes[0].axvline(1/6, color=&#39;green&#39;)</span>
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>semilogy(freq, S, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>axis(ymin<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-12</span>, ymax<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-3</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Frequency (Hz)&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Signal (a.u)&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>axvline(dominant_freq, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dominant $\omega_0/2\pi=$&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>np<span style="color:#f92672">.</span>round(dominant_freq,<span style="color:#ae81ff">3</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39; Hz&#39;</span>)
+</span></span><span style="display:flex;"><span>axes[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>fig<span style="color:#f92672">.</span>tight_layout()
+</span></span><span style="display:flex;"><span>fig<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;./figures/DQHO_no_coupling.png&#39;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</span></span></code></pre></div><p>Indeed, the oscillator completes one period of oscillation in $1/6$ second.</p>
+
+<figure >
+    
+        <img src="/images/DQHO_no_coupling.png" 
+            alt="Oscillation of an undamped harmonic oscillator." />
+    
+    
+    
+        <figcaption>
+            
+            
+            
+                <p style="margin: -0.5rem 0 0 0;">
+                    Oscillation of an undamped harmonic oscillator.
+                
+                
+                
+                
+                
+                
+            </p> 
+            
+        </figcaption>
+    
+</figure>
+
+
+<p>We now consider a cut-off frequency of 50% of the oscillator. The Fourier transform of the signal is now no longer a dirac-delta-like function. Notice how other frequency components other than the dominant frequency is enhanced. This is expected, since</p>
+<p>\[
+\dfrac{1}{2\pi}\int_{-\infty}^{\infty} e^{-\gamma t}e^{-i\omega_0 t}e^{-i\omega t}d\omega
+\]</p>
+<p>has the form of a Lorentzian function.</p>
+
+<figure >
+    
+        <img src="/images/DQHO_with_coupling_1.png" 
+            alt="Oscillation of a damped harmonic oscillator $(\omega_c=0.5\Omega_0)$." />
+    
+    
+    
+        <figcaption>
+            
+            
+            
+                <p style="margin: -0.5rem 0 0 0;">
+                    Oscillation of a damped harmonic oscillator $(\omega_c=0.5\Omega_0)$.
+                
+                
+                
+                
+                
+                
+            </p> 
+            
+        </figcaption>
+    
+</figure>
+
+
+<p>A question is left for readers.</p>
+<blockquote>
+<p>Can we see the overdamped effect?</p>
+</blockquote>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+							<li class="tag-li"><a href="/tags/numerical">numerical</a></li>
+							
+							<li class="tag-li"><a href="/tags/rk4">rk4</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/posts/4th-order-runge-kutta.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

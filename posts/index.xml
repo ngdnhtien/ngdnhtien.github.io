@@ -7,14 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving an ODE that has a convolution with RK4</title>
+      <link>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</guid>
+      <description>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.
+We&amp;rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.
+Euler method Let say we have a first-order differential equation problem
+\[\begin{align} \dfrac{dx}{dt} - f(t, x) = 0,\ x(t_0) = x_0 \end{align}\]</description>
+    </item>
+    
+    <item>
+      <title>The characteristic function in the context of quantum optics</title>
+      <link>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</guid>
+      <description>Classical notion Let us consider a random variable $x$ and a classical probability density function $\rho(x)$,
+\[ \rho(x) \leq 0,\quad \int_\Omega \rho(x) dx = 1. \]
+The $n$-th moment of $x$ is defined as
+\[ \langle x^n\rangle = \int dx\ x^n \rho(x) \]
+Claim. If all moment $n$ of $x$ is known then $\rho(x)$ is completely known.
+This claim can be justified by the introduction of the characteristic function $C(k)$,</description>
+    </item>
+    
+    <item>
+      <title>On damped quantum harmonic oscillators</title>
+      <link>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</guid>
+      <description>Reference: https://arxiv.org/abs/2306.15013
+There are many methods to study damped harmonic oscillators. The idea is pretty simple: one harmonic oscillator embedded in a bath of surrounding environmental harmonic oscillators each characterized by a different frequency. This spread of frequencies brings about dephasing effects in the main oscillator dynamics.
+There are two regimes, as known in classical cases, of damped oscillation: weakly damped and strongly damped. The weak regime is mostly studied using the Linblad master equation, which assumed Markovian dynamics.</description>
+    </item>
+    
     <item>
       <title>The Heisenberg-Langevin equation: case in point</title>
       <link>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</guid>
-      <description>The system Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is
+      <description>Reference: https://arxiv.org/abs/2306.15013
+The system Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is
 \[\begin{align} H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x \end{align}\]
 Upon completing the square, we can rewrite this in a more compact form,
 \[\begin{align} H = \dfrac{p^2}{2m}+\dfrac{1}{2}m\omega_0^2 x^2 + \sum_\mu\left[\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2(x_\mu - \lambda_\mu x)^2\right] \end{align}\]</description>

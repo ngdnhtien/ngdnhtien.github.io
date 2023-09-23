@@ -3,16 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ngdnhtien.github.io/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/numerical/</loc>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/posts/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/quant-ph/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/rk4/</loc>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</loc>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</loc>
+    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>

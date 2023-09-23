@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>On damped quantum harmonic oscillators - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="On damped quantum harmonic oscillators">
+<meta itemprop="description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do."><meta itemprop="datePublished" content="2023-09-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1884">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="On damped quantum harmonic oscillators" />
+<meta property="og:description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="On damped quantum harmonic oscillators"/>
+<meta name="twitter:description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">11</span>
+							<span class="rest">Sep 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">On damped quantum harmonic oscillators</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#hamiltonian-for-the-strongly-damped-harmonic-oscillator">Hamiltonian for the strongly-damped harmonic oscillator</a>
+      <ol>
+        <li><a href="#discrete-reservoir">Discrete reservoir</a></li>
+        <li><a href="#continuum-reservoir">Continuum reservoir</a></li>
+        <li><a href="#hamiltonian-diagonalization">Hamiltonian diagonalization</a></li>
+        <li><a href="#an-inequality">An inequality</a></li>
+      </ol>
+    </li>
+    <li><a href="#ground-state">Ground-state</a>
+      <ol>
+        <li><a href="#ground-state-energy">Ground-state energy</a></li>
+      </ol>
+    </li>
+    <li><a href="#physical-meaning-of-piomega">Physical meaning of $\pi(\omega)$</a></li>
+    <li><a href="#equilibrium-state-at-finite-temperature">Equilibrium state at finite temperature</a></li>
+    <li><a href="#oscillator-dynamics">Oscillator dynamics</a></li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<blockquote>
+<p>Reference: <a href="https://arxiv.org/abs/2306.15013">https://arxiv.org/abs/2306.15013</a></p>
+</blockquote>
+<p>There are many methods to study damped harmonic oscillators. The idea is pretty simple: one harmonic oscillator embedded in a bath of surrounding environmental harmonic oscillators each characterized by a different frequency. This spread of frequencies brings about <em>dephasing</em> effects in the main oscillator dynamics.</p>
+<p>There are two regimes, as known in classical cases, of damped oscillation: weakly damped and strongly damped. The weak regime is mostly studied using the Linblad master equation, which assumed Markovian dynamics. We expect to see some oscillations before the system tends to equilibrium.</p>
+<blockquote>
+<p>The Markov approximation in Linblad master equation typically means that, the time-scale of decay for the environment $\tau_{env}$ is much shorter than the smallest time-scale of the system dynamics $\tau_{sys}$. The Born approximation requires that the state of the environment does not significantly change as a result of the interaction with the system, and that the total state can be written as a tensor product $\rho_{tot}(t) = \rho_{sys}(t)\otimes \rho_{env}$.</p>
+</blockquote>
+<p>The weak regime breaks down when the Markov approximation no longer holds, i.e. when the memory of the environment becomes important. This is when we enter the strong regime.</p>
+<h1 id="background">Background</h1>
+<p>The damped harmonic oscillator loses energy as a result of coupling to the surrounding environment. An undamped oscillator is described by the following equation of motion</p>
+<p>\[
+\begin{align}
+\ddot{x} + \omega_0^2 x = 0
+\end{align}
+\]</p>
+<p>To introduce damping effect, we consider a damping coefficient that is constant over time $\gamma$ and its associated external stochastic Langevin force $F(t)$.</p>
+<blockquote>
+<p>Both $\gamma$ and $F(t)$ results from the interacting term in the Hamiltonian. Therefore there has to be some correlations between them.</p>
+</blockquote>
+<p>The equation of motion is thus the familiar linear differential equation of the form</p>
+<p>\[
+\begin{align}
+\ddot{x} + \gamma\dot{x} + \omega_0^2 x = \frac{F(t)}{m}
+\end{align}
+\]</p>
+<p>Note that knowledge regardings the external force $F(t)$ is not required.</p>
+<p>The damped quantum harmonic oscillator requires that explicit account be taken of the quantum nature of the surrounding environment. To obtain the notorious master equation, one could make use of the rotating wave approximation that hinges on the weak damping condition, $\gamma \ll \omega_0$. The RWA breaks down as we move into strong damping regime, leading to non-Markovian dynamics.</p>
+<h1 id="hamiltonian-for-the-strongly-damped-harmonic-oscillator">Hamiltonian for the strongly-damped harmonic oscillator</h1>
+<h2 id="discrete-reservoir">Discrete reservoir</h2>
+<p>Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is</p>
+<p>\[\begin{align}
+H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x
+\end{align}\]</p>
+<p>Upon completing the square, we can rewrite this in a more compact form,</p>
+<p>\[\begin{align}
+H = \dfrac{p^2}{2m}+\dfrac{1}{2}m\omega_0^2 x^2 + \sum_\mu\left[\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2(x_\mu - \lambda_\mu x)^2\right]
+\end{align}\]</p>
+<p>where</p>
+<p>\[\begin{align}
+\omega_0^2 = \Omega_0^2 - \sum_\mu \dfrac{m_\mu}{m}\omega_\mu^2 \lambda_\mu^2
+\end{align}\]</p>
+<p>Since the kinetic term is always positive, the Hamiltonian is bounded from below if and only if $\omega_0^2$ is positive, i.e. $\omega_0$ must be real. This imposes a physical restriction to the strength of the coupling</p>
+<p>\[\begin{align}
+\Omega_0^2 &gt; \sum_\mu\dfrac{m_\mu}{m}\omega_\mu^2\lambda_\mu^2,
+\end{align}\]</p>
+<p>This is called the positivity constraint.</p>
+<p>From this Hamiltonian a set of equations of motion can be written and ultimately linked by the Heisenberg-Langevin equation (see <a href="/2023/09/the-heisenberg-langevin-equation-case-in-point/">derivation</a>).</p>
+<p>\[
+\begin{align}
+\boxed{\ddot{x}(t) + \int_0^t \kappa(t-\tau)\dot{x}(\tau)d\tau + \left[\Omega_0^2-\kappa(0)\right]x(t)+\kappa(t)x(0)= \dfrac{F(t)}{m}}
+\end{align}
+\]</p>
+<p>where $F(t)$ is the Langevin force,</p>
+<p>\[\begin{align}
+F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) + \dfrac{p_\mu(0)}{m_\mu\omega_\mu}\sin(\omega_\mu t)\right],
+\end{align}\]</p>
+<p>and $\kappa(t)$ is the memory kernel,</p>
+<p>\[\begin{align}
+\kappa(t) = \sum_\mu \dfrac{m_\mu}{m}\omega_\mu^2\lambda_\mu^2\cos(\omega_\mu t).
+\end{align}\]</p>
+<p>In ultra-short time scales, this EoM can be rewritten as</p>
+<p>\[
+\begin{align}
+\langle\ddot{x}(t)\rangle + \Omega_0^2\langle x(t)\rangle + O(\delta t^2) = 0
+\end{align}
+\]</p>
+<p>which, using the Taylor expansion around $\delta t \to 0$, leads to</p>
+<p>\[
+\begin{align}
+\langle x(\delta t) \rangle = \langle x(0)\rangle + \dfrac{\langle p(0)\rangle}{m} \delta t \newline
+\langle p(\delta t)\rangle = \langle p(0)\rangle -m\Omega_0^2 \langle x(0)\rangle \delta t
+\end{align}\]</p>
+<p>This is basically the behavior of a short-term undamped harmonic oscillator (since we don&rsquo;t have any decay term here).</p>
+<p>For longer time scales, the memory kernel tends to zero. The EoM becomes</p>
+<p>\[
+\begin{align}
+\langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \omega_0^2\langle x(t)\rangle = 0.
+\end{align}
+\]</p>
+<p>The question whether this EoM describes non-Markovian effect lies in the second integral term. However, it&rsquo;s clear that on this time scale the natural frequency of the harmonic oscillator is $\omega_0$. Also, because now the natural frequency is $\omega_0$, we can actually reduce $\omega_0\to 0^+$ such that $\omega_0 &lt; \gamma/2$ to enter the strongly over-damped regime. In the Ohmic damping case, this corresponds to</p>
+<p>\[
+\begin{align}
+\omega_0^2 &gt; 0\quad\text{and}\quad \Omega_0^2 &gt; \kappa(0) = \dfrac{2\gamma\omega_c}{\pi}
+\end{align}
+\]</p>
+<p>In summary,</p>
+<table>
+<thead>
+<tr>
+<th>Time-scale\Regime</th>
+<th>Underdamped $f_0 &gt; \gamma$</th>
+<th>Overdamped $f_0 &lt; \gamma$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ultra-short $\Omega_0$</td>
+<td>Yes. Because $\Omega_0$ has no upper bound.</td>
+<td>Maybe. Because $\Omega_0$ has a lower bound.</td>
+</tr>
+<tr>
+<td>Longer time scales $\omega_0$</td>
+<td>Yes. Because $\omega_0$ has no upper bound.</td>
+<td>Yes. Because $\omega_0$ has no lower bound (except that it has to be positive).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="continuum-reservoir">Continuum reservoir</h2>
+<p>First we rewrite the Hamiltonian in terms of creation and annihilation operators ($\hbar=1$)</p>
+<p>\[
+\begin{align}
+H = \Omega_0 a^\dagger a + \sum_\mu \omega_\mu b^\dagger_\mu b_\mu + \sum_\mu \dfrac{V_\mu}{2}(a+a^\dagger)(b_\mu + b_\mu^\dagger)
+\end{align}
+\]</p>
+<p>where $V_\mu$ being</p>
+<p>\[\begin{align}
+V_\mu = -\sqrt{\dfrac{m_\mu\omega_\mu}{m\Omega_0}}\omega_\mu\lambda_\mu
+\end{align}\]</p>
+<p>The positivity condition is again,</p>
+<p>\[\begin{align}
+\Omega_0 &gt; \sum_\mu \dfrac{V_\mu^2}{\omega_\mu}
+\end{align}\]</p>
+<p>To make this a continuum model, we introduce a commutator</p>
+<p>\[
+\begin{align}
+[b(\omega), b^\dagger(\omega&rsquo;)] = \delta(\omega-\omega&rsquo;).
+\end{align}
+\]</p>
+<p>The Hamiltonian is now</p>
+<p>\[
+\begin{align}
+H = \Omega_0 a^\dagger a + \int_0^\infty \omega b^\dagger(\omega)b(\omega)d\omega + \int_0^\infty d\omega \dfrac{V(\omega)}{2}(a+a^\dagger)[b(\omega)+b^\dagger(\omega)]
+\end{align}
+\]</p>
+<p>Since $H$ is quadratic in the annihilation and creation opearators for the oscillator and the reservoir, it leads to linear coupled equations of motion for these operators.</p>
+<h2 id="hamiltonian-diagonalization">Hamiltonian diagonalization</h2>
+<p>Here we briefly summarize how to diagonalize the oscillator-reservoir Hamiltonian. This can be achieved by finding a complete set of eigenoperators $B(\omega)$ and their conjugates $B^\dagger(\omega)$ that satisfy</p>
+<p>\[
+\begin{align}
+[B(\omega), H]=\hbar\omega B(\omega),\newline
+[B^\dagger(\omega), H] = -\hbar\omega B^\dagger(\omega);
+\end{align}
+\]</p>
+<p>for all positive $\omega$. If this set of $B$ also satisfy the orthogonality condition $[B(\omega),B^\dagger(\omega&rsquo;)]=\delta(\omega-\omega&rsquo;)$, then this set of eigenoperators is complete.</p>
+<p>Suppose that we know have $B$, then we can express the annihilation and creation operators of both the reservoir and the oscillator in terms of $B$ and $B^\dagger$. For example,</p>
+<p>\[
+\begin{align}
+a = \int_0^\infty d\omega\left[\alpha^*(\omega)B(\omega)-\beta(\omega)B^\dagger(\omega)\right],\newline
+a^\dagger = \int_0^\infty d\omega \left[\alpha(\omega)B^\dagger(\omega)-\beta^* (\omega)B(\omega)\right]
+\end{align}
+\]</p>
+<p>Combined with the requirement such that $[a, a^\dagger]=1$, this leads to</p>
+<p>\[
+\begin{align}
+\int_0^\infty \left[|\alpha(\omega)|^2-|\beta(\omega)|^2\right] = \int_0^\infty d\omega |\alpha(\omega)|^2\dfrac{4\Omega_0\omega}{(\Omega_0+\omega)^2}=1,
+\end{align}
+\]</p>
+<p>where we&rsquo;ve used</p>
+<p>\[\begin{align}
+\beta(\omega) = \dfrac{\omega-\Omega_0}{\omega+\Omega_0}\alpha(\omega)
+\end{align}\]</p>
+<p>that resulted from the commutator relations $[B,B^\dagger]$ and $[B(B^\dagger),H]$. Let us now denote</p>
+<p>\[
+\begin{align}
+\pi(\omega) = |\alpha(\omega)|^2\dfrac{4\Omega_0\omega}{(\Omega_0+\omega)^2}
+\end{align}
+\]</p>
+<p>as a frequency probability distribution. This will come in handy in later analysis. Remember that this function $\pi(\omega)$ comes from the fact that we can express $a$ and $a^\dagger$ in terms of the eigenoperators in combination with bosonic commutation relation. Some physical interpretation of $\pi$ is delayed until next section. For now, we explore what can be learned from viewing this purely as a frequency distribution.</p>
+<h2 id="an-inequality">An inequality</h2>
+<p>Let us denote the average value of a function $f$ under the $\pi$ distribution,</p>
+<p>\[
+\begin{align}
+\langle\langle f \rangle\rangle = \int_0^\infty d\omega f(\omega)\pi(\omega),
+\end{align}
+\]</p>
+<p>From the commutator $[B(\omega), H]=\hbar\omega B(\omega)$ and the orthogonality relation $[B(\omega), B^\dagger(\omega&rsquo;)]=\delta(\omega-\omega&rsquo;)$, we can write the Hamiltonian in terms of the eigenoperators</p>
+<p>\[
+\begin{align}
+H = \int_0^\infty d\omega \hbar \omega B^\dagger(\omega)B(\omega) + C,
+\end{align}
+\]</p>
+<p>where $C$ is a formally divergent term. Note that both $B, B^\dagger$ and $a, a^\dagger, b, b^\dagger$ are valid bases, hence we can also write</p>
+<p>\[\begin{align}
+B(\omega) = \alpha(\omega)a + \beta(\omega)a^\dagger
++\int_0^\infty d\omega&rsquo;\left[\gamma(\omega,\omega&rsquo;)b(\omega&rsquo;)+\delta(\omega,\omega&rsquo;)b^\dagger(\omega&rsquo;)\right]
+\end{align}\]</p>
+<p>Substituting the new expression for $B$ and $B^\dagger$ into the new $H$, we find that, since $a$ and $a^{\dagger 2}$ must vanish,</p>
+<p>\[\begin{align}
+\int_0^\infty d\omega\ \omega |\alpha(\omega)|^2 \left(\dfrac{\omega-\Omega_0}{\omega+\Omega_0}\right) = \int_0^\infty d\omega \dfrac{\pi(\omega)}{4\Omega_0}(\omega^2-\Omega_0^2) = 0\newline
+\Rightarrow \int_0^\infty \omega^2 \pi(\omega)d\omega = \Omega_0^2\newline
+\Rightarrow \langle\langle \omega^2 \rangle\rangle = \Omega_0^2
+\end{align}\]</p>
+<p>Note that $\langle\langle \omega \rangle\rangle^2 &lt; \langle\langle \omega^2 \rangle\rangle$ for any distrubution, thus</p>
+<p>\[\begin{align}
+\langle\langle \omega \rangle\rangle^2 &amp;&lt; \Omega_0^2\newline
+\langle\langle \omega \rangle\rangle &amp;&lt; \Omega_0
+\end{align}\]</p>
+<p>We arrive at a lower bound on the value of $\langle\langle\omega^{-1}\rangle\rangle$,</p>
+<p>\[\begin{align}
+\langle\langle \omega^{-1}\rangle\rangle \langle\langle \omega\rangle\rangle \leq 1\newline
+\langle\langle \omega^{-1}\rangle\rangle &gt; \dfrac{1}{\Omega_0}.
+\end{align}\]</p>
+<h1 id="ground-state">Ground-state</h1>
+<p>In an undamped harmonic oscillator, the ground state is the state $|0\rangle$ such that</p>
+<p>\[\begin{align}
+a|0\rangle = 0.
+\end{align}\]</p>
+<p>The Hamiltonian derived about suggests this however is not the case for damped oscillator-reservoir system. Now, since we&rsquo;ve written the Hamiltonian like</p>
+<p>\[
+H = \int_0^\infty d\omega\ \hbar\omega B^\dagger(\omega)B(\omega)
+\]</p>
+<p>It&rsquo;s suggestive that we choose the state $|0\rangle$ such that it is annihilated by $B(\omega)$,</p>
+<p>\[
+|0\rangle : B(\omega)|0\rangle = 0,\quad\quad\forall \omega.
+\]</p>
+<p>The ground-state of the interested oscillator in this purestate $|0\rangle$ is a mixed state obtained by tracing out the environment,</p>
+<p>\[
+\begin{align}
+\rho_O = \text{tr}_E\left(|0\rangle\langle 0|\right)
+\end{align}
+\]</p>
+<p>Using such density operator $\rho_O$ to calculate stuff is not very wise. Instead, we employ the characteristic fuction $\chi(\xi)$,</p>
+<p>\[
+\begin{align}
+\chi(\xi) = \text{tr}\left[\rho\exp\left(\xi a^\dagger - \xi^* a\right)\right]
+\end{align}
+\]</p>
+<p>where $\rho=|0\rangle\langle 0|$. The characteristics function can be used to evaluate any operator function of $a$ and $a^\dagger$. In fact, information regardings the characteristic function is enough to reconstruct the density matrix $\rho$. In our context, with the probability distribution function $\pi(\omega)$, the characteristic function reads</p>
+<p>\[
+\begin{align}
+\chi(\xi) = \exp\left[-\dfrac{1}{2}\left(\dfrac{\langle\langle\omega\rangle\rangle}{\Omega_0}\Re{(\xi)}^2+\langle\langle\omega^{-1}\rangle\rangle\Omega_0\Im{(\xi)}^2\right)\right]
+\end{align}
+\]</p>
+<h2 id="ground-state-energy">Ground-state energy</h2>
+<p>The ground-state energy of the undamped harmonic oscillator is simply $1/2\hbar\omega_0$. For an undamped oscillator, the oscillation frequency is</p>
+<p>\[
+\begin{align}
+\sqrt{\omega_0^2-\gamma^2/4} &lt; \omega_0,
+\end{align}
+\]</p>
+<p>implying that the ground-state energy is perhaps reduced. However, things might get tricky when it comes to the overdamped regime, where $\omega_0 &lt; \gamma/2$, making the oscillation frequency imaginary. It turns out that the ground-state energy of a damped oscillator, whether $\omega_0$ or $\Omega_0$ being the natural frequency, increases in comparision to the ground-state energy of an undamped one, which is quite nice to think about.</p>
+<p>We can proceed to investigate the reduced state of the oscillator, which is completely characterized by the average and the variance of position and momentum. These moments are, using the characteristic function</p>
+<p>\[
+\begin{align}
+\text{tr}\left[\rho x\right] &amp;= 0,\newline
+\text{tr}\left[\rho p\right] &amp;= 0,\newline
+\text{tr}\left[\rho x^2\right] &amp;= \dfrac{\hbar}{2}\dfrac{\langle\langle\omega^{-1}\rangle\rangle}{m},\newline
+\text{tr}\left[\rho p^2\right] &amp;= \dfrac{\hbar}{2}m\langle\langle\omega\rangle\rangle,\newline
+\end{align}
+\]</p>
+<p>where we have made use of the fact that $x\propto (a+a^\dagger)$ and $p\propto (a-a^\dagger)$. Note that the value of $\langle\langle \omega\rangle\rangle$ is dependent on $\pi(\omega)$, which ultimately a function of $\Omega_0$ (also affecting $\omega_0$). Hence these moments are dependent on the natural frequency of the oscillator, be it $\omega_0$ or $\Omega_0$.</p>
+<p>It is then instructive to define a new frequency $f_0=\{\omega_0, \Omega_0\}$. From second moments of $x$ and $p$, the energy determined from the reduced Hamiltonian of the oscillator is</p>
+<p>\[\begin{align}
+\text{tr}\left[\rho H_{f_0}\right] = \dfrac{\hbar f_0}{4}\left(\dfrac{\langle\langle \omega\rangle\rangle}{f_0}+\langle\langle \omega^{-1}\rangle\rangle f_0\right)
+\end{align}\]</p>
+<p>Note that $\langle\langle \omega^{-1}\rangle\rangle \leq \langle\langle\omega\rangle\rangle^{-1}$, the energy is thus bounded below by</p>
+<p>\[
+\begin{align}
+\text{tr}\left[\rho H_{f_0}\right] = \dfrac{\hbar f_0}{4}\left(\dfrac{\langle\langle \omega\rangle\rangle}{f_0}+\langle\langle \omega\rangle\rangle^{-1} f_0\right)
+\end{align}
+\]</p>
+<p>where</p>
+<p>\[
+\text{min}\left[\dfrac{\hbar f_0}{4}\left(\dfrac{\langle\langle \omega\rangle\rangle}{f_0}+\langle\langle \omega\rangle\rangle^{-1} f_0\right)\right] = \dfrac{1}{2}\hbar f_0.
+\]</p>
+<p>Thus for any choice of frequency $f_0$, the oscillator energy can never be smaller than the vacuum state energy of an undamped oscillator.</p>
+<p>This reflects the fact that there is an energy cost to be paid in order to decouple the oscillator from its environment (when tracing out the environmental degrees of freedom).</p>
+<h1 id="physical-meaning-of-piomega">Physical meaning of $\pi(\omega)$</h1>
+<p><em>tbd</em>.</p>
+<h1 id="equilibrium-state-at-finite-temperature">Equilibrium state at finite temperature</h1>
+<p><em>tbd</em>.</p>
+<h1 id="oscillator-dynamics">Oscillator dynamics</h1>
+<p>Now that we&rsquo;ve obtained the equilibrium state, which is also the steady state of the strongly damped oscillator, what remains is to consider the evolution of the oscillator towards equilibrium.</p>
+<p><em>tbd</em>.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/posts/on-damped-quantum-harmonic-oscillator.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

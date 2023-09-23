@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The characteristic function in the context of quantum optics - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="The characteristic function in the context of quantum optics">
+<meta itemprop="description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do."><meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="376">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="The characteristic function in the context of quantum optics" />
+<meta property="og:description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The characteristic function in the context of quantum optics"/>
+<meta name="twitter:description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">15</span>
+							<span class="rest">Sep 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">The characteristic function in the context of quantum optics</h1>
+				</div>
+			</div>
+
+			
+			
+					
+			<div class="markdown">
+				<h1 id="classical-notion">Classical notion</h1>
+<p>Let us consider a random variable $x$ and a classical probability density function $\rho(x)$,</p>
+<p>\[
+\rho(x) \leq 0,\quad \int_\Omega \rho(x) dx = 1.
+\]</p>
+<p>The $n$-th moment of $x$ is defined as</p>
+<p>\[
+\langle x^n\rangle = \int dx\ x^n \rho(x)
+\]</p>
+<p><em>Claim.</em> If all moment $n$ of $x$ is known then $\rho(x)$ is completely known.</p>
+<p>This claim can be justified by the introduction of the characteristic function $C(k)$,</p>
+<p>\[
+C(k) = \langle e^{ikx} \rangle = \int dx\ e^{ikx} \rho(x) = \sum_{n=0}^{\infty} \dfrac{(ik)^n}{n!} \langle x^n \rangle.
+\]</p>
+<p>Then, the probability density function is the Fourier transform of $C(k)$,</p>
+<p>\[
+\rho(x) = \int dk\ e^{-ikx} C(k)
+\]</p>
+<p>Reversibly, if we are given the characteristic function $C(k)$, we can also calculate the moments,</p>
+<p>\[
+\langle x^n \rangle = \dfrac{1}{i^n} \dfrac{d^n C(k)}{dk^n}\bigg\vert_{k=0}
+\]</p>
+<h1 id="quantum-mechanical-version">Quantum mechanical version</h1>
+<p>Let us now introduce the characteristic function in the quantum case, $C(\lambda, p)$. Other than $\lambda$, we introduce one more parameter $p$ for convenience. The function $C(\lambda, p)$ is called the $p$-ordered characteristic function,</p>
+<p>\[
+C(\lambda, p) = \text{tr}\left[\rho\exp\left(\lambda a^\dagger - \lambda^* a\right)\right]\exp\left(\dfrac{p}{2}|\lambda|^2\right)
+\]</p>
+<p>Each value of the parameter $p$ corresponds to a specific ordering of the creation and annihilation operators. In particular, the values $p=+1, 0, -1$ corresponds to <em>normal, symmetric, and antinormal</em> ordered characteristic functions. The $p=1$ case is also known as the Wigner $C(\lambda, 1)$.</p>
+<h2 id="the-number-operator">The number operator</h2>
+<p>The number operator $n$ is the product of two non-commuting operators. This definition brings about the prescription for ordering these two operators $a, a^\dagger$ so that $n=a^\dagger a \neq a a^\dagger$.</p>
+<blockquote>
+<p>All functions of non-commuting operators require a specification of the operator ordering. For functions of $a$ and $a^\dagger$ there are <em>three</em> special orderings commonly encountered (guess what?): normal, symmetric, and antinormal ordering.</p>
+</blockquote>
+<ol>
+<li>Normal ordering: the operators are positioned so that no annihilation operator $a$ ever appears to the left of any creation operator $a^\dagger$.</li>
+<li>Anti-normal ordering: reverse the above definition.</li>
+<li>Symmetric ordering, denoted $S(\cdot)$, is the average of all possible orderings of $a$ and $a^\dagger$.</li>
+</ol>
+<p>An example for the first two symmetric ordered powers of the number operator,</p>
+<p>\[\begin{align}
+S(n) &amp;= \dfrac{1}{2}\left(a^\dagger a + a a^\dagger\right)\newline
+S(n) &amp;= \dfrac{1}{6}\left(a^{\dagger 2}a^2 + a^\dagger a^2 a^\dagger + a^\dagger a a^\dagger a+ a^{2}a^{\dagger 2}+ aa^\dagger a a^\dagger + a a^\dagger a a\right).
+\end{align}\]</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/posts/characteristic-function-quantum-optics.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
