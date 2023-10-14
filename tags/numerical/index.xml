@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/numerical/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solving an ODE that has a convolution with RK4</title>
-      <link>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</guid>
       <description>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.
 We&amp;rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.
 Euler method Let say we have a first-order differential equation problem

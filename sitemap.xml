@@ -5,10 +5,10 @@
     <loc>https://ngdnhtien.github.io/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/tags/numerical/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/posts/</loc>
+    <loc>https://ngdnhtien.github.io/tags/numerical/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/quant-ph/</loc>
@@ -17,46 +17,52 @@
     <loc>https://ngdnhtien.github.io/tags/rk4/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/characteristic-function-quantum-optics/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/on-damped-quantum-harmonic-oscillator/</loc>
     <lastmod>2023-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/heisenberg-langevin-equation/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/qec-101-2/</loc>
     <lastmod>2023-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/07/fun-with-quantum-mechanics/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</loc>
+    <lastmod>2023-08-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/non-relativistic/fun-with-quantum-mechanics/</loc>
     <lastmod>2023-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/bosonic-qubits/</loc>
     <lastmod>2023-07-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/quantum-error-correction/</loc>
     <lastmod>2023-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/qec-101/</loc>
     <lastmod>2023-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/all-david-stern-thought-you-need-to-know/</loc>
     <lastmod>2022-12-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/perspectives-in-physics/</loc>
     <lastmod>2022-12-12T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ngdnhtien.github.io/relativistic/</loc>
+    <lastmod>2022-12-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ngdnhtien.github.io/tags/sci-com/</loc>
     <lastmod>2022-12-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2022/12/airy-formula-from-the-uncertainty-principle/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/airy-formula-from-uncertainty-principle/</loc>
     <lastmod>2022-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/notes/</loc>
@@ -71,10 +77,10 @@
     <loc>https://ngdnhtien.github.io/tags/news/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2021/10/nh%C3%A0-b%C3%A1o-ch%C3%ADn-%C4%91i%E1%BB%83m/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/nha-bao-chin-diem/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2021/10/uphysicsc-2021-48-hours-spent-on-mars/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/upc-2021/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/drafts/</loc>
@@ -92,7 +98,7 @@
     <loc>https://ngdnhtien.github.io/drafts/post-4/</loc>
     <lastmod>2020-12-31T12:13:35+05:30</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2020/12/germans-blitzkrieg-versus-tay-son/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/blitzkrieg-versus-tay-son/</loc>
     <lastmod>2020-12-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/history/</loc>
@@ -101,22 +107,22 @@
     <loc>https://ngdnhtien.github.io/tags/books/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2020/05/v%E1%BB%81-r%E1%BB%ABng-na-uy/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/on-norwegian-wood/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2020/03/b%C3%B4ng-tuy%E1%BA%BFt-von-koch/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/bong-tuyet-von-koch/</loc>
     <lastmod>2020-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/math.gr/</loc>
     <lastmod>2020-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2020/03/s%E1%BB%91-pi-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-l%C3%A0-h%E1%BA%B1ng-s%E1%BB%91/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/is-pi-constant/</loc>
     <lastmod>2020-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</loc>
+    <loc>https://ngdnhtien.github.io/non-relativistic/ly-thuyet-galois/</loc>
     <lastmod>2020-03-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/mao-asking-symmetry/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/pop-ph/</loc>
@@ -167,34 +173,34 @@
     <loc>https://ngdnhtien.github.io/drafts/this-is-the-last/</loc>
     <lastmod>2017-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/%C3%A1o-hoa/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/ao-hoa/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/ch%C3%A1o-s%C6%B0%E1%BB%9Dn/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/chao-suon/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/%C4%91%E1%BB%8Bnh-ngh%C4%A9a/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/definition/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/hitchhiker-stories/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/just-one-slight-smile-is-very-alluring/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/one-smile-is-very-alluring/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/m%C3%A0u-c%E1%BB%A7a-m%C3%A2y/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/mau-cua-may/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/m%C6%B0a-%C4%91%E1%BA%A7u-h%E1%BA%A1/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/mua-dau-ha/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/nostalgia/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/nostalgia/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/ramblings/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/1999/06/toru-watanabe/</loc>
+    <loc>https://ngdnhtien.github.io/relativistic/toru-watanabe/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>
   </url>
 </urlset>

@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solving an ODE that has a convolution with RK4</title>
-      <link>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/09/solving-an-ode-that-has-a-convolution-with-rk4/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</guid>
       <description>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.
 We&amp;rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.
 Euler method Let say we have a first-order differential equation problem
@@ -22,10 +22,10 @@ Euler method Let say we have a first-order differential equation problem
     
     <item>
       <title>The characteristic function in the context of quantum optics</title>
-      <link>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/characteristic-function-quantum-optics/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/09/the-characteristic-function-in-the-context-of-quantum-optics/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/characteristic-function-quantum-optics/</guid>
       <description>Classical notion Let us consider a random variable $x$ and a classical probability density function $\rho(x)$,
 \[ \rho(x) \leq 0,\quad \int_\Omega \rho(x) dx = 1. \]
 The $n$-th moment of $x$ is defined as
@@ -36,10 +36,10 @@ This claim can be justified by the introduction of the characteristic function $
     
     <item>
       <title>On damped quantum harmonic oscillators</title>
-      <link>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/on-damped-quantum-harmonic-oscillator/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/09/on-damped-quantum-harmonic-oscillators/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/on-damped-quantum-harmonic-oscillator/</guid>
       <description>Reference: https://arxiv.org/abs/2306.15013
 There are many methods to study damped harmonic oscillators. The idea is pretty simple: one harmonic oscillator embedded in a bath of surrounding environmental harmonic oscillators each characterized by a different frequency. This spread of frequencies brings about dephasing effects in the main oscillator dynamics.
 There are two regimes, as known in classical cases, of damped oscillation: weakly damped and strongly damped. The weak regime is mostly studied using the Linblad master equation, which assumed Markovian dynamics.</description>
@@ -47,10 +47,10 @@ There are two regimes, as known in classical cases, of damped oscillation: weakl
     
     <item>
       <title>The Heisenberg-Langevin equation: case in point</title>
-      <link>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/heisenberg-langevin-equation/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/09/the-heisenberg-langevin-equation-case-in-point/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/heisenberg-langevin-equation/</guid>
       <description>Reference: https://arxiv.org/abs/2306.15013
 The system Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is
 \[\begin{align} H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x \end{align}\]
@@ -60,10 +60,21 @@ Upon completing the square, we can rewrite this in a more compact form,
     
     <item>
       <title>Kindergarten quantum error correcting codes (P2)</title>
-      <link>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/qec-101-2/</link>
       <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/08/kindergarten-quantum-error-correcting-codes-p2/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/qec-101-2/</guid>
+      <description>4-qubit codes The encoded logical states are
+\[\begin{align} |0_L\rangle \propto |0000\rangle + |1111\rangle\newline |1_L\rangle \propto |1010\rangle + |0101\rangle \end{align}\]
+We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space. The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a superposition of the computational states of the physical qubits.</description>
+    </item>
+    
+    <item>
+      <title>Kindergarten quantum error correcting codes (P2)</title>
+      <link>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</guid>
       <description>4-qubit codes The encoded logical states are
 \[\begin{align} |0_L\rangle \propto |0000\rangle + |1111\rangle\newline |1_L\rangle \propto |1010\rangle + |0101\rangle \end{align}\]
 We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space. The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a superposition of the computational states of the physical qubits.</description>
@@ -71,11 +82,11 @@ We have four physical qubits here, so the logical qubit lives inside a two-dimen
     
     <item>
       <title>Fun with quantum mechanics</title>
-      <link>https://ngdnhtien.github.io/2023/07/fun-with-quantum-mechanics/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/fun-with-quantum-mechanics/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/07/fun-with-quantum-mechanics/</guid>
-      <description>Fidelity Given an operator $\hat{Q}$ such that
+      <guid>https://ngdnhtien.github.io/non-relativistic/fun-with-quantum-mechanics/</guid>
+      <description>Given an operator $\hat{Q}$ such that
 \[\begin{align} \hat{Q} = \sum_{k=1}^{d} q_k|q_l\rangle\langle q_k| \end{align}\]
 where $q_1 &amp;lt; q_2 &amp;lt; \dots &amp;lt; q_{d-1} &amp;lt; q_d$. What&amp;rsquo;s the minimum distance between $\rho$ and $|q_d\rangle\langle q_d|$, given that
 \[\begin{align} \langle \hat{Q} \rangle = q_d - \epsilon &amp;gt; q_{d-1}. \end{align}\]
@@ -85,22 +96,22 @@ Let us now suppose $\rho$ represents a pure state, $\rho = |\phi\rangle\langle\p
     </item>
     
     <item>
-      <title>Quantum computation with bosonic qubits</title>
-      <link>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</link>
+      <title>Baby quantum optics</title>
+      <link>https://ngdnhtien.github.io/non-relativistic/bosonic-qubits/</link>
       <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/07/quantum-computation-with-bosonic-qubits/</guid>
-      <description>Baby quantum optics So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&amp;rsquo;re dealing with photons. It&amp;rsquo;s good to review some really basic stuff.
+      <guid>https://ngdnhtien.github.io/non-relativistic/bosonic-qubits/</guid>
+      <description>So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&amp;rsquo;re dealing with photons. It&amp;rsquo;s good to review some really basic stuff.
 Freshen your mind In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.
 The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number.</description>
     </item>
     
     <item>
       <title>Kindergarten quantum error correcting codes (P1)</title>
-      <link>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/qec-101/</link>
       <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2023/07/kindergarten-quantum-error-correcting-codes-p1/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/qec-101/</guid>
       <description>You can think of the notes here are dumbed-down version of Dan Browne&amp;rsquo;s notes on topological codes and computation
 The closest thing to magic we have is perhaps quantum error correction: the idea of knowing enough about a quantum state to be able to know whether a certain event had happened without knowing more so as not to collapse the state &amp;ndash; I mean, who wouldn&amp;rsquo;t be amazed?
 A toy example: Classical three-bit repetition code We will start classically, then we generalize and make it quantum.</description>
@@ -108,40 +119,40 @@ A toy example: Classical three-bit repetition code We will start classically, th
     
     <item>
       <title>All David Stern Thought You Need to Know, Really</title>
-      <link>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</link>
+      <link>https://ngdnhtien.github.io/relativistic/all-david-stern-thought-you-need-to-know/</link>
       <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2022/12/all-david-stern-thought-you-need-to-know-really/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/all-david-stern-thought-you-need-to-know/</guid>
       <description>I came across an article on Twitter the other day about things to remember if you wanted to be a good physicist. I think Preskill tweeted the picture below in response.
 Physics Today, May 1993. I always enjoy this kind of `fragmented advice’ from older people. It is as if you were to stop them in the middle of the street and asked what piece of advice would they give to youngsters, multiple times.</description>
     </item>
     
     <item>
       <title>Airy formula from the uncertainty principle</title>
-      <link>https://ngdnhtien.github.io/2022/12/airy-formula-from-the-uncertainty-principle/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/airy-formula-from-uncertainty-principle/</link>
       <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2022/12/airy-formula-from-the-uncertainty-principle/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/airy-formula-from-uncertainty-principle/</guid>
       <description>Any physics sophomore who had taken Optics would probably know the Airy formula for diffraction over a circular aperture. The image of a point source, taken by a telescope for example, is formed by a central bright fringe (about 84% of the light) surrounded by concentric rings that get dimmer radially. The angular size $\Delta\theta$ of this pattern is first derived by George Airy in 1835,
 \[ \Delta\theta = 1.22\dfrac{\lambda}{D} \]</description>
     </item>
     
     <item>
       <title>Nhà báo chín điểm</title>
-      <link>https://ngdnhtien.github.io/2021/10/nh%C3%A0-b%C3%A1o-ch%C3%ADn-%C4%91i%E1%BB%83m/</link>
+      <link>https://ngdnhtien.github.io/relativistic/nha-bao-chin-diem/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2021/10/nh%C3%A0-b%C3%A1o-ch%C3%ADn-%C4%91i%E1%BB%83m/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/nha-bao-chin-diem/</guid>
       <description>Người ta thường trêu chọc các nhà báo bây giờ “9 điểm” do cá biệt có trường hợp ngành báo chí của một trường nọ lấy điểm chuẩn chỉ vọn vẹn 3 điểm một môn. Tôi ít khi trêu chọc kiểu này, bởi tôi thần tượng nhiều cái tên là nhà báo thành danh: Hiền Trang, Lại Văn Sâm, hay xa hơn nữa là Vũ Trọng Phụng.
 Tuy nhiên, tay Nhật Minh của Zing News lại ở một phạm trù khác.</description>
     </item>
     
     <item>
       <title>UPhysicsC 2021 - 48 hours spent on Mars</title>
-      <link>https://ngdnhtien.github.io/2021/10/uphysicsc-2021-48-hours-spent-on-mars/</link>
+      <link>https://ngdnhtien.github.io/relativistic/upc-2021/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2021/10/uphysicsc-2021-48-hours-spent-on-mars/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/upc-2021/</guid>
       <description>It has been a remarkable experience participating in The University Physics Competition of 2021. We have had a wonderful 48 hours of brainstorming, discussing, and certainly debating. We shared ideas, new ways of thinking and learn a thing or two about writing, teamwork, and certainly some physics.
 From top to bottom: Thang, Tien, Van. I’d like to thank Dr Luu Manh Quynh for his generosity and support, and Viet Anh for sharing his insights during the preparation process for UPC 2021.</description>
     </item>
@@ -178,48 +189,48 @@ I was a little surprised, because though I’ve gotten that comment before, it�
     
     <item>
       <title>Germans’ Blitzkrieg versus Tay Son</title>
-      <link>https://ngdnhtien.github.io/2020/12/germans-blitzkrieg-versus-tay-son/</link>
+      <link>https://ngdnhtien.github.io/relativistic/blitzkrieg-versus-tay-son/</link>
       <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2020/12/germans-blitzkrieg-versus-tay-son/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/blitzkrieg-versus-tay-son/</guid>
       <description>Preface I’ve been gravitating towards educational programs on Netflix recently. One of the most impressive shows so far is the Greatest Events in World War II, in which new and radical perspectives on the most remarkable battles of Germany against The Allies are presented with doctored footages in colour. The first episode of the series demystifies the terminology of Blitzkrieg, which is a tactical warfare methodology inheriting the essence of the German distinctive war philosophy: fast-paced attack — lightning strike.</description>
     </item>
     
     <item>
       <title>Về &#34;Rừng Na Uy&#34;</title>
-      <link>https://ngdnhtien.github.io/2020/05/v%E1%BB%81-r%E1%BB%ABng-na-uy/</link>
+      <link>https://ngdnhtien.github.io/relativistic/on-norwegian-wood/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2020/05/v%E1%BB%81-r%E1%BB%ABng-na-uy/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/on-norwegian-wood/</guid>
       <description>Tôi đọc Rừng Na Uy với một tâm thế thong thả. Haruki Murakami’s reputation precedes the book. Thường thì tôi sẽ đặt nhiều kỳ vọng vào các tác giả với tiếng tăm như thế này, giống như tôi đã làm với J.D. Salinger hay Khaled Hosseini. Đó là một cảm giác đặc biệt, khi bạn đọc một tác phẩm gối đầu giường của nhiều thế hệ thanh thiếu niên trưởng thành với phong cách siêu thực.</description>
     </item>
     
     <item>
       <title>Bông tuyết von Koch</title>
-      <link>https://ngdnhtien.github.io/2020/03/b%C3%B4ng-tuy%E1%BA%BFt-von-koch/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/bong-tuyet-von-koch/</link>
       <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2020/03/b%C3%B4ng-tuy%E1%BA%BFt-von-koch/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/bong-tuyet-von-koch/</guid>
       <description>Thuật ngữ “fractal” được Benoit Mandelbrot sử dụng lần đầu tiên vào năm 1975. Bắt đầu từ tiếng Latin, “fractus” nghĩa là một bề mặt không đều. Mandelbrot nhận định 2 vai trò của fractal bao gồm: “diễn tả tính hỗn độn” và “diễn tả hình học”.
 Trước đó cấu trúc fractal, với ví dụ điển hình là bông tuyết của von Koch (von Koch snowflalke), còn có một tên gọi khác: đường cong quỷ.</description>
     </item>
     
     <item>
       <title>Số Pi có thực sự là hằng số?</title>
-      <link>https://ngdnhtien.github.io/2020/03/s%E1%BB%91-pi-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-l%C3%A0-h%E1%BA%B1ng-s%E1%BB%91/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/is-pi-constant/</link>
       <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2020/03/s%E1%BB%91-pi-c%C3%B3-th%E1%BB%B1c-s%E1%BB%B1-l%C3%A0-h%E1%BA%B1ng-s%E1%BB%91/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/is-pi-constant/</guid>
       <description>Năm 1937, Paul Dirac trong một bài báo đăng trên tạp chí Nature nhắc tới khả năng các hằng số cơ bản không hẳn là độc lập với thời gian. Số Sommerfeld (hằng số cấu trúc tinh tế—fine structure constant) và số Pi $\pi$ là hai trong số các hằng số được ráo riết nghiên cứu nhất.
 Từ góc độ lịch sử, sự phụ thuộc vào thời gian của số Pi là rõ ràng.</description>
     </item>
     
     <item>
       <title>Lý thuyết Galois</title>
-      <link>https://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</link>
+      <link>https://ngdnhtien.github.io/non-relativistic/ly-thuyet-galois/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2020/03/l%C3%BD-thuy%E1%BA%BFt-galois/</guid>
+      <guid>https://ngdnhtien.github.io/non-relativistic/ly-thuyet-galois/</guid>
       <description>Trích từ phụ lục Nguyễn Quang Ánh, Thiên tài &amp;amp; Số phận.
 [21-09-22] Sau khi đọc lại bài viết này, tôi mới thấy sự liên hệ của nó với Chương trình Langlands. Một video tuyệt vời về Chương trình Langlands có thể xem tại đây.
 Lý thuyết Galois còn gọi là lý thuyết mở rộng đại số của các trường (algebraic extensions of fields). Đại ý như sau:
@@ -228,10 +239,10 @@ Trường là một khái niệm mở rộng của tập hợp $Q$ các số h�
     
     <item>
       <title>Mao Trạch Đông hỏi về đối xứng</title>
-      <link>https://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</link>
+      <link>https://ngdnhtien.github.io/relativistic/mao-asking-symmetry/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/2019/06/mao-tr%E1%BA%A1ch-%C4%91%C3%B4ng-h%E1%BB%8Fi-v%E1%BB%81-%C4%91%E1%BB%91i-x%E1%BB%A9ng/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/mao-asking-symmetry/</guid>
       <description>[disclamer] Bài viết sau đây được trích từ T. D. Lee, Symmetries, Asymmetries, and the World of Particles (1988). Bài viết không có chủ ý tán thành hay phản đối Mao Trạch Đông hay cuộc Đại Cách mạng Văn hoá vô sản, sau đây được gọi tắt là Cách mạng Văn hoá.
 “Tại sao đối xứng lại quan trọng?”, chủ tịch Mao đặt câu hỏi.
 Đó là vào ngày 30 tháng 5, năm 1974, khi xã hội Trung Hoa vẫn còn rối ren sau cuộc Cách mạng Văn hoá và Tứ nhân bang1 vẫn còn đang ở thời kỳ quyền lực.</description>
@@ -306,10 +317,10 @@ cillum dolore eu fugiat nulla pariatur.&lt;/p&gt;</description>
     
     <item>
       <title>Áo hoa</title>
-      <link>https://ngdnhtien.github.io/1999/06/%C3%A1o-hoa/</link>
+      <link>https://ngdnhtien.github.io/relativistic/ao-hoa/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/%C3%A1o-hoa/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/ao-hoa/</guid>
       <description>Chỗ em nắng đã lên chưa
 Nửa đêm gió lạnh sương lùa làm sao?
 Mùa đông về tới cổng rào
@@ -319,10 +330,10 @@ Nguyễn Nhật Ánh, Có hai con mèo ngồi bên cửa sổ.</description>
     
     <item>
       <title>Cháo sườn</title>
-      <link>https://ngdnhtien.github.io/1999/06/ch%C3%A1o-s%C6%B0%E1%BB%9Dn/</link>
+      <link>https://ngdnhtien.github.io/relativistic/chao-suon/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/ch%C3%A1o-s%C6%B0%E1%BB%9Dn/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/chao-suon/</guid>
       <description>Thành phố Hồ Chí Minh, 02/03/2020
 Bao lâu rồi tớ chưa ăn cháo sườn nhỉ!? Đó là lần đầu tiên tớ ăn đấy.
 Cảm ơn nhé. 😅
@@ -331,19 +342,19 @@ P/s: Tớ cứ thắc mắc cậu mua nó ở đâu. Chắc là gần đó. Gầ
     
     <item>
       <title>Định nghĩa</title>
-      <link>https://ngdnhtien.github.io/1999/06/%C4%91%E1%BB%8Bnh-ngh%C4%A9a/</link>
+      <link>https://ngdnhtien.github.io/relativistic/definition/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/%C4%91%E1%BB%8Bnh-ngh%C4%A9a/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/definition/</guid>
       <description>&lt;p&gt;You told me it was not love. That, we’ve got a long way to go to get there. Not until this day did I realise you were right. But another thing came up to me today.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Just One Slight Smile is Very Alluring</title>
-      <link>https://ngdnhtien.github.io/1999/06/just-one-slight-smile-is-very-alluring/</link>
+      <link>https://ngdnhtien.github.io/relativistic/one-smile-is-very-alluring/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/just-one-slight-smile-is-very-alluring/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/one-smile-is-very-alluring/</guid>
       <description>Thành phố Hồ Chí Minh, 30/05/2019
 Day 01
 We were looking for a coffee shop after hours of playing League of Legends. The parental-control-free first year of college gave us more excitement than we have imagined.
@@ -354,20 +365,20 @@ We came back, just because my friend told me about the endearing girl at the bar
     
     <item>
       <title>Màu của mây</title>
-      <link>https://ngdnhtien.github.io/1999/06/m%C3%A0u-c%E1%BB%A7a-m%C3%A2y/</link>
+      <link>https://ngdnhtien.github.io/relativistic/mau-cua-may/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/m%C3%A0u-c%E1%BB%A7a-m%C3%A2y/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/mau-cua-may/</guid>
       <description>Sài Gòn, 06/06/2019
 Ngày hôm đó là ngày Sài Gòn đón nhận cơn mưa đầu tiên sau một chuỗi ngày nóng nực dài như cả một thế kỉ. Tôi với nó đánh bạo leo lên mái để hóng gió. Bầu trời khuya hôm nay khác với những hôm trước, nom khoáng đạt, rộng lớn kỳ lạ. Mây không vần dữ dội mà co cụm lại thành những gợn tròn lạ mắt, nền trời bừng lên như một bức tranh được hắt sáng từ cái đèn pin khổng lồ của một ông hoạ sĩ cũng khổng lồ không kém.</description>
     </item>
     
     <item>
       <title>Mưa đầu hạ</title>
-      <link>https://ngdnhtien.github.io/1999/06/m%C6%B0a-%C4%91%E1%BA%A7u-h%E1%BA%A1/</link>
+      <link>https://ngdnhtien.github.io/relativistic/mua-dau-ha/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/m%C6%B0a-%C4%91%E1%BA%A7u-h%E1%BA%A1/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/mua-dau-ha/</guid>
       <description>Phan Đăng Lưu
 Mây vần
 Dòng người hối hả
@@ -381,10 +392,10 @@ Cơn mưa đầu hạ</description>
     
     <item>
       <title>Nostalgia</title>
-      <link>https://ngdnhtien.github.io/1999/06/nostalgia/</link>
+      <link>https://ngdnhtien.github.io/relativistic/nostalgia/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/nostalgia/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/nostalgia/</guid>
       <description>“Khi chết đi,” hắn ngẩng đầu lên, ánh mắt dò xét, “cậu nghĩ mọi người sẽ trở thành cái gì?”
 “Ký ức,” nàng trả lời.
 .
@@ -393,10 +404,10 @@ Khi mà ký ức quá dễ phai mờ, còn thời gian thì thật tàn nhẫn. 
     
     <item>
       <title>Toru Watanabe</title>
-      <link>https://ngdnhtien.github.io/1999/06/toru-watanabe/</link>
+      <link>https://ngdnhtien.github.io/relativistic/toru-watanabe/</link>
       <pubDate>Wed, 02 Jun 1999 00:00:00 +0000</pubDate>
       
-      <guid>https://ngdnhtien.github.io/1999/06/toru-watanabe/</guid>
+      <guid>https://ngdnhtien.github.io/relativistic/toru-watanabe/</guid>
       <description>Thực ra ngoài việc học, tớ đến đây còn vì một lý do khác. Tớ muốn trốn khỏi những cảm xúc mơ hồ về cậu, khỏi những lần khắc khoải chờ mong cậu sẽ dừng lại và đợi tớ ở đâu đó. Tớ muốn đi thật xa, đến một nơi chẳng ai biết ai là ai, và bắt đầu sống một cuộc sống mới.
 Con người ở đây, theo cảm quan của tớ, không khác người Sài Gòn là mấy.</description>
     </item>

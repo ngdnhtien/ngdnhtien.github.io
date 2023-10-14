@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kindergarten quantum error correcting codes (P2) - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Kindergarten quantum error correcting codes (P2)">
+<meta itemprop="description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction."><meta itemprop="datePublished" content="2023-08-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="893">
+<meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Kindergarten quantum error correcting codes (P2)" />
+<meta property="og:description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/non-relativistic/qec-101-3/" /><meta property="article:section" content="non-relativistic" />
+<meta property="article:published_time" content="2023-08-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kindergarten quantum error correcting codes (P2)"/>
+<meta name="twitter:description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/non-relativistic">Non-relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/relativistic">Relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">18</span>
+							<span class="rest">Aug 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Kindergarten quantum error correcting codes (P2)</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#4-qubit-codes">4-qubit codes</a></li>
+    <li><a href="#general-quantum-error-correction-conditions">General quantum error correction conditions</a></li>
+    <li><a href="#bosonic-error-correction-codes">Bosonic error correction codes</a>
+      <ol>
+        <li><a href="#general-description">General description</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<h1 id="4-qubit-codes">4-qubit codes</h1>
+<p>The encoded logical states are</p>
+<p>\[\begin{align}
+|0_L\rangle \propto |0000\rangle + |1111\rangle\newline
+|1_L\rangle \propto |1010\rangle + |0101\rangle
+\end{align}\]</p>
+<p>We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space.  The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a <em>superposition</em> of the computational states of the physical qubits. This is a general requirement to detect <em>phase</em> error, something that&rsquo;s intrinsically quantum mechanical.</p>
+<blockquote>
+<p>You need entanglement for protection against both bit and phase errors.</p>
+</blockquote>
+<p>The second thing one should notice is the Hamming weight is two. Meaning, we can detect up to two bit-flip events.</p>
+<p>Let us now play around with this code. Assuming an error $E_1=XIII$ happened. Did our qubit leave the codespace? Yes. Can we detect the error? Yes. The resulting states being</p>
+<p>\[\begin{align}
+|0_L\rangle \to |1000\rangle + |0111\rangle \propto |0_X\rangle\newline
+|1_L\rangle \to |0010\rangle + |1101\rangle \propto |1_X\rangle
+\end{align}\]</p>
+<p>which is clearly orthogonal to the state <em>before</em>. There sure exists an observable $O$ that gives either of these $+1$ and $-1$ the other. Furthermore, let us define new basis states as $|0_X\rangle$ and $|1_X\rangle$. Let us now consider the case in which the third bit is flipped, $E_2=IIXI$.</p>
+<p>\[\begin{align}
+|0_L\rangle \to |0010\rangle + |1101\rangle \propto |1_X\rangle\newline
+|1_L\rangle \to |1000\rangle + |0111\rangle \propto |0_X\rangle
+\end{align}\]</p>
+<p>We see that the state ended up in the <em>same</em> error space, although the bits are logically flipped. Again, we should be able to detect this $E_2$ error&ndash;the states are orthogonal. But, the real question is,</p>
+<blockquote>
+<p>Can we distinguish $E_1$ and $E_2$?</p>
+</blockquote>
+<p>Short answer is no. This is the concept of <em>degeneracy</em>, where two error processes lead to the same error space.</p>
+<p>Let us now move on to phase flipping events. Again, let us suppose we have $E_3=IZII$ that acts on the code space.</p>
+<p>\[\begin{align}
+|0_L\rangle \to +1|0000\rangle -1|1111\rangle \propto |0_Z\rangle\newline
+|1_L\rangle \to +1|1010\rangle -1|0101\rangle \propto |1_Z\rangle
+\end{align}\]</p>
+<p>Did we leave the code space? Yes. Remember, the code space is spanned by $\{|0_L\rangle, |1_L\rangle\}$, so we can have a state being linear superposition of basis states like</p>
+<p>\[\begin{align}
+|\varphi\rangle &amp;= a|0_L\rangle + b |1_L\rangle\newline
+&amp;=a (|0000\rangle + |1111\rangle) + b (|1010\rangle + |0101\rangle)
+\end{align}\]</p>
+<p>For this state $|\varphi\rangle$ to be ``legal&quot;, $a$ has to be uniform for both $|0000\rangle$ and $|1111\rangle$. But the error state requires a minus sign, so the states must be orthogonal. Another way to check orthogonality is to simply observe that $\langle 0_Z|0_L\rangle=+1-1=0$. Bottom line is that we can detect this error. Now, let us see for the case $E_4=ZIII$.</p>
+<p>\[\begin{align}
+|0_L\rangle \to +1|0000\rangle -1|1111\rangle \propto +|0_Z\rangle\newline
+|1_L\rangle \to -1|1010\rangle + 1|0101\rangle \propto -|1_Z\rangle
+\end{align}\]</p>
+<p>This error $E_4$ did a phase flip in the error space! Can we detect it? Yeah, we left the code space. But we cannot correct $E_3$ and $E_4$ simultaneously. Again, degeneracy prevents us from correcting the errors that exhibit the same syndrome.</p>
+<h1 id="general-quantum-error-correction-conditions">General quantum error correction conditions</h1>
+<p>Let us now find a formalism to unify what we&rsquo;ve learned so far. We have two bit-flip errors,</p>
+<p>\[\begin{align}
+E_1 = XIII,\ E_2=IXII
+\end{align}\]</p>
+<p>and we can detect them, since they both map the code word onto orthogonal (w.r.t the code space) error spaces. Here&rsquo;s a nice remark,</p>
+<blockquote>
+<p>When two errors map the same codeword to two orthogonal error spaces, a malicious environment cannot distinguish the code word by measuring the two errors (expectation values).</p>
+</blockquote>
+<p>This is expressed in the &ldquo;detectability condition&rdquo;,</p>
+<p>\[\begin{align}
+P E_j P = c_j P,
+\end{align}\]</p>
+<p>where $P$ is the projection into the codespace, $P=|0_L\rangle\langle 0_L| + |1_L\rangle\langle 1_L|$. What the equation also implies is the fact that there&rsquo;s no matrix elements between the two codewords, i.e.</p>
+<p>\[\begin{align}
+\langle W_m|E_j|W_n\rangle = 0.
+\end{align}\]</p>
+<p>Furthermore, we know that if two errors lead the codeword out of different orthogonal subspaces, then trivially they can be distinguished (detected) and corrected. However, if two (or more) errors lead to the same error spaces (still, it is orthogonal to the codespace), then the two errors should better undo each other. This is succinctly expressed in the &ldquo;correctability condition&rdquo;, or the Knill-Laflamme condition,</p>
+<p>\[\begin{align}
+P E_j^\dagger E_k P = c_{jk} P
+\end{align}\]</p>
+<p>This is simply because we have no way to correct <em>an error</em> other than looking at its syndrome. In some cases, the Knill-Laflamme condition is written as</p>
+<p>\[
+\begin{align}
+\langle W_\sigma | E_j^\dagger E_k | W_{\sigma&rsquo;}\rangle = c_{jk} \delta_{\sigma\sigma&rsquo;}
+\end{align}
+\]</p>
+<p>where $|W_{\sigma}\rangle$ denotes the logical codewords.</p>
+<h1 id="bosonic-error-correction-codes">Bosonic error correction codes</h1>
+<h2 id="general-description">General description</h2>
+<p>As always, the goal of QEC is to suppress the <em>dominant</em> error. Unlike the qubit systems, we you have the errors being</p>
+<p>\[
+\begin{align}
+\Epsilon = \{I, X, Z, Y\}
+\end{align}
+\]</p>
+<p>the Pauli operators, a single oscillator is poisoned by excitation/loss and dephasing errors,</p>
+<p>\[
+\begin{align}
+\Epsilon = \{\hat{a}, \hat{a}^\dagger \hat{a}\}
+\end{align}
+\]</p>
+<p>It&rsquo;s worth pointing out that this error model doesn&rsquo;t affect the number of excitation dramatically in the Fock state. Correspondingly one can imagine the Wigner function jiggling around (or smears out) a bit due to $\hat{a}$ or $\hat{a}^\dagger\hat{a}$, but it&rsquo;s not going to be a full revolution around the phase space. This implies a certain intrinsic robustness of bosonic systems, which is important, in the context of bias-preserving error correction.</p>
+<p><em>to be continued&hellip;</em></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/qec-101-3.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Airy formula from the uncertainty principle - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Airy formula from the uncertainty principle">
+<meta itemprop="description" content="Ab initio derivation of Airy formula from the uncertainty principle."><meta itemprop="datePublished" content="2022-12-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-12-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="392">
+<meta itemprop="keywords" content="notes,physics.optics," /><meta property="og:title" content="Airy formula from the uncertainty principle" />
+<meta property="og:description" content="Ab initio derivation of Airy formula from the uncertainty principle." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/non-relativistic/airy-formula-from-uncertainty-principle/" /><meta property="article:section" content="non-relativistic" />
+<meta property="article:published_time" content="2022-12-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Airy formula from the uncertainty principle"/>
+<meta name="twitter:description" content="Ab initio derivation of Airy formula from the uncertainty principle."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/non-relativistic">Non-relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/relativistic">Relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">11</span>
+							<span class="rest">Dec 2022</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Airy formula from the uncertainty principle</h1>
+				</div>
+			</div>
+
+			
+			
+					
+			<div class="markdown">
+				<p>Any physics sophomore who had taken Optics would probably know the Airy formula for diffraction over a circular aperture. The image of a point source, taken by a telescope for example, is formed by a central bright fringe (about 84% of the light) surrounded by concentric rings that get dimmer radially. The angular size $\Delta\theta$ of this pattern is first derived by George Airy in 1835,</p>
+<p>\[
+\Delta\theta = 1.22\dfrac{\lambda}{D}
+\]</p>
+<p>This poses a fundamental limit for imaging techniques: for a fixed wavelength, the resolution is inversely proportional to the diameter of the aperture $D$. Interestingly enough, it can also be derived from Heisenberg’s uncertainty principle.</p>
+<p>Qualitatively speaking, when a photon passes through an aperture, we gain some information regardings its position $x$, and as a <em>consequence</em> we are less sure about its momentum $p$ on the axis which its motion is constrained. The Heisenberg’s uncertainty principle states that,</p>
+<p>\[
+\Delta x \Delta p \geq \dfrac{\hbar}{2}
+\]</p>
+<p>It is the uncertainty in momentum that gives the photon more degrees of freedom in choosing its future direction. If we were to consider a collective of photons–a beam, then this beam is effectively spread out as passing the aperture, hence the Airy pattern. The smaller the aperture $d\to 0$, the more information we gain about the photon&rsquo;s position, and thus the larger the Airy rings $\delta\theta\to \infty$.</p>
+<p>To obtain the Airy formula, we first consider a photon of momentum $h/\lambda$ along the $x$-axis passing a slot aperture $D$ along the $y$-axis. Since the photon passes through the slit of width $D$,</p>
+<p>\[
+\Delta p_y D \geq \dfrac{\hbar}{2}
+\]</p>
+<p>Note that the $x$-momentum is $p_x = 2\pi\hbar/\lambda$ we can substitute $\hbar$ by</p>
+<p>\[\begin{align*}
+\Delta p_y D \geq \lambda p_x/4\pi \newline
+\Delta p_y/p_x \geq \lambda/4\pi D
+\end{align*}
+\]</p>
+<p>Let us pause for a moment and think about the meaning of the expression on the left hand side. Remember that $p_x$ itself is a vector, pointing along the $x$-axis; $\Delta p_y$ itself is also a vector, pointing along the circumferential axis. The ratio $\Delta p_y/p_x$ thus denote the <em>angular</em> uncertainty, $\Delta\theta$ of the photon passing through the aperture; hence,</p>
+<p>\[
+\Delta\theta \propto \dfrac{\lambda}{D}
+\]</p>
+<p>Note that the photon&rsquo;s motion here is 1-dimensional. For an aperture disk of radius $D$, we expect it to be two-dimensional: hence two axes along which the position of the photon is constrained.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/notes">notes</a></li>
+							
+							<li class="tag-li"><a href="/tags/physics.optics">physics.optics</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/airy-formula-from-uncertainty-principle.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

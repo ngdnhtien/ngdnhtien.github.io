@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Baby quantum optics - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Baby quantum optics">
+<meta itemprop="description" content="Do something with harmonic oscillators."><meta itemprop="datePublished" content="2023-07-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1325">
+<meta itemprop="keywords" content="quant-ph,quantum-error-correction," /><meta property="og:title" content="Baby quantum optics" />
+<meta property="og:description" content="Do something with harmonic oscillators." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/non-relativistic/bosonic-qubits/" /><meta property="article:section" content="non-relativistic" />
+<meta property="article:published_time" content="2023-07-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-27T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Baby quantum optics"/>
+<meta name="twitter:description" content="Do something with harmonic oscillators."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/non-relativistic">Non-relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/relativistic">Relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">27</span>
+							<span class="rest">Jul 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Baby quantum optics</h1>
+				</div>
+			</div>
+
+			
+			
+			<aside class="toc">
+				<header>
+				<h2>Contents</h2>
+				</header>
+				<nav id="TableOfContents">
+  <ol>
+    <li><a href="#freshen-your-mind">Freshen your mind</a></li>
+    <li><a href="#coherent-states">Coherent states</a>
+      <ol>
+        <li><a href="#properties-of-coherent-states">Properties of coherent states</a></li>
+        <li><a href="#phase-shifting-operator">Phase shifting operator</a></li>
+        <li><a href="#displacement-operator">Displacement operator</a>
+          <ol>
+            <li>
+              <ol>
+                <li><a href="#generation-of-coherent-states-using-displacement-operator">Generation of coherent states using displacement operator</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+			</aside>
+			
+					
+			<div class="markdown">
+				<p>So instead of playing with spin-$1/2$ particles as usual in superconducting qubits, we&rsquo;re dealing with photons. It&rsquo;s good to review some really basic stuff.</p>
+<h1 id="freshen-your-mind">Freshen your mind</h1>
+<p>In this very first section let us review basic ingredients of quantum mechanics 1, specifically the quantum harmonic oscillator and its coherent states.</p>
+<p>The harmonic oscillator problem can be formulation in the matrix representation, associating with the concepts of Fock space and occupation number. Let us start from the eigenfunctions of the harmonic oscillator $\psi_n(x)$, which form a complete orthonormal basis for the corresponding Hilbert space. The following vectors</p>
+<p>\[
+\begin{align}
+\psi_0 \to \begin{bmatrix} 1 \newline 0 \newline 0 \newline \vdots\end{bmatrix} \equiv |0\rangle, \quad
+\psi_1\to \begin{bmatrix} 0 \newline 1 \newline 0 \newline \vdots\end{bmatrix} \equiv |1\rangle, \quad
+\psi_n \to\begin{bmatrix}0 \newline \vdots \newline n \newline \vdots\end{bmatrix} \equiv |n\rangle.
+\end{align}
+\]</p>
+<p>are the column vector representation of the eigenfunctions $\psi_i$. These vectors are, by construction orthonormal $\langle n|m\rangle = \delta_{nm}$, and form the so called <em>Fock space</em> or <em>occupation number space</em></p>
+<p>The state labelled $n$ can be constructed from the ground state by repeatedly adding quantization of energy by the ladder operator,</p>
+<p>\[
+\begin{align}
+|n\rangle = \dfrac{1}{\sqrt{n!}}(a^\dagger)^n |0\rangle
+\end{align}
+\]</p>
+<p>Since $\{|n\rangle\}$ form a complete orthonormal basis, we can get the matrix representation for any operator. For example, the Hamiltonian written in the Fock state basis is</p>
+<p>\[
+\begin{align}
+\langle m | {H} | n \rangle &amp;= \hbar\omega(n+0.5)\langle m |n\rangle\
+&amp;= \hbar\omega \begin{bmatrix}1/2 &amp; 0 &amp; 0 &amp; \dots \newline
+0 &amp; 3/2 &amp; 0 &amp; \dots \newline
+0 &amp; 0 &amp; 5/2 &amp; \dots \newline
+\vdots &amp; \dots &amp; \dots &amp; \ddots \end{bmatrix}
+\end{align}
+\]</p>
+<h1 id="coherent-states">Coherent states</h1>
+<p>Coherent states play a pivotal role in quantum optics. The operator we&rsquo;re about to derive is named after Roy J. Glauber, Nobel prize laureate to the quantum theory of optical coherence.</p>
+<p>Imagining a laser. How many photons does a laser beam have? It seems indefinitely many. But what makes laser such a breakthrough at the time of its invention is that although we have a massive amount of photons, they all pick up a precisely defined phase. A white light, on the other hand, is a statistical mixture of many many photons with random phases and oscillating orientations.</p>
+<blockquote>
+<p>Definition: A <strong>coherent state</strong> $|\alpha\rangle$, or a Glauber state, is defined as eigenstate of the annihilation operator ${a}$ with eigenvalues $\alpha\in\mathbb{C}$, i.e. ${a}|\alpha\rangle = \alpha|\alpha\rangle$.</p>
+</blockquote>
+<p>Notice that ${a}$ is a non-hermitian operator[^1], hence the phase $\alpha$ is complex-valued, with a certain amplitude $|\alpha|$ and a phase $\alpha=|\alpha|e^{i\varphi}$.</p>
+<h2 id="properties-of-coherent-states">Properties of coherent states</h2>
+<p>First, let us calculate the expectation value of energy in a certain coherent state $|\alpha\rangle$.</p>
+<p>\[
+\langle {H} \rangle = \langle \alpha|{H}|\alpha\rangle = \hbar\omega\langle \alpha|{n}+\dfrac{1}{2}|\alpha\rangle = \hbar\omega(|\alpha|^2+\dfrac{1}{2})
+\]</p>
+<h2 id="phase-shifting-operator">Phase shifting operator</h2>
+<p>Now we introduce the <em>phase shifting operator</em>,</p>
+<p>\[
+\begin{align}
+U(\theta)=\exp{\left(-i\theta{n}\right)}
+\end{align}
+\]</p>
+<p>where ${n}$ is the occupation number operator. It&rsquo;s worth noting that</p>
+<p>\[
+\begin{align}
+U^\dagger(\theta){a}U(\theta)= ae^{-i\theta}
+\end{align}
+\]</p>
+<p>To prove this, take the differentation w.r.t to $\theta$ on the left hand side,</p>
+<p>\[
+\begin{align}
+d/d\theta\left(U^\dagger{a}U\right)&amp;= d/d\theta\left(e^{i\theta n}ae^{-i\theta n }\right)\newline
+&amp;= i U^\dagger na U - iU^\dagger a nU\newline
+&amp;=iU^\dagger[n, a]U\newline
+&amp;=iU^\dagger(a^\dagger a a - aa^\dagger a)U\newline
+&amp;=iU^\dagger([a^\dagger, a]a)U\newline
+&amp;=-iU^\dagger a U
+\end{align}
+\]</p>
+<p>Hence,</p>
+<p>\[
+\begin{align}
+\int\dfrac{d(U^\dagger a U)}{U^\dagger a U} = \int-id\theta\newline
+\ln(U^\dagger a U) = -i\theta + C\newline
+U^\dagger a U = A(0)e^{-i\theta}
+\end{align}
+\]</p>
+<p>The constant of integral is found by letting $\theta=0$, and one finds that $U^\dagger(0)aU(0)=a$, hence $A(0)=a$. $\Box$</p>
+<p>The phase shifting $U(\theta)$ does two things: (1) it gives the amplitude operator (or annihilation operator) a phase shift $\theta$; and (2) it shifts the phase of a coherent state, i.e. rotating the coherence state by an angle $\theta$ in the phase space $(q, p)$. The latter can be seen by considering</p>
+<p>\[
+\begin{align}
+Ua|\alpha\rangle &amp;= \alpha U|\alpha\rangle\newline
+U a U^\dagger U|\alpha\rangle &amp;= \alpha U|\alpha\rangle\newline
+ae^{i\theta}U|\alpha\rangle &amp;= \alpha U|\alpha\rangle\newline
+a |\alpha&rsquo;\rangle &amp;= \alpha e^{-i\theta}|\alpha&rsquo;\rangle
+\end{align}
+\]</p>
+<p>which from the definition of the coherent state, $a|\alpha&rsquo;\rangle=\alpha&rsquo;|\alpha&rsquo;\rangle$, implying that $\alpha&rsquo;=\alpha e^{-i\theta}$. $\Box$</p>
+<p>In conclusion,</p>
+<p>\[
+U(\theta)|\alpha\rangle = |\alpha e^{-i\theta}\rangle
+\]</p>
+<h2 id="displacement-operator">Displacement operator</h2>
+<p>Another type of important operator is the displacement operator</p>
+<p>\[
+\begin{align}
+D(\alpha) = \exp\left(\alpha a^\dagger - \alpha^* a\right)
+\end{align}
+\]</p>
+<p>where $\alpha=|\alpha|e^{i\varphi}$ is a complex number and $a (a^\dagger)$ are ladder operators. One can verify that the displacement operator is unitary. But first, let us re-write the displacement operator in another form. Using a special case of the Baker–Campbell–Hausdorff formula, for any $A$ and $B$ that commutes with $[A, B]$, we have</p>
+<p>\[
+\begin{align}
+\exp(A+B) = \exp (A) \exp (B) \exp\left(-\dfrac{1}{2}[A, B]\right)
+\end{align}
+\]</p>
+<p>Since $[a,a^\dagger]=1$, $[a,[a,a^\dagger]]=[a^\dagger,[a,a^\dagger]]=0$. Hence we can write</p>
+<p>\[
+\begin{align}
+D(\alpha) &amp;= \exp(\alpha a^\dagger)\exp(-\alpha^* a)\exp\left(-\dfrac{1}{2}[\alpha a^\dagger, - \alpha^* a]\right)\newline
+&amp;= \exp(\alpha a^\dagger) \exp(-\alpha^*a)\exp(-{|\alpha|^2}/{2})\newline
+&amp;= \exp(-{|\alpha|^2}/{2})\exp(\alpha a^\dagger) \exp(-\alpha^*a)
+\end{align}
+\]</p>
+<p>Now the adjoint $D^\dagger(\alpha)$,</p>
+<p>\[
+\begin{align}
+D^\dagger(\alpha) &amp;= \exp\left(\alpha^* a - \alpha a^\dagger\right)\newline
+&amp;= \exp(\alpha^* a)\exp(-\alpha a^\dagger) \exp\left(-\dfrac{1}{2}[\alpha^*a, -\alpha a^\dagger]\right)\newline
+&amp;= \exp\left(|\alpha|^2/2\right) \exp(\alpha^{*} a) \exp(-\alpha a^\dagger)
+\end{align}
+\]</p>
+<p>And their product,</p>
+<p>\[
+\begin{align}
+D^\dagger(\alpha)D(\alpha) = \exp\left(|\alpha|^2/2\right) &amp;\exp(\alpha^{*} a) \exp(-\alpha a^\dagger)\newline &amp;\times \exp(-{|\alpha|^2}/{2})\exp(\alpha a^\dagger) \exp(-\alpha^*a)= I
+\end{align}
+\]</p>
+<p>Notice that</p>
+<p>\[
+\begin{align}
+D(-\alpha) &amp;= \exp\left(-\alpha a^\dagger +\alpha^* a\right)\newline
+&amp;=\exp\left(\alpha^* a - \alpha a^\dagger\right)\equiv D^\dagger(\alpha)
+\end{align}
+\]</p>
+<p>Some more important properties of the displacement operators</p>
+<p>\[
+\begin{align}
+D^\dagger(\alpha) a D(\alpha) &amp;= \exp\left(\alpha^* a - \alpha a^\dagger\right)a \exp\left(\alpha a^\dagger - \alpha^* a\right) = a +\alpha\newline
+D^\dagger(\alpha) a^\dagger D(\alpha) &amp;= \exp\left(\alpha^* a - \alpha a^\dagger\right)a^\dagger \exp \left(\alpha a^\dagger - \alpha^* a\right) = a^\dagger + \alpha^*
+\end{align}
+\]</p>
+<p>These can be proven using the BCH formula again. For example, the operator $D^\dagger a D$ results in</p>
+<p>\[
+\begin{align}
+D^\dagger a D &amp;= a + [(\alpha^* a - \alpha a^\dagger), a] + \dfrac{1}{2!}[\alpha^* a - \alpha a^\dagger, [\alpha^* a - \alpha a^\dagger, a]] + \dots\newline
+&amp;= a + \alpha^* [a, a] - \alpha[a^\dagger, a] \newline
+&amp;= a + \alpha.\ \Box
+\end{align}
+\]</p>
+<p>Lastly, displacement of a total of $\alpha+\beta$,</p>
+<p>\[
+\begin{align}
+D(\alpha+\beta) &amp;= \exp\left((\alpha+\beta)a^\dagger - (\alpha+\beta)^* a\right)\newline
+&amp;= \exp\left(\alpha a^\dagger-\alpha^* a + \beta a^\dagger -\beta^* a\right)\newline
+&amp;=\exp\left(\alpha a^\dagger - \alpha^* a\right)\exp\left(\beta a^\dagger - \beta^* a\right)\exp\left(-\dfrac{1}{2}[\alpha a^\dagger - \alpha^* a, \beta a^\dagger - \beta^* a]\right)\newline
+&amp;=\exp\left(-\dfrac{1}{2}(\alpha\beta^*-\alpha^*\beta)\right)\exp\left(\alpha a^\dagger - \alpha^* a\right)\exp\left(\beta a^\dagger - \beta^* a\right)\newline
+&amp;=\exp\left(-i\text{Im}(\alpha\beta^*)\right)D(\alpha)D(\beta)
+\end{align}
+\]</p>
+<p>Oh by the way let us calculate some commutators, as they will come in handy later,</p>
+<p>\[
+\begin{align}
+[a, D(\alpha)]
+&amp;=[a, \exp(|\alpha|^2/2)\exp(\alpha a^\dagger)\exp(-\alpha^* a)]\newline
+&amp;=\exp(-|\alpha|^2/2)[a, \exp(\alpha a^\dagger)\exp(-\alpha^* a)]\newline
+&amp;=\exp(-|\alpha|^2/2)\left([a, \exp(\alpha a^\dagger)]\exp(-\alpha^* a)+\exp(\alpha a^\dagger)[a, \exp(-\alpha^* a)]\right)
+\end{align}
+\]</p>
+<p>Now apparently $[a, \exp(-\alpha^* a)]=0$. The other one $[a, \exp(\alpha a^\dagger)]$ is a bit more tricky. Here&rsquo;s a result that should help,</p>
+<p>\[\begin{align}\begin{cases}
+[A, [A,B]]=0\newline
+[B, [A,B]]=0\end{cases} \rightarrow [A, f(B)]= [A,B]f&rsquo;(B)
+\end{align}
+\]</p>
+<p>Here we already knew that $[a, [a, a^\dagger]]=[a^\dagger, [a, a^\dagger]]=0$. Hence, the commutator of $a$ with a real function of $a^\dagger$ should be</p>
+<p>\[
+[a, \exp(\alpha a^\dagger)] = [a, a^\dagger]\alpha \exp(\alpha a^\dagger).
+\]</p>
+<p>In other words,</p>
+<p>\[
+\begin{align}
+[a, D(\alpha)] &amp;= \alpha\exp(-|\alpha|^2/2)\exp(\alpha a^\dagger)\exp(-\alpha^* a)\newline
+&amp;=\alpha \exp(\alpha a^\dagger - \alpha^* a)\equiv \alpha D(\alpha)
+\end{align}
+\]</p>
+<p>By analogy, the commutator $[a^\dagger, D(\alpha)]$ is</p>
+<p>\[
+\begin{align}
+[a^\dagger, D(\alpha)] = \alpha^* D(\alpha)
+\end{align}
+\]</p>
+<p>Now we can make use of these commutators to review some of the results derived above. For example,</p>
+<p>\[
+[a, D(\alpha)]=\alpha D(\alpha) \leftrightarrow a D(\alpha)  = \alpha D(\alpha) + D(\alpha) a
+\]</p>
+<p>Hence a unitary transformation $D^\dagger(\alpha) a D(\alpha)$ can be written as</p>
+<p>\[\begin{align}
+D^\dagger(\alpha) a D(\alpha)&amp;=D^\dagger(\alpha)\left(\alpha D(\alpha) + D(\alpha) a\right)\newline
+&amp;=\alpha D^\dagger(\alpha)D(\alpha)+D^\dagger(\alpha)D(\alpha)a\newline
+&amp;=\alpha + a
+\end{align}\]</p>
+<p>This is another way of proving the above results of important properties of displacement operators.</p>
+<h4 id="generation-of-coherent-states-using-displacement-operator">Generation of coherent states using displacement operator</h4>
+<p>Here&rsquo;s a nice theorem: the coherent state $|\alpha\rangle$ is generated from the vacuum state $|0\rangle$ by the displacement operator $D(\alpha)$.</p>
+<p>\[
+\begin{align}
+|\alpha\rangle = D(\alpha) |0\rangle
+\end{align}
+\]</p>
+<p>How to prove this? We should probably consider the action of $a (D(\alpha)|0\rangle)$. If this turns out to be $\alpha&rsquo;|\alpha&rsquo;\rangle$, where $|\alpha&rsquo;\rangle= D(\alpha)|0\rangle$, then we should have proven it.</p>
+<p>\[
+\begin{align}
+aD(\alpha)|0\rangle &amp;= \left(\alpha D(\alpha) + D(\alpha) a\right)|0\rangle\newline
+&amp;= \alpha D(\alpha) |0\rangle + D(\alpha) a |0\rangle\newline
+&amp;= \alpha D(\alpha) |0\rangle
+\end{align}
+\]</p>
+<p>meaning that $D(\alpha)|0\rangle$ is indeed an eigenvector of $a$, hence it is must be a coherent state.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+							
+							<li class="tag-li"><a href="/tags/quantum-error-correction">quantum-error-correction</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/bosonic-qubits.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

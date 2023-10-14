@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Lý thuyết Galois - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Lý thuyết Galois">
+<meta itemprop="description" content=" Bạn đọc chắc hẳn quen thuộc với nhận định phương trình đa thức bậc 5 tổng quát trở lên thì không thể giải được bằng căn thức. Lý do vì sao?"><meta itemprop="datePublished" content="2020-03-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="861">
+<meta itemprop="keywords" content="sci-com,math.gr," /><meta property="og:title" content="Lý thuyết Galois" />
+<meta property="og:description" content=" Bạn đọc chắc hẳn quen thuộc với nhận định phương trình đa thức bậc 5 tổng quát trở lên thì không thể giải được bằng căn thức. Lý do vì sao?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/non-relativistic/ly-thuyet-galois/" /><meta property="article:section" content="non-relativistic" />
+<meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lý thuyết Galois"/>
+<meta name="twitter:description" content=" Bạn đọc chắc hẳn quen thuộc với nhận định phương trình đa thức bậc 5 tổng quát trở lên thì không thể giải được bằng căn thức. Lý do vì sao?"/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/non-relativistic">Non-relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/relativistic">Relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">03</span>
+							<span class="rest">Mar 2020</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Lý thuyết Galois</h1>
+				</div>
+			</div>
+
+			
+			
+					
+			<div class="markdown">
+				<p>Trích từ phụ lục Nguyễn Quang Ánh, <em>Thiên tài &amp; Số phận</em>.</p>
+<p><code>[21-09-22]</code> Sau khi đọc lại bài viết này, tôi mới thấy sự liên hệ của nó với Chương trình Langlands. Một video tuyệt vời về Chương trình Langlands có thể xem tại <a href="https://www.youtube.com/watch?v=_bJeKUosqoY">đây</a>.</p>
+<hr>
+<p>Lý thuyết Galois còn gọi là lý thuyết mở rộng đại số của các trường (algebraic extensions of fields). Đại ý như sau:</p>
+<p>Trường là một khái niệm mở rộng của tập hợp $Q$ các số hữu tỉ: Trên một trường ta có thể làm bốn phép tính số học cộng, trừ, nhân, chia. Nếu ta lấy một đa thức $P(x)$ với các hệ số nằm trong một trường $\mathbb{K}$ nào đó, ví dụ như trường số hữu tỉ $\mathbb{Q}$ chẳng hạn, thì nói chung các nghiệm của phương trình thuần nhất</p>
+<p>\[
+P(x)=0
+\]</p>
+<p>không nằm trong trường $\mathbb{Q}$ mà phải nằm trong một trường $\mathbb{L}$ nào đó lớn hơn trường $\mathbb{Q}$. Trường $\mathbb{L}$ nhỏ nhất chứa $\mathbb{Q}$ và cả các nghiệm trên gọi là mở rộng đại số của $\mathbb{Q}$ theo đa thức $P$.</p>
+<p>Ví dụ, ta có thể mở rộng đại số trường $\mathbb{Q}$ bằng cách thêm vào đó nghiệm của phương trình $x^2-2=0$. Trường nhận được là $\mathbb{Q}[\sqrt{2}]$ gồm các số có dạng $a+b\sqrt{2}$ với $a,b\in\mathbb{Q}$. Trường số phức $\mathbb{C}$ cũng chính là một mở rộng đại số của $\mathbb{R}$ với đa thức $P(x)=x^2+1$.</p>
+<p>Với mỗi mở rộng đại số từ $\mathbb{K}\to \mathbb{L}$, tồn tại một nhóm tương ứng gọi là nhóm Galois, kí hiệu là $Gal(L/K)$. Nhóm này bao gồm các tự đẳng cấu $f: L\to L$ sao cho khi giới hạn trên $\mathbb{K}$ thì $f$ là ánh xạ đồng nhất. Trong ví dụ ở trên khi mở rộng từ $\mathbb{Q}$ lên $\mathbb{Q}[\sqrt{2}]$ thì nhóm Galois có hai phần tử: một là ánh xạ đồng nhất, phần kia là ánh xạ biến phần tử</p>
+<p>\[
+a+b\sqrt{2} \to a-b\sqrt{2}
+\]</p>
+<p>Khi có một mở rộng đại số từ $\mathbb{K}\to\mathbb{L}$ thì có một tương ứng $1-1$ giữa các nhóm con của nhóm Galois với các trường con của $\mathbb{L}$ mà chứa $\mathbb{K}$. Sử dụng các tương ứng này, Galois chứng minh được nhận định</p>
+<blockquote>
+<p>Các nghiệm của phương trình $P(x)=0$ viết được dưới dạng biểu thức chỉ chứa các hệ số $P(x)$ và các phép tính cộng, trừ, nhân, chia, và khai căn.</p>
+</blockquote>
+<p>là tương đương với nhận định</p>
+<blockquote>
+<p>Nhóm Galois $Gal(L/K)$ là một nhóm giải được.</p>
+</blockquote>
+<p><em>Chú thích:</em> Nhóm hữu hạn $G$ được gọi là giải được (solvable) nếu nó có một chuỗi các nhóm con mà chúng đều có các nhóm thương là nhóm Abel. Nói cách khác, tồn tại một chuỗi các nhóm con thoả mãn</p>
+<p>\[
+1 = G_0 &lt; G_1 &lt; \dots &lt; G_k = G,
+\]</p>
+<p>với $G_{j-1}$ là một nhóm con chuẩn tắc của $G_j$ và $G_{j}/G_{j-1}$ là một nhóm Abel.</p>
+<p>Khi $P(x)=0$ là một đa thức bậc $n$ thì nhóm Galois tương ứng của nó là nhóm $S(n)$ các hoán vị của tập $n$ phần tử. Người ta chứng minh được với
+$n\leq 4$ thì nhóm $S(n)$ là nhóm giải được, còn với
+$n\geq 5$ thì nhóm $S(n)$ là nhóm không giải được. Như vậy, ta cũng có thể phát biểu</p>
+<blockquote>
+<p>Đa thức $P(x)=0$ có bậc nhỏ hơn hoặc bằng 4 thì có thể giải được nghiệm bằng căn thức; bậc 5 hoặc lớn hơn thì chịu.</p>
+</blockquote>
+<p>Các đa thức $P(x)$ bậc 2 và bậc 3 là các đa thức quen thuộc ở bậc phổ thông. Một vài video thú vị về lịch sử của chúng có thể xem thêm ở <a href="https://www.youtube.com/watch?v=cUzklzVXJwo">đây</a>, kể chuyện về Scipione del Ferro và Niccolò Tartaglia.</p>
+<p>Cần nói rằng Galois không phải là người đầu tiên nghĩ ra ý tưởng dùng lý thuyết nhóm trong các phương trình đại số. Từ năm 1770 nhà toán học Joseph-Louis Lagrange đã viết về các mẹo liên quan đến nhóm hoán vị trong việc giải phương trình đại số, và tất nhiên trong công trình của Ruffini và Abel đã sử dụng lý thuyết nhóm. Cauchy cũng đã thấy được tầm quan trọng của các công trình của Ruffini và Abel, cũng đã nghiên cứu ứng dụng của lý thuyết nhóm vào việc giải phương trình đại số. Tuy nhiên, lý thuyết của Galois đã làm mọi vấn đề trở nên sáng sủa hơn hẳn.</p>
+<p>Lý thuyết Galois không chỉ xuất hiện trong các phương trình đại số, mà còn trong các phương trình vi phân. Lý thuyết Galois vi phân (mở rộng các trường vi phân, tức trên đó các trường có phép lấy đạo hàm) được nhà toán học Emile Picard và Enerst Vessiot khởi xướng từ năm 1883 – 1904. Lý thuyết này có nhiều ứng dụng, đặc biệt trong việc kiểm tra xem một hệ động lực học có khả tích (có dáng điệu tựa tuần hoàn) hay không. Một định lý của Jean-Pierre Ramis và các cộng sự, cùng với sự mở rộng của người viết phụ lục này (GS. Nguyễn Tiến Dũng – NV) nói rằng nếu một hệ động lực là khả tích thì các nhóm Galois vi phân của nó phải là “tựa giao hoán”.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li class="tag-li"><a href="/tags/sci-com">sci-com</a></li>
+							
+							<li class="tag-li"><a href="/tags/math.gr">math.gr</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+			<div class="back">
+				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/ly-thuyet-galois.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+			</div>
+			
+			
+			<div class="back">
+				<a href="https://ngdnhtien.github.io/"><span aria-hidden="true">← Back</span></a>
+			</div>
+			
+
+			<div class="back">
+				
+					
+					Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
+					
+				
+			</div></div>
+		
+	</div>
+	
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
