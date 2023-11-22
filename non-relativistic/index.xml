@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/non-relativistic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/non-relativistic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My coding cheatsheet</title>
+      <link>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</link>
+      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</guid>
+      <description>I still Google how to create matplotlib figures with two subplots. This ends today!
+Python in general Check directory To check for the current working directory
+import os os.getcwd() Import dot py files from another branch Switch to a certain directory
+import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Qiskit Lookup for default pulse specifications For example, to look at the parameters of a default $\pi$ pulse on qubit = 0.
+qubit = 0 x_default = backend.</description>
+    </item>
+    
     <item>
       <title>Solving an ODE that has a convolution with RK4</title>
       <link>https://ngdnhtien.github.io/non-relativistic/4th-order-runge-kutta/</link>
