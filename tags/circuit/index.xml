@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>circuit on Haar&#39;s Half Measure</title>
+    <link>https://ngdnhtien.github.io/tags/circuit/</link>
+    <description>Recent content in circuit on Haar&#39;s Half Measure</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Nguyen Dinh Tien</copyright>
+    <lastBuildDate>Tue, 28 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/tags/circuit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electric guitar know-how</title>
+      <link>https://ngdnhtien.github.io/relativistic/know-how-electric-guitar/</link>
+      <pubDate>Tue, 28 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/relativistic/know-how-electric-guitar/</guid>
+      <description>So I recently bought a stratocaster and an amp.
+DI box A DI box is a device that turns high-impedance instrument level to a low-impedance microphone level. The signal during the process is also balanced.
+A practical setting would be connecting the guitar/bass to the microphone input. The advantages?
+you can clone the signal to another output that&amp;rsquo;s not being affected by the amplifier. This pure signal from the instrument can later on be processed through, say, an emulated amplifier of your choice.</description>
+    </item>
+    
+  </channel>
+</rss>

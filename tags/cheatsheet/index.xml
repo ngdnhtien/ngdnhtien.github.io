@@ -16,9 +16,8 @@
       <guid>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</guid>
       <description>I still Google how to create matplotlib figures with two subplots. This ends today!
 Python in general Check directory To check for the current working directory
-import os os.getcwd() Import dot py files from another branch Switch to a certain directory
-import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Qiskit Lookup for default pulse specifications For example, to look at the parameters of a default $\pi$ pulse on qubit = 0.
-qubit = 0 x_default = backend.</description>
+import os os.getcwd() Import .py files from another branch Switch to a certain directory
+import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Dump an array to .pkl files / Read a .pkl file and make it an array Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .</description>
     </item>
     
   </channel>

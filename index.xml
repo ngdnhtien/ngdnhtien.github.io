@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electric guitar know-how</title>
+      <link>https://ngdnhtien.github.io/relativistic/know-how-electric-guitar/</link>
+      <pubDate>Tue, 28 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/relativistic/know-how-electric-guitar/</guid>
+      <description>So I recently bought a stratocaster and an amp.
+DI box A DI box is a device that turns high-impedance instrument level to a low-impedance microphone level. The signal during the process is also balanced.
+A practical setting would be connecting the guitar/bass to the microphone input. The advantages?
+you can clone the signal to another output that&amp;rsquo;s not being affected by the amplifier. This pure signal from the instrument can later on be processed through, say, an emulated amplifier of your choice.</description>
+    </item>
+    
     <item>
       <title>My coding cheatsheet</title>
       <link>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</link>
@@ -16,9 +28,8 @@
       <guid>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</guid>
       <description>I still Google how to create matplotlib figures with two subplots. This ends today!
 Python in general Check directory To check for the current working directory
-import os os.getcwd() Import dot py files from another branch Switch to a certain directory
-import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Qiskit Lookup for default pulse specifications For example, to look at the parameters of a default $\pi$ pulse on qubit = 0.
-qubit = 0 x_default = backend.</description>
+import os os.getcwd() Import .py files from another branch Switch to a certain directory
+import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Dump an array to .pkl files / Read a .pkl file and make it an array Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .</description>
     </item>
     
     <item>
