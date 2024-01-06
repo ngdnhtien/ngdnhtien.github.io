@@ -82,85 +82,24 @@
 	</nav>
 </div>
 
-		<div class="post">
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">22</span>
-							<span class="rest">Jul 2023</span>
+		
+			<div class="main-section">	
+				<div class="post">
+					<div class="post-header">
+						
+							<div class="meta">
+								<div class="date">
+									<span class="day">22</span>
+									<span class="rest">Jul 2023</span>
+								</div>
+							</div>
+						
+						<div class="matter">
+							<h1 class="title">Kindergarten quantum error correcting codes (P1)</h1>
 						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Kindergarten quantum error correcting codes (P1)</h1>
-				</div>
-			</div>
-
-			
-			
-			<aside class="toc">
-				<header>
-				<h2>Contents</h2>
-				</header>
-				<nav id="TableOfContents">
-  <ol>
-    <li>
-      <ol>
-        <li><a href="#a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</a>
-          <ol>
-            <li><a href="#error-detection--correction">Error detection &amp; correction</a></li>
-            <li><a href="#encoded-logical-operators">Encoded logical operators</a></li>
-          </ol>
-        </li>
-        <li><a href="#quantum-three-bit-repetition-code">Quantum three-bit repetition code</a>
-          <ol>
-            <li><a href="#error-detection">Error detection</a></li>
-            <li><a href="#error-correction">Error correction</a></li>
-            <li><a href="#logical-operators-on-encoded-states">Logical operators on encoded states</a></li>
-            <li><a href="#distance-of-a-quantum-code">Distance of a quantum code</a></li>
-          </ol>
-        </li>
-        <li><a href="#stabilizer-formalism">Stabilizer formalism</a>
-          <ol>
-            <li><a href="#stabilizer-operators">Stabilizer operators</a></li>
-            <li><a href="#encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</a>
-              <ol>
-                <li><a href="#equivalency">Equivalency</a></li>
-                <li><a href="#in-search-of-logical-operators">In search of logical operators</a></li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-        <li><a href="#toric-code">Toric code</a>
-          <ol>
-            <li><a href="#stabilizer-formalism-for-toric-code">Stabilizer formalism for toric code</a>
-              <ol>
-                <li><a href="#multiplication-and-independence-of-plaquette-operators">Multiplication and independence of plaquette operators</a></li>
-                <li><a href="#dual-lattice">Dual lattice</a></li>
-                <li><a href="#multiplication-and-independence-of-vertex-operators">Multiplication and independence of vertex operators</a></li>
-                <li><a href="#logical-qubits">Logical qubits</a></li>
-                <li><a href="#equivalency-of-logical-operators-under-stablizer-multiplication">Equivalency of logical operators under stablizer multiplication</a></li>
-                <li><a href="#code-distace">Code distace</a></li>
-              </ol>
-            </li>
-            <li><a href="#errors-on-the-toric-code">Errors on the toric code</a>
-              <ol>
-                <li><a href="#error-detection-1">Error detection</a></li>
-                <li><a href="#error-correction-1">Error correction</a></li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-			</aside>
-			
-					
-			<div class="markdown">
-				<blockquote>
+					</div>	
+					<div class="markdown">
+						<blockquote>
 <p>You can think of the notes here are dumbed-down version of Dan Browne&rsquo;s <a href="https://drive.google.com/file/d/1AB0Kd5JV5TzqwvR4VysrJt-F3GVin2S4/view?pli=1">notes on topological codes and computation</a></p>
 </blockquote>
 <p>The closest thing to magic we have is perhaps quantum error correction: the idea of <em>knowing</em> enough about a quantum state to be able to <em>know</em> whether a certain event had happened without <em>knowing more</em> so as not to collapse the state &ndash; I mean, who wouldn&rsquo;t be amazed?</p>
@@ -535,41 +474,101 @@ E&rsquo;E = E&rsquo;E&rsquo;L = L
 <p>which, if $L$ is in the stabilizer (stabilizers commute with themselves) would leave the code words invariant. Hence, in this case ($L\in\mathcal{S}$), applying $E&rsquo;$ would correct $E$.</p>
 <p>However, $L$ can be a encoded logical operator, which also commute with $\mathcal{S}$. In this case, the errors can be $E\bar{Z}_1, E\bar{Z}_2, E\bar{Z}_1\bar{Z}_2$, which all lead to the same error syndromes.</p>
 
-			</div>
-
-			<div class="tags">
-				
-					
-						<ul class="flat">
+					</div>
+					<div class="tags">
+						
 							
-							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+								<ul class="flat">
+									
+									<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+									
+								</ul>
 							
-						</ul>
-					
-				
-			</div>
+						
+					</div>
 
-			
-			<div class="back">
-				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/qec-101.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
-			</div>
-			
+					
+					<div class="back">
+						<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/qec-101.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					</div>
+					
 
-			<div class="back" style="padding-top: 0.5em;">
-				<a href="https://ngdnhtien.github.io//relativistic/all-david-stern-thought-you-need-to-know/" title="prev">← Newer</a>
-				<a href="https://ngdnhtien.github.io//non-relativistic/fun-with-quantum-mechanics/" title="next" style="float: right">Older →</a>
-			</div>								
-			
-			<div class="back">
+					<div class="back" style="padding-top: 0.5em;">
+						<a href="https://ngdnhtien.github.io//relativistic/all-david-stern-thought-you-need-to-know/" title="prev">← Newer</a>
+						<a href="https://ngdnhtien.github.io//non-relativistic/fun-with-quantum-mechanics/" title="next" style="float: right">Older →</a>
+					</div>								
 				
-					
-					Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
-					
-				
-			</div></div>
+					<div class="back">
+						
+							
+							Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+							
+						
+					</div>
+				</div>
+				<nav class="section-nav">
+					<aside class="toc">
+						<header>
+						<h1>Contents</h1>
+						</header>
+						<nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#a-toy-example-classical-three-bit-repetition-code">A toy example: Classical three-bit repetition code</a>
+          <ol>
+            <li><a href="#error-detection--correction">Error detection &amp; correction</a></li>
+            <li><a href="#encoded-logical-operators">Encoded logical operators</a></li>
+          </ol>
+        </li>
+        <li><a href="#quantum-three-bit-repetition-code">Quantum three-bit repetition code</a>
+          <ol>
+            <li><a href="#error-detection">Error detection</a></li>
+            <li><a href="#error-correction">Error correction</a></li>
+            <li><a href="#logical-operators-on-encoded-states">Logical operators on encoded states</a></li>
+            <li><a href="#distance-of-a-quantum-code">Distance of a quantum code</a></li>
+          </ol>
+        </li>
+        <li><a href="#stabilizer-formalism">Stabilizer formalism</a>
+          <ol>
+            <li><a href="#stabilizer-operators">Stabilizer operators</a></li>
+            <li><a href="#encoded-logical-operators-in-the-stabilizer-formalism">Encoded logical operators in the stabilizer formalism</a>
+              <ol>
+                <li><a href="#equivalency">Equivalency</a></li>
+                <li><a href="#in-search-of-logical-operators">In search of logical operators</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#toric-code">Toric code</a>
+          <ol>
+            <li><a href="#stabilizer-formalism-for-toric-code">Stabilizer formalism for toric code</a>
+              <ol>
+                <li><a href="#multiplication-and-independence-of-plaquette-operators">Multiplication and independence of plaquette operators</a></li>
+                <li><a href="#dual-lattice">Dual lattice</a></li>
+                <li><a href="#multiplication-and-independence-of-vertex-operators">Multiplication and independence of vertex operators</a></li>
+                <li><a href="#logical-qubits">Logical qubits</a></li>
+                <li><a href="#equivalency-of-logical-operators-under-stablizer-multiplication">Equivalency of logical operators under stablizer multiplication</a></li>
+                <li><a href="#code-distace">Code distace</a></li>
+              </ol>
+            </li>
+            <li><a href="#errors-on-the-toric-code">Errors on the toric code</a>
+              <ol>
+                <li><a href="#error-detection-1">Error detection</a></li>
+                <li><a href="#error-correction-1">Error correction</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+					</aside>
+				</nav>
+			</div>
 		
 	</div>
-	
 	<div class="footer wrapper">
 	<nav class="nav">
 		<div>2023  © Nguyen Dinh Tien </div>

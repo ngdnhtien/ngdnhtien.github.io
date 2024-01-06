@@ -82,48 +82,24 @@
 	</nav>
 </div>
 
-		<div class="post">
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">15</span>
-							<span class="rest">Sep 2023</span>
+		
+			<div class="main-section">	
+				<div class="post">
+					<div class="post-header">
+						
+							<div class="meta">
+								<div class="date">
+									<span class="day">15</span>
+									<span class="rest">Sep 2023</span>
+								</div>
+							</div>
+						
+						<div class="matter">
+							<h1 class="title">Solving an ODE that has a convolution with RK4</h1>
 						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Solving an ODE that has a convolution with RK4</h1>
-				</div>
-			</div>
-
-			
-			
-			<aside class="toc">
-				<header>
-				<h2>Contents</h2>
-				</header>
-				<nav id="TableOfContents">
-  <ol>
-    <li><a href="#euler-method">Euler method</a>
-      <ol>
-        <li><a href="#modified-euler-method">Modified Euler method</a></li>
-      </ol>
-    </li>
-    <li><a href="#runge-kutta-method">Runge-Kutta method</a>
-      <ol>
-        <li><a href="#fourth-order-runge-kutta">Fourth-order Runge-Kutta</a></li>
-        <li><a href="#higher-order-odes">Higher-order ODEs</a></li>
-        <li><a href="#case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-			</aside>
-			
-					
-			<div class="markdown">
-				<p>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.</p>
+					</div>	
+					<div class="markdown">
+						<p>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.</p>
 <p>We&rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.</p>
 <h1 id="euler-method">Euler method</h1>
 <p>Let say we have a first-order differential equation problem</p>
@@ -140,7 +116,7 @@ x(t_1) := x(t_0+\Delta t) = x(t_0) + \Delta t f(t_0, x_0)
 x_{n+1} = x_n + \Delta t f(t_n, x_n)
 \]</p>
 <p>For small enough $\Delta t$, the numerical solution should not deviate much from the exact solution. Of course, this is a very simple kind of thing. The error order is quite large, $O(\Delta t^2)$.</p>
-<h2 id="modified-euler-method">Modified Euler method</h2>
+<h1 id="modified-euler-method">Modified Euler method</h1>
 <p>To improve the Euler method, we add to our toolkit something called <code>predictor-corrector</code>. This <code>p-d</code> thing is based on the idea of averaging the value of $f(x,t)$ at the beginning and end of each time we move forward. Mathematically speaking,</p>
 <p>\[
 x_{n+1} = x_n + \dfrac{1}{2}\Delta t(f(t_n, x_n)+ f(t_n+\Delta t, x_{n+1}))
@@ -205,7 +181,7 @@ a+b = 1,\ \alpha b = 1/2,\ \beta b = 1/2
 \]</p>
 <p>These constraints originate from the uniformity of the Taylor expansions of $x_{n+1}$ in two different ways whose detailed calculation is beyond the scope of this note.</p>
 <p>Higher-order Runge-Kutta methods are obtained when we further generalize the $x_{n+1}$ formula by adding <em>more</em> predictors. In essence, what&rsquo;s really going on after each update of predictor is the corrector becoming more and more accurate.</p>
-<h2 id="fourth-order-runge-kutta">Fourth-order Runge-Kutta</h2>
+<h1 id="fourth-order-runge-kutta">Fourth-order Runge-Kutta</h1>
 <p>Here I list the formula for the fourth-order Runge-Kutta method, also physicists&rsquo; favourite one.</p>
 <p>\[\begin{align}
 r_1 = \Delta t f(t_n, x_n),\newline
@@ -233,7 +209,7 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4)
 </span></span><span style="display:flex;"><span>        x_num[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x_num[j] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span><span style="color:#f92672">*</span>(r1<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r2<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r3<span style="color:#f92672">+</span>r4)
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x_num
-</span></span></code></pre></div><h2 id="higher-order-odes">Higher-order ODEs</h2>
+</span></span></code></pre></div><h1 id="higher-order-odes">Higher-order ODEs</h1>
 <p>We can actually solve for higher order ODEs. Consider the second-order ODE given by</p>
 <p>\[
 \ddot{x} - f(t, x, \dot{x})=0,
@@ -244,7 +220,7 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4)
 \dot{u} = f(t, x, u)
 \end{align}\]</p>
 <p>Then, each first-order coupled ODE above can be solved simultaneously with RK4 method.</p>
-<h2 id="case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</h2>
+<h1 id="case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</h1>
 <p>The damped harmonic oscillator&rsquo;s equation of motion reads,</p>
 <p>\[
 \begin{align}
@@ -437,45 +413,62 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4).
 <p>Can we see the overdamped effect?</p>
 </blockquote>
 
-			</div>
+					</div>
+					<div class="tags">
+						
+							
+								<ul class="flat">
+									
+									<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+									
+									<li class="tag-li"><a href="/tags/numerical">numerical</a></li>
+									
+									<li class="tag-li"><a href="/tags/rk4">rk4</a></li>
+									
+								</ul>
+							
+						
+					</div>
 
-			<div class="tags">
-				
 					
-						<ul class="flat">
-							
-							<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
-							
-							<li class="tag-li"><a href="/tags/numerical">numerical</a></li>
-							
-							<li class="tag-li"><a href="/tags/rk4">rk4</a></li>
-							
-						</ul>
+					<div class="back">
+						<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/4th-order-runge-kutta.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					</div>
 					
-				
-			</div>
 
-			
-			<div class="back">
-				<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/4th-order-runge-kutta.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					<div class="back" style="padding-top: 0.5em;">
+						<a href="https://ngdnhtien.github.io//non-relativistic/on-damped-quantum-harmonic-oscillator/" title="prev">← Newer</a>
+						<a href="https://ngdnhtien.github.io//non-relativistic/my-cheatsheet/" title="next" style="float: right">Older →</a>
+					</div>								
+				
+					<div class="back">
+						
+							
+							Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+							
+						
+					</div>
+				</div>
+				<nav class="section-nav">
+					<aside class="toc">
+						<header>
+						<h1>Contents</h1>
+						</header>
+						<nav id="TableOfContents">
+  <ol>
+    <li><a href="#euler-method">Euler method</a></li>
+    <li><a href="#modified-euler-method">Modified Euler method</a></li>
+    <li><a href="#runge-kutta-method">Runge-Kutta method</a></li>
+    <li><a href="#fourth-order-runge-kutta">Fourth-order Runge-Kutta</a></li>
+    <li><a href="#higher-order-odes">Higher-order ODEs</a></li>
+    <li><a href="#case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</a></li>
+  </ol>
+</nav>
+					</aside>
+				</nav>
 			</div>
-			
-
-			<div class="back" style="padding-top: 0.5em;">
-				<a href="https://ngdnhtien.github.io//non-relativistic/on-damped-quantum-harmonic-oscillator/" title="prev">← Newer</a>
-				<a href="https://ngdnhtien.github.io//non-relativistic/my-cheatsheet/" title="next" style="float: right">Older →</a>
-			</div>								
-			
-			<div class="back">
-				
-					
-					Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
-					
-				
-			</div></div>
 		
 	</div>
-	
 	<div class="footer wrapper">
 	<nav class="nav">
 		<div>2023  © Nguyen Dinh Tien </div>

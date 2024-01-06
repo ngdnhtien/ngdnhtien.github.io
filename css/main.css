@@ -131,15 +131,20 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
     font-weight: 500;
     line-height: 1.3em;
-    margin: 30px 0 20px 0;
+    margin: 20px 0 20px 0;
 }
 
 h1 {
     font-size: 1.75rem;
 }
 
-h1.site-title {
-    font-size: 2.5rem;
+.post-header h1, .section-nav h1 {
+    margin-top: 0px!important;
+}
+
+
+.site-title {
+    font-size: 2.5rem!important;
 }
 
 h2 {
@@ -250,6 +255,7 @@ ul {
 .header .site-title {
     margin: 0 0 -0.2em 0;
     line-height: 1.0em;
+
 }
 
 .site-title a {
@@ -267,7 +273,7 @@ ul {
 }
 
 .header nav {
-    border-top: 3px solid #eee;
+    border-top: 5px solid #eee;
     padding-top: 15px;
 }
 
@@ -339,10 +345,10 @@ ul {
 .post-header .meta .date .day {
     font-family: "Playfair Display", serif;
     font-weight: 700;
-    line-height: 0.45em;
+    line-height: 1em;
     font-size: 3em;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .post-header .meta .date .rest {
@@ -350,16 +356,12 @@ ul {
     font-size: 0.75em;
 }
 
-.post-header h1.title {
-    margin: -10px 0 0 0;
-}
-
 .post .title.small {
     margin: 0 0 10px 0;
 }
 
 .post .post-header {
-    margin: 30px 0 30px 0;
+    margin: 0 0 20px 0;
 }
 
 .post .draft-label {
@@ -494,10 +496,6 @@ ul {
     font-size: 1em;
 }
 
-.toc {
-    line-height: normal;
-}
-
 .inline-img {
     margin: 0 0 0 0 !important;
     max-width: 80%;
@@ -530,3 +528,67 @@ code {
     padding: 0.25em 0 0.25em 0!important;
     margin: 0 0 -0.5em 0!important;
 }
+
+/* remove the list style */
+
+.toc ol {
+    list-style: none!important;
+    padding-left: 0px;
+}
+
+.toc li {
+    padding-left: 15px;
+}
+
+/* repositioning the TOC */
+
+.section-nav {
+    padding-left: 25px;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: 100% 15em;
+}
+
+.toc {
+    line-height: 1.7em;
+    border-left: 5px solid #efefef;
+    padding-left: 25px;
+    
+}
+
+.toc a {
+    color: #ccc;
+}
+
+.toc a:hover,
+.toc a:focus {
+  color: #666;
+}
+
+/* make the post 800px */
+.main-section .post {
+    max-width: 800px;
+}
+
+/* smooth scrolling */
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* make it sticky */
+
+/* 2. Make nav sticky */
+.main-section > nav {
+    position: sticky;
+    top: 4rem;
+    align-self: start;
+  }
+
+/* the spy thing-y */
+.section-nav li.active > a {
+    color: #333;
+    font-weight: 500;
+  }

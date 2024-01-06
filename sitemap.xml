@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ngdnhtien.github.io/non-relativistic/floating-toc/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/design/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/non-relativistic/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/ui/</loc>
+    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ngdnhtien.github.io/tags/circuit/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,25 +29,16 @@
     <loc>https://ngdnhtien.github.io/tags/guitar/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/</loc>
-    <lastmod>2023-11-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ngdnhtien.github.io/tags/impedance/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/relativistic/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/tags/</loc>
-    <lastmod>2023-11-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ngdnhtien.github.io/tags/cheatsheet/</loc>
     <lastmod>2023-11-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/non-relativistic/</loc>
     <lastmod>2023-11-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/numerical/</loc>
