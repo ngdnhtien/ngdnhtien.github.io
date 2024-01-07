@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="Solving an ODE that has a convolution with RK4">
 <meta itemprop="description" content="One ring to rule them all."><meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1524">
+<meta itemprop="wordCount" content="1523">
 <meta itemprop="keywords" content="quant-ph,numerical,rk4," /><meta property="og:title" content="Solving an ODE that has a convolution with RK4" />
 <meta property="og:description" content="One ring to rule them all." />
 <meta property="og:type" content="article" />
@@ -101,7 +101,7 @@
 					<div class="markdown">
 						<p>In this note I document stuff I remembered doing back when I was taking Numerical Methods I.</p>
 <p>We&rsquo;ll get the idea from Euler method, then extend it up to a family of method called Runge-Kutta. The Runge-Kutta 4th order is the final step, and is considered the one ring to rule all ODEs.</p>
-<h1 id="euler-method">Euler method</h1>
+<h2 id="euler-method">Euler method</h2>
 <p>Let say we have a first-order differential equation problem</p>
 <p>\[\begin{align}
 \dfrac{dx}{dt} - f(t, x) = 0,\
@@ -116,7 +116,7 @@ x(t_1) := x(t_0+\Delta t) = x(t_0) + \Delta t f(t_0, x_0)
 x_{n+1} = x_n + \Delta t f(t_n, x_n)
 \]</p>
 <p>For small enough $\Delta t$, the numerical solution should not deviate much from the exact solution. Of course, this is a very simple kind of thing. The error order is quite large, $O(\Delta t^2)$.</p>
-<h1 id="modified-euler-method">Modified Euler method</h1>
+<h3 id="modified-euler">Modified Euler</h3>
 <p>To improve the Euler method, we add to our toolkit something called <code>predictor-corrector</code>. This <code>p-d</code> thing is based on the idea of averaging the value of $f(x,t)$ at the beginning and end of each time we move forward. Mathematically speaking,</p>
 <p>\[
 x_{n+1} = x_n + \dfrac{1}{2}\Delta t(f(t_n, x_n)+ f(t_n+\Delta t, x_{n+1}))
@@ -168,7 +168,7 @@ x_{n+1} = x_n + \dfrac{1}{2}\Delta t(f(t_n, x_n)+ f(t_n+\Delta t, x^P_{n+1}))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(t_range, x_num)
 </span></span></code></pre></div><p>The modified Euler method is one of a family of methods called second-order Runge-Kutta methods.</p>
-<h1 id="runge-kutta-method">Runge-Kutta method</h1>
+<h2 id="runge-kutta-method">Runge-Kutta method</h2>
 <p>In deriving the modified Euler formula, we&rsquo;ve made the predictor by evaluating $f(t_{n+1}, x_{n+1})$ at $t_{n+1}=t_n + \Delta t$ and $x_{n+1} = x_n + h_1$. A straightforward generalization would be twisting the predictor (now let us replace $h$ by $r$)</p>
 <p>\[\begin{align}
 r_1 = \Delta t f(t_n, x_n),\newline
@@ -181,7 +181,7 @@ a+b = 1,\ \alpha b = 1/2,\ \beta b = 1/2
 \]</p>
 <p>These constraints originate from the uniformity of the Taylor expansions of $x_{n+1}$ in two different ways whose detailed calculation is beyond the scope of this note.</p>
 <p>Higher-order Runge-Kutta methods are obtained when we further generalize the $x_{n+1}$ formula by adding <em>more</em> predictors. In essence, what&rsquo;s really going on after each update of predictor is the corrector becoming more and more accurate.</p>
-<h1 id="fourth-order-runge-kutta">Fourth-order Runge-Kutta</h1>
+<h3 id="fourth-order-runge-kutta">Fourth-order Runge-Kutta</h3>
 <p>Here I list the formula for the fourth-order Runge-Kutta method, also physicists&rsquo; favourite one.</p>
 <p>\[\begin{align}
 r_1 = \Delta t f(t_n, x_n),\newline
@@ -209,7 +209,7 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4)
 </span></span><span style="display:flex;"><span>        x_num[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x_num[j] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span><span style="color:#f92672">*</span>(r1<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r2<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>r3<span style="color:#f92672">+</span>r4)
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x_num
-</span></span></code></pre></div><h1 id="higher-order-odes">Higher-order ODEs</h1>
+</span></span></code></pre></div><h2 id="higher-order-odes">Higher-order ODEs</h2>
 <p>We can actually solve for higher order ODEs. Consider the second-order ODE given by</p>
 <p>\[
 \ddot{x} - f(t, x, \dot{x})=0,
@@ -220,7 +220,7 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4)
 \dot{u} = f(t, x, u)
 \end{align}\]</p>
 <p>Then, each first-order coupled ODE above can be solved simultaneously with RK4 method.</p>
-<h1 id="case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</h1>
+<h2 id="case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</h2>
 <p>The damped harmonic oscillator&rsquo;s equation of motion reads,</p>
 <p>\[
 \begin{align}
@@ -444,7 +444,7 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4).
 					<div class="back">
 						
 							
-							Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+							Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
 							
 						
 					</div>
@@ -456,10 +456,16 @@ x_{n+1} = x_n + \dfrac{1}{6}(r_1+2r_2+2r_3+r_4).
 						</header>
 						<nav id="TableOfContents">
   <ol>
-    <li><a href="#euler-method">Euler method</a></li>
-    <li><a href="#modified-euler-method">Modified Euler method</a></li>
-    <li><a href="#runge-kutta-method">Runge-Kutta method</a></li>
-    <li><a href="#fourth-order-runge-kutta">Fourth-order Runge-Kutta</a></li>
+    <li><a href="#euler-method">Euler method</a>
+      <ol>
+        <li><a href="#modified-euler">Modified Euler</a></li>
+      </ol>
+    </li>
+    <li><a href="#runge-kutta-method">Runge-Kutta method</a>
+      <ol>
+        <li><a href="#fourth-order-runge-kutta">Fourth-order Runge-Kutta</a></li>
+      </ol>
+    </li>
     <li><a href="#higher-order-odes">Higher-order ODEs</a></li>
     <li><a href="#case-in-point-damped-harmonic-oscillator">Case in point: damped harmonic oscillator</a></li>
   </ol>

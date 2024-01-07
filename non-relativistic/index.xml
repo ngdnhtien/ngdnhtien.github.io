@@ -26,8 +26,9 @@ The default one By default you already have one. But it is a static TOC, which d
       <guid>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</guid>
       <description>I still Google how to create matplotlib figures with two subplots. This ends today!
 Python in general Check directory To check for the current working directory
-import os os.getcwd() Import .py files from another branch Switch to a certain directory
-import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Dump an array to .pkl files / Read a .pkl file and make it an array Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .</description>
+import os os.getcwd() Import .py files Switch to a certain directory
+import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Array and .pkl Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .pkl
+import pickle with open(&amp;#39;pkl_name.pkl&amp;#39;, &amp;#39;wb&amp;#39;) as f: pickle.</description>
     </item>
     
     <item>
@@ -78,17 +79,6 @@ We have four physical qubits here, so the logical qubit lives inside a two-dimen
     </item>
     
     <item>
-      <title>Kindergarten quantum error correcting codes (P2)</title>
-      <link>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</link>
-      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</guid>
-      <description>4-qubit codes The encoded logical states are
-\[\begin{align} |0_L\rangle \propto |0000\rangle + |1111\rangle\newline |1_L\rangle \propto |1010\rangle + |0101\rangle \end{align}\]
-We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space. The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a superposition of the computational states of the physical qubits.</description>
-    </item>
-    
-    <item>
       <title>Fun with quantum mechanics</title>
       <link>https://ngdnhtien.github.io/non-relativistic/fun-with-quantum-mechanics/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
@@ -131,7 +121,7 @@ A toy example: Classical three-bit repetition code We will start classically, th
       
       <guid>https://ngdnhtien.github.io/non-relativistic/bong-tuyet-von-koch/</guid>
       <description>Thuật ngữ “fractal” được Benoit Mandelbrot sử dụng lần đầu tiên vào năm 1975. Bắt đầu từ tiếng Latin, “fractus” nghĩa là một bề mặt không đều. Mandelbrot nhận định 2 vai trò của fractal bao gồm: “diễn tả tính hỗn độn” và “diễn tả hình học”.
-Trước đó cấu trúc fractal, với ví dụ điển hình là bông tuyết của von Koch (von Koch snowflalke), còn có một tên gọi khác: đường cong quỷ.</description>
+Trước đó cấu trúc fractal, với ví dụ điển hình là bông tuyết của von Koch (von Koch snowflake), còn có một tên gọi khác: đường cong quỷ.</description>
     </item>
     
     <item>

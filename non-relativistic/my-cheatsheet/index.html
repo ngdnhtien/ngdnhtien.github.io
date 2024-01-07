@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="My coding cheatsheet">
 <meta itemprop="description" content="Until this day I still Google how to create matplotlib figures with two subplots."><meta itemprop="datePublished" content="2023-11-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-11-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="149">
+<meta itemprop="wordCount" content="130">
 <meta itemprop="keywords" content="cheatsheet," /><meta property="og:title" content="My coding cheatsheet" />
 <meta property="og:description" content="Until this day I still Google how to create matplotlib figures with two subplots." />
 <meta property="og:type" content="article" />
@@ -83,36 +83,33 @@
 </div>
 
 		
-			<div class="post">
-				<div class="post-header">
-					
-						<div class="meta">
-							<div class="date">
-								<span class="day">22</span>
-								<span class="rest">Nov 2023</span>
-							</div>
-						</div>
-					
-					<div class="matter">
-						<h1 class="title">My coding cheatsheet</h1>
-					</div>
-				</div>
-
-				
-				
+			<div class="main-section">	
+				<div class="post">
+					<div class="post-header">
 						
-				<div class="markdown">
-					<p>I still Google how to create matplotlib figures with two subplots. This ends today!</p>
+							<div class="meta">
+								<div class="date">
+									<span class="day">22</span>
+									<span class="rest">Nov 2023</span>
+								</div>
+							</div>
+						
+						<div class="matter">
+							<h1 class="title">My coding cheatsheet</h1>
+						</div>
+					</div>	
+					<div class="markdown">
+						<p>I still Google how to create matplotlib figures with two subplots. This ends today!</p>
 <h2 id="python-in-general">Python in general</h2>
 <h3 id="check-directory">Check directory</h3>
 <p>To check for the current working directory</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>getcwd()
-</span></span></code></pre></div><h3 id="import-py-files-from-another-branch">Import .py files from another branch</h3>
+</span></span></code></pre></div><h3 id="import-py-files">Import .py files</h3>
 <p>Switch to a certain directory</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>chdir(<span style="color:#e6db74">&#39;/path/to/that/directory&#39;</span>)
-</span></span></code></pre></div><h3 id="dump-an-array-to-pkl-files--read-a-pkl-file-and-make-it-an-array">Dump an array to .pkl files / Read a .pkl file and make it an array</h3>
+</span></span></code></pre></div><h3 id="array-and-pkl">Array and .pkl</h3>
 <p>Say I have an $n$-dimensional array and I want to save it as a storable file, in this case <code>.pkl</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">import</span> pickle
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;pkl_name.pkl&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> f:
@@ -121,46 +118,69 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy
 </span></span><span style="display:flex;"><span>array_name <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#39;pkl_name.pkl&#39;</span>, allow_pickle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span></code></pre></div><h2 id="qiskit">Qiskit</h2>
-<h3 id="looking-up-default-pulse-specifications">Looking up default pulse specifications</h3>
+<h3 id="pulse-specifications">Pulse specifications</h3>
 <p>For example, to look at the parameters of a default $\pi$ pulse on <code>qubit = 0</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>qubit <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>x_default <span style="color:#f92672">=</span> backend<span style="color:#f92672">.</span>defaults()<span style="color:#f92672">.</span>instruction_schedule_map<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;x&#39;</span>, qubits <span style="color:#f92672">=</span> [qubit])
 </span></span><span style="display:flex;"><span>x_default_pulse <span style="color:#f92672">=</span> x_default<span style="color:#f92672">.</span>instructions[qubit][<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>pulse
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Amplitude = </span><span style="color:#e6db74">{</span>x_default_pulse<span style="color:#f92672">.</span>amp<span style="color:#e6db74">}</span><span style="color:#e6db74">. DRAG coefficient = </span><span style="color:#e6db74">{</span>x_default_pulse<span style="color:#f92672">.</span>beta<span style="color:#e6db74">}</span><span style="color:#e6db74">. Duration = </span><span style="color:#e6db74">{</span>x_default_pulse<span style="color:#f92672">.</span>duration<span style="color:#e6db74">}</span><span style="color:#e6db74">. Sigma = </span><span style="color:#e6db74">{</span>x_default_pulse<span style="color:#f92672">.</span>sigma<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-</span></span></code></pre></div><h3 id="heading"></h3>
-
-				</div>
-
-				<div class="tags">
-					
+</span></span></code></pre></div>
+					</div>
+					<div class="tags">
 						
-							<ul class="flat">
-								
-								<li class="tag-li"><a href="/tags/cheatsheet">cheatsheet</a></li>
-								
-							</ul>
+							
+								<ul class="flat">
+									
+									<li class="tag-li"><a href="/tags/cheatsheet">cheatsheet</a></li>
+									
+								</ul>
+							
 						
-					
-				</div>
+					</div>
 
+					
+					<div class="back">
+						<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/my-cheatsheet.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					</div>
+					
+
+					<div class="back" style="padding-top: 0.5em;">
+						<a href="https://ngdnhtien.github.io//non-relativistic/4th-order-runge-kutta/" title="prev">← Newer</a>
+						<a href="https://ngdnhtien.github.io//relativistic/know-how-electric-guitar/" title="next" style="float: right">Older →</a>
+					</div>								
 				
-				<div class="back">
-					<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/my-cheatsheet.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					<div class="back">
+						
+							
+							Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
+							
+						
+					</div>
 				</div>
-				
-
-				<div class="back" style="padding-top: 0.5em;">
-					<a href="https://ngdnhtien.github.io//non-relativistic/4th-order-runge-kutta/" title="prev">← Newer</a>
-					<a href="https://ngdnhtien.github.io//relativistic/know-how-electric-guitar/" title="next" style="float: right">Older →</a>
-				</div>								
-				
-				<div class="back">
-					
-						
-						Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
-						
-					
-				</div></div>
+				<nav class="section-nav">
+					<aside class="toc">
+						<header>
+						<h1>Contents</h1>
+						</header>
+						<nav id="TableOfContents">
+  <ol>
+    <li><a href="#python-in-general">Python in general</a>
+      <ol>
+        <li><a href="#check-directory">Check directory</a></li>
+        <li><a href="#import-py-files">Import .py files</a></li>
+        <li><a href="#array-and-pkl">Array and .pkl</a></li>
+      </ol>
+    </li>
+    <li><a href="#qiskit">Qiskit</a>
+      <ol>
+        <li><a href="#pulse-specifications">Pulse specifications</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+					</aside>
+				</nav>
+			</div>
 		
 	</div>
 	<div class="footer wrapper">

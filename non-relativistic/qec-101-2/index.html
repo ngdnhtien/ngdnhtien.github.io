@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="Kindergarten quantum error correcting codes (P2)">
 <meta itemprop="description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction."><meta itemprop="datePublished" content="2023-08-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-08-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="893">
+<meta itemprop="wordCount" content="890">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="Kindergarten quantum error correcting codes (P2)" />
 <meta property="og:description" content="My clumsy notes on the way teaching myself quantum error correction. Topics covered: 4-qubit code, the Knill-Laflamme condition, bosonic quantum error correction." />
 <meta property="og:type" content="article" />
@@ -83,26 +83,23 @@
 </div>
 
 		
-			<div class="post">
-				<div class="post-header">
-					
-						<div class="meta">
-							<div class="date">
-								<span class="day">18</span>
-								<span class="rest">Aug 2023</span>
-							</div>
-						</div>
-					
-					<div class="matter">
-						<h1 class="title">Kindergarten quantum error correcting codes (P2)</h1>
-					</div>
-				</div>
-
-				
-				
+			<div class="main-section">	
+				<div class="post">
+					<div class="post-header">
 						
-				<div class="markdown">
-					<h1 id="4-qubit-codes">4-qubit codes</h1>
+							<div class="meta">
+								<div class="date">
+									<span class="day">18</span>
+									<span class="rest">Aug 2023</span>
+								</div>
+							</div>
+						
+						<div class="matter">
+							<h1 class="title">Kindergarten quantum error correcting codes (P2)</h1>
+						</div>
+					</div>	
+					<div class="markdown">
+						<h2 id="4-qubit-codes">4-qubit codes</h2>
 <p>The encoded logical states are</p>
 <p>\[\begin{align}
 |0_L\rangle \propto |0000\rangle + |1111\rangle\newline
@@ -144,7 +141,7 @@
 |1_L\rangle \to -1|1010\rangle + 1|0101\rangle \propto -|1_Z\rangle
 \end{align}\]</p>
 <p>This error $E_4$ did a phase flip in the error space! Can we detect it? Yeah, we left the code space. But we cannot correct $E_3$ and $E_4$ simultaneously. Again, degeneracy prevents us from correcting the errors that exhibit the same syndrome.</p>
-<h1 id="general-quantum-error-correction-conditions">General quantum error correction conditions</h1>
+<h2 id="k-l-condition">K-L condition</h2>
 <p>Let us now find a formalism to unify what we&rsquo;ve learned so far. We have two bit-flip errors,</p>
 <p>\[\begin{align}
 E_1 = XIII,\ E_2=IXII
@@ -172,8 +169,8 @@ P E_j^\dagger E_k P = c_{jk} P
 \end{align}
 \]</p>
 <p>where $|W_{\sigma}\rangle$ denotes the logical codewords.</p>
-<h1 id="bosonic-error-correction-codes">Bosonic error correction codes</h1>
-<h2 id="general-description">General description</h2>
+<h2 id="bosonic-error-correction-codes">Bosonic error correction codes</h2>
+<h3 id="general-description">General description</h3>
 <p>As always, the goal of QEC is to suppress the <em>dominant</em> error. Unlike the qubit systems, we you have the errors being</p>
 <p>\[
 \begin{align}
@@ -189,38 +186,57 @@ P E_j^\dagger E_k P = c_{jk} P
 <p>It&rsquo;s worth pointing out that this error model doesn&rsquo;t affect the number of excitation dramatically in the Fock state. Correspondingly one can imagine the Wigner function jiggling around (or smears out) a bit due to $\hat{a}$ or $\hat{a}^\dagger\hat{a}$, but it&rsquo;s not going to be a full revolution around the phase space. This implies a certain intrinsic robustness of bosonic systems, which is important, in the context of bias-preserving error correction.</p>
 <p><em>to be continued&hellip;</em></p>
 
-				</div>
+					</div>
+					<div class="tags">
+						
+							
+								<ul class="flat">
+									
+									<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+									
+								</ul>
+							
+						
+					</div>
 
-				<div class="tags">
 					
-						
-							<ul class="flat">
-								
-								<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
-								
-							</ul>
-						
+					<div class="back">
+						<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/qec-101-2.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					</div>
 					
-				</div>
 
+					<div class="back" style="padding-top: 0.5em;">
+						<a href="https://ngdnhtien.github.io//non-relativistic/fun-with-quantum-mechanics/" title="prev">← Newer</a>
+						<a href="https://ngdnhtien.github.io//non-relativistic/heisenberg-langevin-equation/" title="next" style="float: right">Older →</a>
+					</div>								
 				
-				<div class="back">
-					<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/qec-101-2.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					<div class="back">
+						
+							
+							Next time, we'll talk about <i>"10 ways how quantum computing will solve climate change."</i>
+							
+						
+					</div>
 				</div>
-				
-
-				<div class="back" style="padding-top: 0.5em;">
-					<a href="https://ngdnhtien.github.io//non-relativistic/qec-101-3/" title="prev">← Newer</a>
-					<a href="https://ngdnhtien.github.io//non-relativistic/heisenberg-langevin-equation/" title="next" style="float: right">Older →</a>
-				</div>								
-				
-				<div class="back">
-					
-						
-						Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
-						
-					
-				</div></div>
+				<nav class="section-nav">
+					<aside class="toc">
+						<header>
+						<h1>Contents</h1>
+						</header>
+						<nav id="TableOfContents">
+  <ol>
+    <li><a href="#4-qubit-codes">4-qubit codes</a></li>
+    <li><a href="#k-l-condition">K-L condition</a></li>
+    <li><a href="#bosonic-error-correction-codes">Bosonic error correction codes</a>
+      <ol>
+        <li><a href="#general-description">General description</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+					</aside>
+				</nav>
+			</div>
 		
 	</div>
 	<div class="footer wrapper">

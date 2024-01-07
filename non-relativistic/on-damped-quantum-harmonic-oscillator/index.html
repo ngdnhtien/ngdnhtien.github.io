@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="On damped quantum harmonic oscillators">
 <meta itemprop="description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do."><meta itemprop="datePublished" content="2023-09-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-09-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1840">
+<meta itemprop="wordCount" content="1836">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="On damped quantum harmonic oscillators" />
 <meta property="og:description" content="Roses are red, violets are blue. The damping effect is real, and so dissipative quantum mechanics we do." />
 <meta property="og:type" content="article" />
@@ -108,7 +108,7 @@
 <p>The Markov approximation in Linblad master equation typically means that, the time-scale of decay for the environment $\tau_{env}$ is much shorter than the smallest time-scale of the system dynamics $\tau_{sys}$. The Born approximation requires that the state of the environment does not significantly change as a result of the interaction with the system, and that the total state can be written as a tensor product $\rho_{tot}(t) = \rho_{sys}(t)\otimes \rho_{env}$.</p>
 </blockquote>
 <p>The weak regime breaks down when the Markov approximation no longer holds, i.e. when the memory of the environment becomes important. This is when we enter the strong regime.</p>
-<h1 id="background">Background</h1>
+<h2 id="background">Background</h2>
 <p>The damped harmonic oscillator loses energy as a result of coupling to the surrounding environment. An undamped oscillator is described by the following equation of motion</p>
 <p>\[
 \begin{align}
@@ -127,8 +127,8 @@
 \]</p>
 <p>Note that knowledge regardings the external force $F(t)$ is not required.</p>
 <p>The damped quantum harmonic oscillator requires that explicit account be taken of the quantum nature of the surrounding environment. To obtain the notorious master equation, one could make use of the rotating wave approximation that hinges on the weak damping condition, $\gamma \ll \omega_0$. The RWA breaks down as we move into strong damping regime, leading to non-Markovian dynamics.</p>
-<h1 id="hamiltonian-for-the-strongly-damped-harmonic-oscillator">Hamiltonian for the strongly-damped harmonic oscillator</h1>
-<h2 id="discrete-reservoir">Discrete reservoir</h2>
+<h2 id="the-hamiltonian">The Hamiltonian</h2>
+<h3 id="discrete-reservoir">Discrete reservoir</h3>
 <p>Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is</p>
 <p>\[\begin{align}
 H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x
@@ -207,7 +207,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 </tr>
 </tbody>
 </table>
-<h2 id="continuum-reservoir">Continuum reservoir</h2>
+<h3 id="continuum-reservoir">Continuum reservoir</h3>
 <p>First we rewrite the Hamiltonian in terms of creation and annihilation operators ($\hbar=1$)</p>
 <p>\[
 \begin{align}
@@ -235,7 +235,7 @@ H = \Omega_0 a^\dagger a + \int_0^\infty \omega b^\dagger(\omega)b(\omega)d\omeg
 \end{align}
 \]</p>
 <p>Since $H$ is quadratic in the annihilation and creation opearators for the oscillator and the reservoir, it leads to linear coupled equations of motion for these operators.</p>
-<h2 id="hamiltonian-diagonalization">Hamiltonian diagonalization</h2>
+<h3 id="hamiltonian-diagonalization">Hamiltonian diagonalization</h3>
 <p>Here we briefly summarize how to diagonalize the oscillator-reservoir Hamiltonian. This can be achieved by finding a complete set of eigenoperators $B(\omega)$ and their conjugates $B^\dagger(\omega)$ that satisfy</p>
 <p>\[
 \begin{align}
@@ -302,7 +302,7 @@ B(\omega) = \alpha(\omega)a + \beta(\omega)a^\dagger
 \langle\langle \omega^{-1}\rangle\rangle \langle\langle \omega\rangle\rangle \leq 1\newline
 \langle\langle \omega^{-1}\rangle\rangle &gt; \dfrac{1}{\Omega_0}.
 \end{align}\]</p>
-<h1 id="ground-state">Ground-state</h1>
+<h2 id="ground-state">Ground-state</h2>
 <p>In an undamped harmonic oscillator, the ground state is the state $|0\rangle$ such that</p>
 <p>\[\begin{align}
 a|0\rangle = 0.
@@ -333,7 +333,7 @@ H = \int_0^\infty d\omega\ \hbar\omega B^\dagger(\omega)B(\omega)
 \chi(\xi) = \exp\left[-\dfrac{1}{2}\left(\dfrac{\langle\langle\omega\rangle\rangle}{\Omega_0}\Re{(\xi)}^2+\langle\langle\omega^{-1}\rangle\rangle\Omega_0\Im{(\xi)}^2\right)\right]
 \end{align}
 \]</p>
-<h2 id="ground-state-energy">Ground-state energy</h2>
+<h3 id="ground-state-energy">Ground-state energy</h3>
 <p>The ground-state energy of the undamped harmonic oscillator is simply $1/2\hbar\omega_0$. For an undamped oscillator, the oscillation frequency is</p>
 <p>\[
 \begin{align}
@@ -395,7 +395,7 @@ H = \int_0^\infty d\omega\ \hbar\omega B^\dagger(\omega)B(\omega)
 					<div class="back">
 						
 							
-							Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+							Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
 							
 						
 					</div>
@@ -408,14 +408,14 @@ H = \int_0^\infty d\omega\ \hbar\omega B^\dagger(\omega)B(\omega)
 						<nav id="TableOfContents">
   <ol>
     <li><a href="#background">Background</a></li>
-    <li><a href="#hamiltonian-for-the-strongly-damped-harmonic-oscillator">Hamiltonian for the strongly-damped harmonic oscillator</a>
+    <li><a href="#the-hamiltonian">The Hamiltonian</a>
       <ol>
         <li><a href="#discrete-reservoir">Discrete reservoir</a></li>
         <li><a href="#continuum-reservoir">Continuum reservoir</a></li>
         <li><a href="#hamiltonian-diagonalization">Hamiltonian diagonalization</a></li>
-        <li><a href="#an-inequality">An inequality</a></li>
       </ol>
     </li>
+    <li><a href="#an-inequality">An inequality</a></li>
     <li><a href="#ground-state">Ground-state</a>
       <ol>
         <li><a href="#ground-state-energy">Ground-state energy</a></li>

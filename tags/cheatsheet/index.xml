@@ -16,8 +16,9 @@
       <guid>https://ngdnhtien.github.io/non-relativistic/my-cheatsheet/</guid>
       <description>I still Google how to create matplotlib figures with two subplots. This ends today!
 Python in general Check directory To check for the current working directory
-import os os.getcwd() Import .py files from another branch Switch to a certain directory
-import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Dump an array to .pkl files / Read a .pkl file and make it an array Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .</description>
+import os os.getcwd() Import .py files Switch to a certain directory
+import os os.chdir(&amp;#39;/path/to/that/directory&amp;#39;) Array and .pkl Say I have an $n$-dimensional array and I want to save it as a storable file, in this case .pkl
+import pickle with open(&amp;#39;pkl_name.pkl&amp;#39;, &amp;#39;wb&amp;#39;) as f: pickle.</description>
     </item>
     
   </channel>

@@ -56,17 +56,6 @@ We have four physical qubits here, so the logical qubit lives inside a two-dimen
     </item>
     
     <item>
-      <title>Kindergarten quantum error correcting codes (P2)</title>
-      <link>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</link>
-      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/non-relativistic/qec-101-3/</guid>
-      <description>4-qubit codes The encoded logical states are
-\[\begin{align} |0_L\rangle \propto |0000\rangle + |1111\rangle\newline |1_L\rangle \propto |1010\rangle + |0101\rangle \end{align}\]
-We have four physical qubits here, so the logical qubit lives inside a two-dimensional subspace of a combined 16 dimensional Hilbert space. The first thing one should notice is, unlike classical-inspired codes, e.g. three-qubit repetition code, where each encoded logical state is purely a tensor product of computational states of the physical qubits, the encoded logical state in this case is a superposition of the computational states of the physical qubits.</description>
-    </item>
-    
-    <item>
       <title>Fun with quantum mechanics</title>
       <link>https://ngdnhtien.github.io/non-relativistic/fun-with-quantum-mechanics/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>

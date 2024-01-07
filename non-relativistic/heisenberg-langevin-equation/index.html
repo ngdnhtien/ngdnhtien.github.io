@@ -8,7 +8,7 @@
 	<meta itemprop="name" content="The Heisenberg-Langevin equation: case in point">
 <meta itemprop="description" content="Constructing the H-L equation for a damped harmonic oscillator"><meta itemprop="datePublished" content="2023-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1193">
+<meta itemprop="wordCount" content="1189">
 <meta itemprop="keywords" content="quant-ph," /><meta property="og:title" content="The Heisenberg-Langevin equation: case in point" />
 <meta property="og:description" content="Constructing the H-L equation for a damped harmonic oscillator" />
 <meta property="og:type" content="article" />
@@ -102,7 +102,7 @@
 						<blockquote>
 <p>Reference: <a href="https://arxiv.org/abs/2306.15013">https://arxiv.org/abs/2306.15013</a></p>
 </blockquote>
-<h1 id="the-system">The system</h1>
+<h2 id="the-system">The system</h2>
 <p>Let us consider a harmonic oscillator strongly coupled to its reservoir, modelled as large collection of oscillators, with a range of frequencies. The Hamiltonian describes the combined system is</p>
 <p>\[\begin{align}
 H = \dfrac{p^2}{2m} + \dfrac{1}{2}m\Omega_0^2 x^2 + \sum_{\mu} \left(\dfrac{p_\mu^2}{2m_\mu}+\dfrac{1}{2}m_\mu\omega_\mu^2x_\mu^2\right) - \sum_\mu m_\mu\omega_\mu^2\lambda_\mu x_\mu x
@@ -123,7 +123,7 @@ H = \dfrac{p^2}{2m}+\dfrac{1}{2}m\omega_0^2 x^2 + \sum_\mu\left[\dfrac{p_\mu^2}{
 <blockquote>
 <p>One might ask, so what&rsquo;s the natural frequency of the damped oscillator. This will be answered when we obtain the Heisenberg-Langevin equation.</p>
 </blockquote>
-<h1 id="equation-of-motions">Equation of motions</h1>
+<h2 id="equation-of-motions">Equation of motions</h2>
 <p>Now that we have the Hamiltonian,</p>
 <p>\[\begin{align}
 &amp;\dot{x} = \dfrac{\partial H}{\partial p} = \dfrac{p}{m}\newline
@@ -137,7 +137,7 @@ H = \dfrac{p^2}{2m}+\dfrac{1}{2}m\omega_0^2 x^2 + \sum_\mu\left[\dfrac{p_\mu^2}{
 \ddot{x}_\mu + \omega_\mu^2 x_\mu &amp;= \omega_\mu^2\lambda_\mu x,
 \end{align}\]</p>
 <p>we obtained a coupled system of two 2nd order ordinary differential equations. We integrate the second first, then plug back to the first one. That&rsquo;d be our Heisenberg-Langevin equation.</p>
-<h1 id="the-heisenberg-langevin-equation">The Heisenberg-Langevin equation</h1>
+<h3 id="the-heisenberg-langevin-equation">The Heisenberg-Langevin equation</h3>
 <p>The complementary function is of the form</p>
 <p>\[\begin{align}
 x_\mu^{CF} = x_\mu(0)\cos(\omega_\mu t) + \dfrac{p_\mu(0)}{m_\mu\omega_\mu}\sin(\omega_\mu t).
@@ -230,8 +230,8 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 \langle\ddot{x}(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau + \omega_0^2\langle x(t)\rangle +\kappa(t)\langle x(0)\rangle= 0.
 \end{align}
 \]</p>
-<h1 id="different-time-scales">Different time scales</h1>
-<h2 id="ultra-short-time-scales">Ultra-short time scales</h2>
+<h2 id="different-timescales">Different timescales</h2>
+<h3 id="ultra-short">Ultra-short</h3>
 <p>Let us now investigate the behavior of the harmonic oscillator within very short duration. First we undo the integration by parts,</p>
 <p>\[\begin{align}
 \langle\ddot{x}(t)\rangle + \Omega_0^2\langle x(t)\rangle + \int_0^t \kappa(t-\tau)\langle\dot{x}(\tau)\rangle d\tau - \left[\kappa(\tau)\langle x(t-\tau)\rangle\right]_0^t = 0\newline
@@ -260,7 +260,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 \langle p(\delta t)\rangle = \langle p(0)\rangle -m\Omega_0^2 \langle x(0)\rangle \delta t
 \end{align}\]</p>
 <p>This indicates that, at short time-scale $\delta t$, the oscillator behaves as if its natural frequency is $\Omega_0$. The behavior of the system is clearly non-Markovian.</p>
-<h2 id="longer-time-scales">Longer time scales</h2>
+<h3 id="longer-timescales">Longer timescales</h3>
 <p>What does longer time scale even mean? One way to define it is to look at the memory kernel function $\kappa(t)$. It is a summation of cosine functions oscillating at a range of frequencies.</p>
 
 <figure >
@@ -350,7 +350,7 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 					<div class="back">
 						
 							
-							Next time, we'll talk about <i>"Why vim users are the worst :("</i>
+							Next time, we'll talk about <i>"How a spherically symmetric cow is different from a symmetrically spherical cow."</i>
 							
 						
 					</div>
@@ -363,15 +363,18 @@ F(t) = \sum_\mu m_\mu \omega_\mu^2\lambda_{\mu}\left[x_\mu(0)\cos(\omega_\mu t) 
 						<nav id="TableOfContents">
   <ol>
     <li><a href="#the-system">The system</a></li>
-    <li><a href="#equation-of-motions">Equation of motions</a></li>
-    <li><a href="#the-heisenberg-langevin-equation">The Heisenberg-Langevin equation</a></li>
-    <li><a href="#different-time-scales">Different time scales</a>
+    <li><a href="#equation-of-motions">Equation of motions</a>
       <ol>
-        <li><a href="#ultra-short-time-scales">Ultra-short time scales</a></li>
-        <li><a href="#longer-time-scales">Longer time scales</a></li>
-        <li><a href="#an-example-ohmic-damping">An example: Ohmic damping</a></li>
+        <li><a href="#the-heisenberg-langevin-equation">The Heisenberg-Langevin equation</a></li>
       </ol>
     </li>
+    <li><a href="#different-timescales">Different timescales</a>
+      <ol>
+        <li><a href="#ultra-short">Ultra-short</a></li>
+        <li><a href="#longer-timescales">Longer timescales</a></li>
+      </ol>
+    </li>
+    <li><a href="#an-example-ohmic-damping">An example: Ohmic damping</a></li>
   </ol>
 </nav>
 					</aside>

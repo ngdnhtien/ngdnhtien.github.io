@@ -533,12 +533,13 @@ code {
 
 .toc ol {
     list-style: none!important;
-    padding-left: 0px;
+    list-style-position: inside;
+    padding-left: 25px;
 }
 
-.toc li {
-    padding-left: 15px;
-}
+/* .toc ol li {
+    padding-left: 50px;
+} */
 
 /* repositioning the TOC */
 
@@ -552,7 +553,7 @@ code {
 }
 
 .toc {
-    line-height: 1.7em;
+    line-height: 1.5em;
     border-left: 5px solid #efefef;
     padding-left: 25px;
     
@@ -592,3 +593,7 @@ html {
     color: #333;
     font-weight: 500;
   }
+
+#TableOfContents {
+    margin-left: -25px;
+}
