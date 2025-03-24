@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>States with symmetry</title>
+      <link>https://ngdnhtien.github.io/non-relativistic/symmetrical_states/</link>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/non-relativistic/symmetrical_states/</guid>
+      <description>How do you think of quantum states? I like to think of their order of symmetry. It is a very hard job to characterize the order of symmetry of quantum states in general; but there&amp;rsquo;s a special subclass of quantum states that exhibit very clear symmetry. They are called bosonic states.
+A brief introduction An order-$N$ state is a $+1$ eigenstate of the discrete rotation operator $\hat{R}_N$, \[ \hat{R}_N = \exp(i\dfrac{2\pi}{N}\hat{n}), \] where $\hat{n}=\hat{a}^\dagger\hat{a}$.</description>
+    </item>
+    
     <item>
       <title>Adding a floating TOC</title>
       <link>https://ngdnhtien.github.io/non-relativistic/floating-toc/</link>
@@ -157,36 +167,6 @@ From top to bottom: Thang, Tien, Van. I’d like to thank Dr Luu Manh Quynh for 
     </item>
     
     <item>
-      <title>Hugo shortcodes</title>
-      <link>https://ngdnhtien.github.io/drafts/post-6/</link>
-      <pubDate>Sun, 04 Jul 2021 12:13:36 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-6/</guid>
-      <description>Images Dave Herring Dave Herring Dave Herring Github Gist Youtube video Tweet Owl bet you&amp;#39;ll lose this staring contest 🦉 pic.twitter.com/eJh4f2zncC
-&amp;mdash; San Diego Zoo Wildlife Alliance (@sandiegozoo) October 26, 2021 Vimeo Instagram </description>
-    </item>
-    
-    <item>
-      <title>Typography</title>
-      <link>https://ngdnhtien.github.io/drafts/post-5/</link>
-      <pubDate>Sat, 15 May 2021 12:13:38 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-5/</guid>
-      <description>Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.
-Heading 1 Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Traveling Ultralight</title>
-      <link>https://ngdnhtien.github.io/drafts/post-4/</link>
-      <pubDate>Thu, 31 Dec 2020 12:13:35 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-4/</guid>
-      <description>I’m on a trip at the moment, and a friend who generously let me sleep on his couch looked at my small travel backpack and commented on how little I travel with: “That’s impressive,” he said.
-I was a little surprised, because though I’ve gotten that comment before, it’s become normal for me to travel with just a small bag (10 lbs. or less, usually), and I have friends who travel with even less.</description>
-    </item>
-    
-    <item>
       <title>Germans’ Blitzkrieg versus Tay Son</title>
       <link>https://ngdnhtien.github.io/relativistic/blitzkrieg-versus-tay-son/</link>
       <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
@@ -245,73 +225,6 @@ Trường là một khái niệm mở rộng của tập hợp $Q$ các số h�
       <description>[disclamer] Bài viết sau đây được trích từ T. D. Lee, Symmetries, Asymmetries, and the World of Particles (1988). Bài viết không có chủ ý tán thành hay phản đối Mao Trạch Đông hay cuộc Đại Cách mạng Văn hoá vô sản, sau đây được gọi tắt là Cách mạng Văn hoá.
 “Tại sao đối xứng lại quan trọng?”, chủ tịch Mao đặt câu hỏi.
 Đó là vào ngày 30 tháng 5, năm 1974, khi xã hội Trung Hoa vẫn còn rối ren sau cuộc Cách mạng Văn hoá và Tứ nhân bang1 vẫn còn đang ở thời kỳ quyền lực.</description>
-    </item>
-    
-    <item>
-      <title>How I Learned to Stop Procrastinating, &amp; Love Letting Go</title>
-      <link>https://ngdnhtien.github.io/drafts/post-3/</link>
-      <pubDate>Sun, 18 Mar 2018 12:13:32 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-3/</guid>
-      <description>The end of procrastination is the art of letting go.
-I’ve been a lifelong procrastinator, at least until recent years. I would put things off until deadline, because I knew I could come through. I came through on tests after cramming last minute, I turned articles in at the deadline after waiting until the last hour, I got things done.
-Until I didn’t. It turns out procrastinating caused me to miss deadlines, over and over.</description>
-    </item>
-    
-    <item>
-      <title>Fearlessness: How to Stop Running from Space</title>
-      <link>https://ngdnhtien.github.io/drafts/post-2/</link>
-      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-2/</guid>
-      <description>We spend our days filling in every available space, cramming in more tasks, responding to messages, checking social media and online sites, watching videos.
-We are afraid of empty space in our lives.
-The result is often a continual busyness, constant distraction and avoidance, lack of focus, lack of satisfaction with our lives.
-We run from silence. We run from the spaces between tasks and appointments. We run from solitude and stillness.</description>
-    </item>
-    
-    <item>
-      <title>Primer: When You Have Too Much to Do</title>
-      <link>https://ngdnhtien.github.io/drafts/post-1/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/post-1/</guid>
-      <description>You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more.
-It all keeps piling up, and it can feel overwhelming.
-How do you keep up with it all? How do you find focus and peace and get stuff accomplished when you have too much on your plate?</description>
-    </item>
-    
-    <item>
-      <title>This is a blog post</title>
-      <link>https://ngdnhtien.github.io/drafts/this-is-a-blog-post/</link>
-      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/this-is-a-blog-post/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>This is the last one</title>
-      <link>https://ngdnhtien.github.io/drafts/this-is-the-last/</link>
-      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngdnhtien.github.io/drafts/this-is-the-last/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.&lt;/p&gt;</description>
     </item>
     
     <item>

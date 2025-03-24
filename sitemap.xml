@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ngdnhtien.github.io/tags/bosonic/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/error-correction/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/non-relativistic/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/quant-ph/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/non-relativistic/symmetrical_states/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ngdnhtien.github.io/tags/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ngdnhtien.github.io/non-relativistic/floating-toc/</loc>
     <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/design/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/non-relativistic/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/</loc>
     <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/ui/</loc>
@@ -42,9 +54,6 @@
     <lastmod>2023-11-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/numerical/</loc>
-    <lastmod>2023-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/quant-ph/</loc>
     <lastmod>2023-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/rk4/</loc>
@@ -98,21 +107,6 @@
     <loc>https://ngdnhtien.github.io/relativistic/upc-2021/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/</loc>
-    <lastmod>2021-07-04T12:13:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-6/</loc>
-    <lastmod>2021-07-04T12:13:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/markdown/</loc>
-    <lastmod>2021-07-04T12:13:36+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-5/</loc>
-    <lastmod>2021-05-15T12:13:38+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-4/</loc>
-    <lastmod>2020-12-31T12:13:35+05:30</lastmod>
-  </url><url>
     <loc>https://ngdnhtien.github.io/relativistic/blitzkrieg-versus-tay-son/</loc>
     <lastmod>2020-12-12T00:00:00+00:00</lastmod>
   </url><url>
@@ -142,51 +136,6 @@
   </url><url>
     <loc>https://ngdnhtien.github.io/tags/pop-ph/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-3/</loc>
-    <lastmod>2018-03-18T12:13:32+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/procrastinating/</loc>
-    <lastmod>2018-03-18T12:13:32+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-2/</loc>
-    <lastmod>2018-03-18T12:13:30+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/space/</loc>
-    <lastmod>2018-03-18T12:13:30+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/primer/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/post-1/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/todo/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/example/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/samples/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/something/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/this-is-a-blog-post/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/chimichanga/</loc>
-    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/prototype/</loc>
-    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/tags/specimen/</loc>
-    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ngdnhtien.github.io/drafts/this-is-the-last/</loc>
-    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ngdnhtien.github.io/relativistic/ao-hoa/</loc>
     <lastmod>1999-06-02T00:00:00+00:00</lastmod>

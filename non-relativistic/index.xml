@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Nguyen Dinh Tien</copyright>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/non-relativistic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ngdnhtien.github.io/non-relativistic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>States with symmetry</title>
+      <link>https://ngdnhtien.github.io/non-relativistic/symmetrical_states/</link>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngdnhtien.github.io/non-relativistic/symmetrical_states/</guid>
+      <description>How do you think of quantum states? I like to think of their order of symmetry. It is a very hard job to characterize the order of symmetry of quantum states in general; but there&amp;rsquo;s a special subclass of quantum states that exhibit very clear symmetry. They are called bosonic states.
+A brief introduction An order-$N$ state is a $+1$ eigenstate of the discrete rotation operator $\hat{R}_N$, \[ \hat{R}_N = \exp(i\dfrac{2\pi}{N}\hat{n}), \] where $\hat{n}=\hat{a}^\dagger\hat{a}$.</description>
+    </item>
+    
     <item>
       <title>Adding a floating TOC</title>
       <link>https://ngdnhtien.github.io/non-relativistic/floating-toc/</link>

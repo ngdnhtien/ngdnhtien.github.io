@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>States with symmetry - Haar&#39;s Half Measure</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="States with symmetry">
+<meta itemprop="description" content="Roses are red. Violet are blue. Some states should be symmetrical. Unites States don&#39;t."><meta itemprop="datePublished" content="2024-05-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-05-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1139">
+<meta itemprop="keywords" content="quant-ph,bosonic,error-correction," /><meta property="og:title" content="States with symmetry" />
+<meta property="og:description" content="Roses are red. Violet are blue. Some states should be symmetrical. Unites States don&#39;t." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ngdnhtien.github.io/non-relativistic/symmetrical_states/" /><meta property="article:section" content="non-relativistic" />
+<meta property="article:published_time" content="2024-05-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="States with symmetry"/>
+<meta name="twitter:description" content="Roses are red. Violet are blue. Some states should be symmetrical. Unites States don&#39;t."/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ngdnhtien.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://ngdnhtien.github.io/css/dark.css" />
+
+	<script src="https://ngdnhtien.github.io/js/feather.min.js"></script>
+	
+		<script src="https://ngdnhtien.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<div class="header">
+	
+	<h1 class="site-title"><a href="https://ngdnhtien.github.io/">Haar&#39;s Half Measure</a></h1>
+	<div class="site-description"><p>What I talk about when I talk about physics.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/ngdnhtien" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/ngdnhtien" title="Twitter"><i data-feather="twitter"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/non-relativistic">Non-relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/relativistic">Relativistic</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		
+			<div class="main-section">	
+				<div class="post">
+					<div class="post-header">
+						
+							<div class="meta">
+								<div class="date">
+									<span class="day">17</span>
+									<span class="rest">May 2024</span>
+								</div>
+							</div>
+						
+						<div class="matter">
+							<h1 class="title">States with symmetry</h1>
+						</div>
+					</div>	
+					<div class="markdown">
+						<p>How do you think of quantum states? I like to think of their order of symmetry. It is a very hard job to characterize the order of symmetry of quantum states in general; but there&rsquo;s a special subclass of quantum states that exhibit very clear symmetry. They are called <em>bosonic states</em>.</p>
+<h2 id="a-brief-introduction">A brief introduction</h2>
+<p>An order-$N$ state is a $+1$ eigenstate of the discrete rotation operator $\hat{R}_N$,
+\[
+\hat{R}_N = \exp(i\dfrac{2\pi}{N}\hat{n}),
+\]
+where $\hat{n}=\hat{a}^\dagger\hat{a}$. As usual, $\hat{a}$ ($\hat{a}^\dagger$) is the annihilation (creation) operator.</p>
+<p>Now, it&rsquo;s natural to write down these symmetrical states in terms of Fock number states, $\hat{n}$ (these are the eigenstates of $\hat{n}$). Because of their inherent symmetry, their Fock space structure will have something special. Let us see what that thing is.</p>
+<p>Let us assume this arbitrary state has $N$-fold symmetry, then it follows that the state has support <em>only</em> on $N$-th number states in Fock space.</p>
+<p>This link can logically derived as follow. Let us have an arbitrary state $|\psi\rangle = \sum_n a_n|n\rangle$. If such a state is a $+1$ eigenstate of $\hat{R}_N$, then
+\[\begin{align}
+e^{i(2\pi/N)\hat{n}} \sum_n a_n |n\rangle = \sum_n e^{i(2\pi/N)n}a_n|n\rangle = \sum_n a_n |n\rangle
+\end{align}\]
+For this to be true, $2\pi n/N = 2k\pi$, or $n=kN$.</p>
+<h3 id="no-symmetry-at-all-coherent-state">No symmetry at all: coherent state</h3>
+<p>Now, the most trivial case is when $N=1$. The state has an order-1 symmetry, which means it has no symmetry at all! Think about a coherent state $|\alpha$. They&rsquo;re the eigenstates of the annihilation operator $\hat{a}$. If you were to write them down in the Fock basis,
+\[
+|\alpha\rangle = e^{-|\alpha|^2/2}\sum_{n=0}^{\infty}\dfrac{\alpha^n}{\sqrt{n!}}|n\rangle,
+\]
+you&rsquo;ll see that it is a state with support on an infinite number of number states $|n\rangle$. But the cardinality of this infinite set is definitely going to be smaller than that of a $N&gt;1$-order state. Now, let us plot the state in the phase space. Phase space is the dual space of Fock space, and by plotting the so-called Wigner function of the states, we can appreciate their symmetry a bit more.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">import</span> qutip <span style="color:#66d9ef">as</span> qt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dim_fock <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>destroy(dim_fock)
+</span></span><span style="display:flex;"><span>alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># amplitude</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vacuum_state <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>fock(dim_fock, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>D_op <span style="color:#f92672">=</span> (alpha<span style="color:#f92672">*</span>a<span style="color:#f92672">.</span>dag()<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>conj(alpha)<span style="color:#f92672">*</span>a)<span style="color:#f92672">.</span>expm()
+</span></span><span style="display:flex;"><span>coherent_state <span style="color:#f92672">=</span> D_op <span style="color:#f92672">*</span> vacuum_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(ncols<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>qt<span style="color:#f92672">.</span>plot_wigner(coherent_state, fig<span style="color:#f92672">=</span>fig, ax<span style="color:#f92672">=</span>ax)
+</span></span></code></pre></div><p>For readers with background in elementary quantum optics, you can tell that the Python code above created a coherent state by displacing a vacuum state $|0\rangle$. The state is displaced to the north-east of the phase space (of an angle $\pi/4$).</p>
+<p>Now you can do all sort of crazy things with the space, but its inherent symmetry won&rsquo;t change. For example, you can squeeze the state, $|\alpha&rsquo;\rangle = \hat{S}(\beta)\hat{D}(\alpha)|0\rangle$, where
+\[
+S(\beta)=\exp\left(\dfrac{\beta}{2}\hat{a}^2-\dfrac{\beta^*}{2}(\hat{a}^\dagger)^2\right)\quad\text{and}\quad D(\alpha)=\exp\left(\alpha\hat{a}^\dagger -\alpha^{*} \hat{a}\right)
+\]
+Note that both $\alpha=|\alpha|e^{i\phi_{\alpha}}$ and $\beta=|\beta|e^{i2\phi_{\beta}}$ (note the factor 2) are complex-defined. Their amplitudes define the amount at which the state is being &ldquo;displaced&rdquo; or &ldquo;squeezed&rdquo;, while the argument, i.e. $\phi_\alpha$ and $\phi_\beta$ tells about the &ldquo;direction of displacement&rdquo; and &ldquo;axis of squeezing&rdquo;. For the latter case, the squeezing effect is happening perpendicular to the axis. For example, we can displace the coherent state from the vacuum state to the same $\pi/4$ angle, then squeeze it along the $\pi/4+\pi/2$ angle. It should look something like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>dim_fock <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>destroy(dim_fock)
+</span></span><span style="display:flex;"><span>alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span>  <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># cat size</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vacuum_state <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>fock(dim_fock, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Displacement</span>
+</span></span><span style="display:flex;"><span>D_op <span style="color:#f92672">=</span> (alpha<span style="color:#f92672">*</span>a<span style="color:#f92672">.</span>dag()<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>conj(alpha)<span style="color:#f92672">*</span>a)<span style="color:#f92672">.</span>expm()
+</span></span><span style="display:flex;"><span>coherent_state <span style="color:#f92672">=</span> D_op <span style="color:#f92672">*</span> vacuum_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>epsilon <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.75</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j<span style="color:#f92672">*</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">4</span><span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Squeezing</span>
+</span></span><span style="display:flex;"><span>S_op <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>conj(epsilon)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>a<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(a<span style="color:#f92672">.</span>dag())<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>expm()
+</span></span><span style="display:flex;"><span>squeezed_coherent_state <span style="color:#f92672">=</span> S_op <span style="color:#f92672">*</span> coherent_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(ncols<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>qt<span style="color:#f92672">.</span>plot_wigner(squeezed_coherent_state, fig<span style="color:#f92672">=</span>fig, ax<span style="color:#f92672">=</span>ax)
+</span></span></code></pre></div><p>Squeezing is however very costly. If you intuit it, you see that it requries a large number of Fock number states to accommodate itself, meaning a large average number of photon $\bar{n}$. State-of-the-art experiments have realized $\bar{n}=100$ photon states already, but I suppose there&rsquo;s a catch about it. An experimental colleague of mine suggested a maximum of $\bar{n}=6$.</p>
+<p>Coming back to the original point. Regardless of how many crazy actions that you&rsquo;ve done to the state, it still requires support on <em>all</em> possible Fock number states. In other words (and should be clear from the Wigner plot), the state still has no symmetry at all!</p>
+<h3 id="n2-schrodinger-cat-states">$N=2$: Schrodinger cat states</h3>
+<p>A Schrodinger cat state is a superposition of two coherent states $\mathcal{N}(|\alpha\rangle + |-\alpha\rangle)$,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>dim_fock <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>destroy(dim_fock)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">coherent_state</span>(size, angle):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Create a coherent state
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    vacuum_state <span style="color:#f92672">=</span> qt<span style="color:#f92672">.</span>fock(dim_fock, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    phi_alpha <span style="color:#f92672">=</span> angle
+</span></span><span style="display:flex;"><span>    alpha_val <span style="color:#f92672">=</span> size <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j<span style="color:#f92672">*</span>phi_alpha)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (alpha_val<span style="color:#f92672">*</span>a<span style="color:#f92672">.</span>dag()<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>conj(alpha_val)<span style="color:#f92672">*</span>a)<span style="color:#f92672">.</span>expm() <span style="color:#f92672">*</span> vacuum_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#f92672">=</span> (coherent_state(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)<span style="color:#f92672">+</span>coherent_state(<span style="color:#ae81ff">2</span>, np<span style="color:#f92672">.</span>pi))<span style="color:#f92672">.</span>unit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(ncols<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>qt<span style="color:#f92672">.</span>plot_wigner(cat, fig<span style="color:#f92672">=</span>fig, ax<span style="color:#f92672">=</span>ax)
+</span></span></code></pre></div><p>It is quite intuitive to see that the <code>cat</code> state is invariant under a $\pi$ rotation. This also means that the state is an $+1$ eigenstate of $\exp(i\pi\hat{n})$. Is this true? Well, recall that $|\alpha\rangle$ has support on all Fock number states, it also follows that $|-\alpha\rangle$ also has support on all Fock number states. However, consider a superposition of them,
+\[
+\begin{align}
+|\alpha\rangle +|-\alpha\rangle \propto \sum_{n} a_n|n\rangle + (-1)^n a_n|n\rangle,
+\end{align}
+\]
+it is clear that for $n$ even, the two coherent states add constructively, while for $n$ odd, they sum up to zero. This simply means that $|\alpha\rangle +|-\alpha\rangle$ has support on only even number of Fock number states, i.e. $n=2k$ only. This means $|\alpha\rangle +|-\alpha\rangle=\sum_{k=0}^\infty a_{2k}|2k\rangle$, and therefore being a $+1$ eigenstate of the discrete rotation $\pi$. Because $|\alpha\rangle +|-\alpha\rangle$ has only support on even Fock number states, they are typically referred to as <em>even cats</em>, as opposed to <em>odd cats</em>, $|\alpha\rangle - |-\alpha\rangle$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>even_cat <span style="color:#f92672">=</span> (coherent_state(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)<span style="color:#f92672">+</span>coherent_state(<span style="color:#ae81ff">2</span>, np<span style="color:#f92672">.</span>pi))<span style="color:#f92672">.</span>unit()
+</span></span><span style="display:flex;"><span>odd_cat <span style="color:#f92672">=</span> (coherent_state(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)<span style="color:#f92672">-</span>coherent_state(<span style="color:#ae81ff">2</span>, np<span style="color:#f92672">.</span>pi))<span style="color:#f92672">.</span>unit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(ncols<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>qt<span style="color:#f92672">.</span>plot_wigner(even_cat, fig<span style="color:#f92672">=</span>fig, ax<span style="color:#f92672">=</span>ax1)
+</span></span><span style="display:flex;"><span>qt<span style="color:#f92672">.</span>plot_wigner(odd_cat, fig<span style="color:#f92672">=</span>fig, ax<span style="color:#f92672">=</span>ax2)
+</span></span></code></pre></div><p>You can tell the difference of them from the interfering pattern in the middle. While an even cat has a <em>blue nose</em>, an odd cat has a <em>red nose</em>. What a nice feature!</p>
+<h3 id="n3-binomial-states">$N=3$: Binomial states</h3>
+<p>Ok. You can generalize the cat state to an arbitrary order of symmetry. We&rsquo;ve done with the $N=2$ case. I don&rsquo;t want to do the $N=3$ case for cat states; jesus, you cannot have a three-eyed cat: that would be absolutely terrifying.</p>
+<blockquote>
+<p>For those who still wanna do it (you pervert). Here&rsquo;s how. Very simple: since they are states with $3$-fold symmetry, they are invariant under $2\pi/3$ rotation. What does it mean? It means that $e^{i(2\pi/3)\hat{n}}|\psi\rangle = +1|\psi\rangle$, i.e.  $|n\rangle=|3k\rangle$. They are supported by only the $3k$ Fock number states. That&rsquo;s the Fock space picture. If you turn into the phase space picture, things get much more intuitive. You start with a coherent state, then you displace it $2\pi/3$, then you displace it $2\pi/3$ again. Then you superimpose them together. What you would have is a state with support on only $|3k\rangle$ Fock number states.</p>
+</blockquote>
+<p>I am going to introduce the binomial states. They are unambiguously defined as</p>
+<p>\[
+\begin{align}
+|\text{bin}\rangle = <br>
+\end{align}
+\]</p>
+
+					</div>
+					<div class="tags">
+						
+							
+								<ul class="flat">
+									
+									<li class="tag-li"><a href="/tags/quant-ph">quant-ph</a></li>
+									
+									<li class="tag-li"><a href="/tags/bosonic">bosonic</a></li>
+									
+									<li class="tag-li"><a href="/tags/error-correction">error-correction</a></li>
+									
+								</ul>
+							
+						
+					</div>
+
+					
+					<div class="back">
+						<a href="https://github.com/ngdnhtien/ngdnhtien-content/blob/master/content/non-relativistic/symmetrical_states.md" title="github"><i data-feather="github"></i> Edit this on GitHub</a>
+					</div>
+					
+
+					<div class="back" style="padding-top: 0.5em;">
+						<a href="https://ngdnhtien.github.io//non-relativistic/floating-toc/" title="prev">← Newer</a>
+						<a href="https://ngdnhtien.github.io/" title="next" style="float: right">Older →</a>
+					</div>								
+				
+					<div class="back">
+						
+							
+							Next time, we'll talk about <i>"How to convince a particle theorist that quasiparticles are dangerous!"</i>
+							
+						
+					</div>
+				</div>
+				<nav class="section-nav">
+					<aside class="toc">
+						<header>
+						<h1>Contents</h1>
+						</header>
+						<nav id="TableOfContents">
+  <ol>
+    <li><a href="#a-brief-introduction">A brief introduction</a>
+      <ol>
+        <li><a href="#no-symmetry-at-all-coherent-state">No symmetry at all: coherent state</a></li>
+        <li><a href="#n2-schrodinger-cat-states">$N=2$: Schrodinger cat states</a></li>
+        <li><a href="#n3-binomial-states">$N=3$: Binomial states</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+					</aside>
+				</nav>
+			</div>
+		
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Nguyen Dinh Tien </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
